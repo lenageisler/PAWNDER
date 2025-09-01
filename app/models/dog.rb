@@ -1,6 +1,7 @@
 class Dog < ApplicationRecord
   belongs_to :user
   has_many :favorites
+  has_many :chats, through: :favorites
 
   validates :name, presence: true
   validates :age, presence: true, numericality: { only_integer: true }
