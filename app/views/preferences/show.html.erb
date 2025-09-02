@@ -1,0 +1,14 @@
+<h1>Preference Show Page</h1>
+<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to home'.html_safe, root_path %>
+<%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_preference_path%>
+<%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, preference_path(@preference), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your preferences?"} %>
+
+<h3>Your Preferences</h3>
+
+<dl class="row">
+    <% @preference.attributes.except("id", "user_id", "created_at", "updated_at").each do |key, value| %>
+        <% next if value.blank? %>
+        <dt class="col-sm-4 text-capitalize"><%= key.humanize %></dt>
+        <dd class="col-sm-8"><%= value %></dd>
+    <% end %>
+</dl>

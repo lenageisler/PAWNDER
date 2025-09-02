@@ -2,7 +2,7 @@ class PreferencesController < ApplicationController
 
   def show
     if searcher?
-      @preference = Preference.find(params[:id])
+      @preference = current_user.preference
     end
   end
 
