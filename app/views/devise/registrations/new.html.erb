@@ -9,7 +9,7 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :role,
-                required: true %>
+                collection: ["Shelter", "Dog adopter"], as: :radio_buttons %>
     <%= f.input :username,
                 required: true %>
     <%= f.input :name,
