@@ -3,8 +3,31 @@ class DogsController < ApplicationController
     if shelter?
       @shelter_name = current_user.name
       @dogs = current_user.dogs
-      raise
     end
+  end
+
+  def new
+    if shelter?
+      @dog = Dog.new
+    end
+  end
+
+  def create
+    if shelter?
+      @dog = Dog.new(dog_params)
+      @dog.user = current_user
+      if @dog.save
+        redirect_to dog_path(@dog), notice: "You successfully added your dog."
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+  end
+
+  private
+
+  def dog_params
+    params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade, :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since, :location, :chipped, :health_issus, :health_issus_details, :list_dog, :beginner_friendly, :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_evironment, :info)
   end
 
 end

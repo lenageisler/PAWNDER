@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: "pages#home"
 
-  resources :dogs, only: [:index]
+  resources :dogs, only: [:index, :new, :create]
 end
