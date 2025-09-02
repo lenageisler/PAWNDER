@@ -20,5 +20,5 @@ class User < ApplicationRecord
 
   validates :username, presence: true, if: -> { role == "searcher" }
   validates :name, :shelter_type, :location, presence: true, if: -> { role == "shelter" }
-  validates :shelter_type, inclusion: { in: ["Dog Shelter", "International Rescue", "Forster-based Rescue"] }
+  validates :shelter_type, inclusion: { in: ["Dog Shelter", "International Rescue", "Forster-based Rescue"] }, if: -> { role == "shelter" }
 end

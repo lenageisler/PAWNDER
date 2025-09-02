@@ -8,26 +8,28 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.destroy_all
-Dog.destroy_all
-Preference.destroy_all
-Favorite.destroy_all
-Chat.destroy_all
-Message.destroy_all
-AiChat.destroy_all
 AiMessage.destroy_all
+AiChat.destroy_all
+Message.destroy_all
+Chat.destroy_all
+Favorite.destroy_all
+Preference.destroy_all
+Dog.destroy_all
+User.destroy_all
 
 puts "creating 2 shelter users with dogs"
 
 shelter_be = User.create!(
   email: "shelter@shelter.be",
   password: "shelter@shelter.be",
+  role: "shelter",
   name: "Chaîne Bleue Mondiale",
   shelter_type: "International Rescue",
   location: "Av. de Visé 39, 1170 Watermael-Boitsfort, BE"
 )
 
-shelter_be.dogs.create!(
+Dog.create!(
+  user: shelter_be,
   name: "Buddy",
   birthday: Date.new(2021, 5, 14),
   age: 3,
@@ -53,7 +55,8 @@ shelter_be.dogs.create!(
   info: "Playful and intelligent, loves agility training."
 )
 
-shelter_be.dogs.create!(
+Dog.create!(
+  user: shelter_be,
   name: "Luna",
   birthday: Date.new(2020, 2, 2),
   age: 4,
@@ -79,7 +82,8 @@ shelter_be.dogs.create!(
   info: "Gentle and affectionate, needs calm environment."
 )
 
-shelter_be.dogs.create!(
+Dog.create!(
+  user: shelter_be,
   name: "Max",
   birthday: Date.new(2018, 11, 11),
   age: 6,
@@ -106,12 +110,14 @@ shelter_be.dogs.create!(
 shelter_de = User.create!(
   email: "test@test.de",
   password: "test@test.de",
+  role: "shelter",
   name: "Kölner Tierschutzverein",
   shelter_type: "Dog Shelter",
   location: "Vorgebirgstraße 76, 50969 Köln, DE"
 )
 
-shelter_de.dogs.create!(
+Dog.create!(
+  user: shelter_de,
   name: "Bella",
   age: 2,
   gender: "female",
@@ -135,7 +141,8 @@ shelter_de.dogs.create!(
   info: "Sweet and loyal, perfect family dog."
 )
 
-shelter_de.dogs.create!(
+Dog.create!(
+  user: shelter_de,
   name: "Rocky",
   age: 5,
   gender: "male",
@@ -160,7 +167,8 @@ shelter_de.dogs.create!(
   info: "Energetic and clever, needs an active handler."
 )
 
-shelter_de.dogs.create!(
+Dog.create!(
+  user: shelter_de,
   name: "Milo",
   age: 1,
   gender: "male",
@@ -184,7 +192,8 @@ shelter_de.dogs.create!(
   info: "Young and curious, still learning the basics."
 )
 
-shelter_de.dogs.create!(
+Dog.create!(
+  user: shelter_de,
   name: "Nala",
   birthday: Date.new(2019, 9, 30),
   age: 5,
@@ -211,7 +220,8 @@ shelter_de.dogs.create!(
   info: "Athletic and affectionate, loves long walks."
 )
 
-shelter_de.dogs.create!(
+Dog.create!(
+  user: shelter_de,
   name: "Charlie",
   age: 7,
   gender: "male",
@@ -245,7 +255,8 @@ searcher1 = User.create!(
   username: "Anna"
 )
 
-searcher1.preferences.create!(
+Preference.create!(
+  user: searcher1,
   age: 5,
   gender: "female",
   breed_grade: "Mix",
@@ -260,7 +271,8 @@ searcher2 = User.create!(
   username: "Danny"
 )
 
-searcher2.preferences.create!(
+Preference.create!(
+  user: searcher2,
   age: 1,
   neutered: true,
   location: "Shelter",
@@ -275,7 +287,8 @@ searcher3 = User.create!(
   username: "Sophie"
 )
 
-searcher3.preferences.create!(
+Preference.create!(
+  user: searcher3,
   breed_grade: "Pure breed",
   breed_category: "Shepherd-type",
   female_compatible: "yes",
