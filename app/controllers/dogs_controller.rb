@@ -6,6 +6,10 @@ class DogsController < ApplicationController
     end
   end
 
+  def show
+    @dog = Dog.find(params[:id])
+  end
+
   def new
     if shelter?
       @dog = Dog.new
@@ -20,6 +24,23 @@ class DogsController < ApplicationController
         redirect_to dog_path(@dog), notice: "You successfully added your dog."
       else
         render :new, status: :unprocessable_entity
+      end
+    end
+  end
+
+  def edit
+    if shelter?
+      @dog = Dog.find(params[:id])
+    end
+  end
+
+  def update
+    if shelter?
+      @dog = Dog.find(params[:id])
+      if @dog.update(dog_params)
+        redirect_to dog_path(@dog), notice: "You successfully updated your dog."
+      else
+        render :edit, status: :unprocessable_entity
       end
     end
   end
