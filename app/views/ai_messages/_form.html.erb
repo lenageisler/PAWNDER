@@ -1,1 +1,4 @@
-<%# <%= simple_form_for [@ai_] %>
+<%= simple_form_for [ai_chat, ai_message] do |f| %>
+  <%= f.input :content, placeholder: "Ask a question", required: true %>
+  <%= f.button :submit, 'Ask', class: 'btn btn-primary' %>
+<% end %>
