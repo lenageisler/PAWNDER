@@ -4,17 +4,13 @@
     <h3>From user: <%= @ai_chat.user.username %></h3>
   </div>
 
-  <div id="new_ai_message" class="mt-3">
-    <%= render "ai_messages/form", ai_chat: @ai_chat, ai_message:@ai_message %>
-  <div>
-
   <div id="ai_messages">
     <% @ai_chat.ai_messages.each do |ai_message| %>
       <%# kramdown gems are needed for render_markdown method %>
       <% if ai_message.role == "user" %>
         <div class="d-flex justify-content-end mb-2">
           <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
-            <%= raw(render_markdown(ai_message.content)) %> <%# implemented in application_helper.rb%>
+            <%= raw(render_markdown(ai_message.content)) %> <%# render_markdown is in application_helper.rb%>
           </div>
         </div>
       <% elsif ai_message.role == "assistant" %>
@@ -26,4 +22,8 @@
       <% end %>
     <% end %>
   </div>
+
+  <div id="new_ai_message" class="mt-3">
+    <%= render "ai_messages/form", ai_chat: @ai_chat, ai_message:@ai_message %>
+  <div>
 </div>
