@@ -15,7 +15,7 @@
     <%= f.input :name,
                 required: true %>
     <%= f.input :type,
-                required: true %>
+                collection: ["Shelter", "Foster Care", "Overseas"], as: :radio_buttons %>
     <%= f.input :location,
                 required: true %>
     <%= f.input :password,
