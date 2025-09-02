@@ -9,14 +9,12 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :role, input_html: { 'data-action': 'change->toggle-signup-fields#toggle' },
-                collection: ["Shelter", "Dog adopter"], as: :radio_buttons,
-                # input_html: {'data-toggle-signup-fields-target': 'shelterRadio'} 'data-toggle-signup-fields-target': 'dogRadio'
-                required: true %>
-    <div data-toggle-signup-fields-target="shelterFields" style="display: none;">
+                collection: ["shelter", "searcher"], as: :radio_buttons %>
+    <div data-toggle-signup-fields-target="searcherFields" class="d-none">
       <%= f.input :username,
                 required: true %>
     </div>
-    <div data-toggle-signup-fields-target="shelterFields" style="display: none;">
+    <div data-toggle-signup-fields-target="shelterFields" class="d-none">
       <%= f.input :name,
                   required: true %>
       <%= f.input :shelter_type,
