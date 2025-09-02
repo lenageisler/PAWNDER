@@ -23,7 +23,7 @@ shelter_be = User.create!(
   email: "shelter@shelter.be",
   password: "shelter@shelter.be",
   name: "Chaîne Bleue Mondiale",
-  type: "International Rescue",
+  shelter_type: "International Rescue",
   location: "Av. de Visé 39, 1170 Watermael-Boitsfort, BE"
 )
 
@@ -107,7 +107,7 @@ shelter_de = User.create!(
   email: "test@test.de",
   password: "test@test.de",
   name: "Kölner Tierschutzverein",
-  type: "Dog Shelter",
+  shelter_type: "Dog Shelter",
   location: "Vorgebirgstraße 76, 50969 Köln, DE"
 )
 

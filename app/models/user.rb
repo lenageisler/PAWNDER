@@ -19,6 +19,6 @@ class User < ApplicationRecord
   validates :role, presence: true, inclusion: { in: ["shelter", "searcher"] }
 
   validates :username, presence: true, if: -> { role == "searcher" }
-  validates :name, :type, :location, presence: true, if: -> { role == "shelter" }
-  validates :type, inclusion: { in: ["Dog Shelter", "International Rescue", "Forster-based Rescue"] }
+  validates :name, :shelter_type, :location, presence: true, if: -> { role == "shelter" }
+  validates :shelter_type, inclusion: { in: ["Dog Shelter", "International Rescue", "Forster-based Rescue"] }
 end
