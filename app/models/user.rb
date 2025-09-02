@@ -6,13 +6,13 @@ class User < ApplicationRecord
 
 # Associations for SHELTER users
   has_many :dogs
-  has_many :favorites, through: :dogs, as: :favored_dogs
+  has_many :favored_dogs, through: :dogs, source: :favorites
   has_many :chats, through: :favored_dogs, as: :shelter_chats
 
 # Associations for SEARCHER users
   has_one :preference
   has_many :favorites
-  has_many :dogs, through: :favorites, as: :favorite_dogs
+  has_many :favorite_dogs, through: :favorites, source: :dogs
   has_many :ai_chats
   has_many :chats, through: :favorites, as: :searcher_chats
 
