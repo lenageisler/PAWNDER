@@ -1,4 +1,5 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<%= link_to 'go to all dogs'.html_safe, dogs_path %>
+<% if shelter? %>
+    <%= link_to 'go to all dogs'.html_safe, dogs_path %>
+<% end %>
