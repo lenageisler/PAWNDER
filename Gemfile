@@ -56,6 +56,13 @@ gem "sassc-rails"
 # One AI API for all the AI API providers
 gem "ruby_llm"
 
+# Needed for parsing Markdown into HTML
+gem "kramdown"
+# Adds modern GitHub Flavored Markdown (GFM) support
+gem "kramdown-parser-gfm"
+# A syntax highlighter, works hand in hand with Markdown parsers like kramdown.
+gem "rouge"
+
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
