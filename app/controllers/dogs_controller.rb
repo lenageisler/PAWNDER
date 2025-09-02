@@ -45,6 +45,12 @@ class DogsController < ApplicationController
     end
   end
 
+  def destroy
+    @dog = Dog.find(params[:id])
+    @dog.destroy
+    redirect_to dogs_path, alert: "Your dog was deleted.", status: :see_other
+  end
+
   private
 
   def dog_params
