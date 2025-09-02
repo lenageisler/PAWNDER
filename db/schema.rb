@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_02_104000) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_02_233543) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_02_104000) do
     t.bigint "ai_chat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "model_id"
+    t.integer "input_tokens"
+    t.integer "output_tokens"
+    t.bigint "tool_call_id"
     t.index ["ai_chat_id"], name: "index_ai_messages_on_ai_chat_id"
+    t.index ["tool_call_id"], name: "index_ai_messages_on_tool_call_id"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -110,6 +115,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_02_104000) do
     t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 
+  create_table "tool_calls", force: :cascade do |t|
+    t.bigint "ai_message_id", null: false
+    t.string "tool_call_id"
+    t.string "name"
+    t.jsonb "arguments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ai_message_id"], name: "index_tool_calls_on_ai_message_id"
+    t.index ["tool_call_id"], name: "index_tool_calls_on_tool_call_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -129,10 +145,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_02_104000) do
 
   add_foreign_key "ai_chats", "users"
   add_foreign_key "ai_messages", "ai_chats"
+  add_foreign_key "ai_messages", "tool_calls"
   add_foreign_key "chats", "favorites"
   add_foreign_key "dogs", "users"
   add_foreign_key "favorites", "dogs"
   add_foreign_key "favorites", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "preferences", "users"
+  add_foreign_key "tool_calls", "ai_messages"
 end
