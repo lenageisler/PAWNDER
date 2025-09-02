@@ -1,0 +1,9 @@
+<h1>Dogs Index Page</h1>
+
+
+<h3>all dogs of shelter: <%= @shelter_name %></h3>
+
+<%# doesn't work - @dogs appears empty %>
+<% @dogs.each do |dog| %>
+    <h2><%= dog %></h2>
+<% end %>
