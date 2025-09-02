@@ -22,7 +22,7 @@ class AiMessagesController < ApplicationController
       AiMessage.create(role: "assistant", content: response.content, ai_chat: @ai_chat)
       redirect_to ai_chat_path(@ai_chat)
     else
-      render 'ai_chats/show', status: unprocesable_entity
+      render 'ai_chats/show', status: :unprocessable_entity
     end
   end
 
