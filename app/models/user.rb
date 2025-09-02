@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_one :preference
   has_many :favorites
   has_many :favorite_dogs, through: :favorites, source: :dogs
-  has_many :ai_chats
+  has_many :ai_chats, dependent: :destroy
   has_many :chats, through: :favorites, as: :searcher_chats
 
   validates :role, presence: true, inclusion: { in: ["shelter", "searcher"] }
