@@ -17,9 +17,8 @@ class AiMessagesController < ApplicationController
     @ai_chat = AiChat.find(params[:ai_chat_id])
     @ai_message = AiMessage.new(ai_message_params.merge(role: "user", ai_chat: @ai_chat))
     if @ai_message.save
-      @chat = RubyLLM.chat
-      response = @chat.with_instructions(SYSTEM_PROMPT).ask(@ai_message.content)
-      AiMessage.create(role: "assistant", content: response.content, ai_chat: @ai_chat)
+      @response = RubyLLM.chat.with_instructions(SYSTEM_PROMPT).ask(@ai_message.content)
+      AiMessage.create(role: "assistant", content: @response.content, ai_chat: @ai_chat)
       redirect_to ai_chat_path(@ai_chat)
     else
       render 'ai_chats/show', status: :unprocessable_entity
