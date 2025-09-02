@@ -4,13 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # has_many :dogs (if role is shelter)
-  # has_one :preference (if role is searcher)
-  # has_many :favorites (if role is searcher)
-  # has_many :dogs, through: :favorites (if role is searcher)
-  # has_many :ai_chats (if role is searcher)
+# Associations for SHELTER users
+  has_many :dogs
+  has_many :favorites, through: :dogs, as: :favored_dogs
+  has_many :chats, through: :favored_dogs, as: :shelter_chats
 
-#  connection to chats?! through favorites for searchers, through favorites and dogs for shelters
+# Associations for SEARCHER users  
+  has_one :preference
+  has_many :favorites
+  has_many :dogs, through: :favorites, as: :favorite_dogs
+  has_many :ai_chats
+  has_many :chats, through: :favorites, as: :searcher_chats
 
   validates :role, presence: true, inclusion: { in: ["shelter", "searcher"] }
 

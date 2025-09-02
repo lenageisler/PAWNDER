@@ -1,7 +1,12 @@
 class Dog < ApplicationRecord
+  # SHELTER user
   belongs_to :user
+
+  # SEARCHER user
+  has_many :users, through: :favorites, as: :dog_searchers
+
   has_many :favorites
-  has_many :chats, through: :favorites
+  has_many :chats, through: :favorites, as: :dog_chats
 
   validates :name, presence: true
   validates :age, presence: true, numericality: { only_integer: true }
