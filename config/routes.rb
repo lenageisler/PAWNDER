@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :dogs
+  resources :preferences, only: [:show, :new, :create, :edit, :update, :destroy]
+
 end
