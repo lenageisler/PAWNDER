@@ -3,19 +3,19 @@
     <%= f.input :age_max, required: false %>
     <%= f.input :gender, collection: ["male", "female"], prompt: "Select", required: false %>
     <%= f.input :neutered, as: :boolean, required: false %>
-    <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: false %>
+    <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
     <%= f.input :breed_category, collection: [
             "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
             "Sporty-Hunting-type", "Hound-type", "Spitz-type", "Compact & sturdy",
             "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
             "Medium mixed", "Large mixed", "Small mixed"
-        ], prompt: "Select Breed Category", required: false %>
+        ], prompt: "Select Breed Category", required: false, as: :check_boxes, include_hidden: false %>
     <%= f.input :main_breed, required: false %>
     <%= f.input :shoulder_height_min, required: false%>
     <%= f.input :shoulder_height_max, required: false%>
     <%= f.input :weight_min, required: false %>
     <%= f.input :weight_max, required: false %>
-    <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: false %>
+    <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
     <%= f.input :health_issus, as: :boolean, required: false, label: "Does the dog have any health issues?" %>
     <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?" %>
     <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?" %>
@@ -23,7 +23,7 @@
     <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
-    <%= f.input :ideal_evironment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: false %>
+    <%= f.input :ideal_evironment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
 
     <%= f.submit class: "btn-flat" %>
 <% end %>

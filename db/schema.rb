@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_03_102641) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_03_131237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,12 +90,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_03_102641) do
     t.integer "age_min"
     t.string "gender"
     t.boolean "neutered"
-    t.string "breed_grade"
-    t.string "breed_category"
+    t.string "breed_grade", default: [], array: true
+    t.string "breed_category", default: [], array: true
     t.string "main_breed"
     t.integer "shoulder_height_min"
     t.float "weight_min"
-    t.string "location"
+    t.string "location", default: [], array: true
     t.boolean "health_issus"
     t.boolean "list_dog"
     t.boolean "beginner_friendly"
@@ -103,7 +103,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_03_102641) do
     t.string "female_compatible"
     t.string "cat_compatible"
     t.string "kids_compatible"
-    t.string "ideal_evironment"
+    t.string "ideal_evironment", default: [], array: true
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

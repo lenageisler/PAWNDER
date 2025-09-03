@@ -259,9 +259,9 @@ Preference.create!(
   user: searcher1,
   age_min: 5,
   gender: "female",
-  breed_grade: "Mix",
-  breed_category: "Small & fluffy",
-  ideal_evironment: "Apartment-friendly"
+  breed_grade: ["Mix"],
+  breed_category: ["Small & fluffy"],
+  ideal_evironment: ["Apartment-friendly"]
 )
 
 searcher2 = User.create!(
@@ -275,9 +275,9 @@ Preference.create!(
   user: searcher2,
   age_max: 1,
   neutered: true,
-  location: "Shelter",
+  location: ["Shelter"],
   kids_compatible: "yes",
-  ideal_evironment: "House with garden"
+  ideal_evironment: ["House with garden"]
 )
 
 searcher3 = User.create!(
@@ -289,10 +289,10 @@ searcher3 = User.create!(
 
 Preference.create!(
   user: searcher3,
-  breed_grade: "Pure breed",
-  breed_category: "Shepherd-type",
+  breed_grade: ["Pure breed"],
+  breed_category: ["Shepherd-type"],
   female_compatible: "yes",
-  ideal_evironment: "Countryside"
+  ideal_evironment: ["Countryside"]
 )
 
 puts "seeding searchers done"
