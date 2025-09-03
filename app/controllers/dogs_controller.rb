@@ -3,6 +3,9 @@ class DogsController < ApplicationController
     if shelter?
       @shelter_name = current_user.name
       @dogs = current_user.dogs
+    elsif searcher?
+      @dogs = Dog.all
+      preference_filter if current_user.preference.present?
     end
   end
 
@@ -57,6 +60,10 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade, :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since, :location, :chipped, :health_issus, :health_issus_details, :list_dog, :beginner_friendly, :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_evironment, :info)
+  end
+
+  def preference_filter
+
   end
 
 end
