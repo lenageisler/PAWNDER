@@ -1,5 +1,6 @@
 <%= simple_form_for(preference, html: { id: "dog-form" }) do |f| %>
-    <%= f.input :age, required: false %>
+    <%= f.input :age_min, required: false %>
+    <%= f.input :age_max, required: false %>
     <%= f.input :gender, collection: ["male", "female"], prompt: "Select", required: false %>
     <%= f.input :neutered, as: :boolean, required: false %>
     <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: false %>
@@ -10,8 +11,10 @@
             "Medium mixed", "Large mixed", "Small mixed"
         ], prompt: "Select Breed Category", required: false %>
     <%= f.input :main_breed, required: false %>
-    <%= f.input :shoulder_height, required: false%>
-    <%= f.input :weight, required: false %>
+    <%= f.input :shoulder_height_min, required: false%>
+    <%= f.input :shoulder_height_max, required: false%>
+    <%= f.input :weight_min, required: false %>
+    <%= f.input :weight_max, required: false %>
     <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: false %>
     <%= f.input :health_issus, as: :boolean, required: false, label: "Does the dog have any health issues?" %>
     <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?" %>

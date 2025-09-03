@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_02_104000) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_03_102641) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,14 +87,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_02_104000) do
   end
 
   create_table "preferences", force: :cascade do |t|
-    t.integer "age"
+    t.integer "age_min"
     t.string "gender"
     t.boolean "neutered"
     t.string "breed_grade"
     t.string "breed_category"
     t.string "main_breed"
-    t.integer "shoulder_height"
-    t.float "weight"
+    t.integer "shoulder_height_min"
+    t.float "weight_min"
     t.string "location"
     t.boolean "health_issus"
     t.boolean "list_dog"
@@ -107,6 +107,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_02_104000) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "age_max"
+    t.integer "shoulder_height_max"
+    t.float "weight_max"
     t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 

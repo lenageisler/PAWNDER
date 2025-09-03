@@ -257,7 +257,7 @@ searcher1 = User.create!(
 
 Preference.create!(
   user: searcher1,
-  age: 5,
+  age_min: 5,
   gender: "female",
   breed_grade: "Mix",
   breed_category: "Small & fluffy",
@@ -273,7 +273,7 @@ searcher2 = User.create!(
 
 Preference.create!(
   user: searcher2,
-  age: 1,
+  age_max: 1,
   neutered: true,
   location: "Shelter",
   kids_compatible: "yes",
