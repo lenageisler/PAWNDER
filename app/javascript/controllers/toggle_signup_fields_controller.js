@@ -14,7 +14,7 @@ export default class extends Controller {
       this.shelterFieldsTarget.classList.add("d-none");
     } if (user === "shelter") {
       this.shelterFieldsTarget.classList.toggle("d-none");
-      this.searcherFieldsTarget.classList.add("d-none");
+      this.searcherFieldsTarget.classList.toggle("d-none");
     }
   }
 }

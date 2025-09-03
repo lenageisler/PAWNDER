@@ -9,8 +9,8 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :role, input_html: { 'data-action': 'change->toggle-signup-fields#toggle' },
-                collection: ["shelter", "searcher"], as: :radio_buttons %>
-    <div data-toggle-signup-fields-target="searcherFields" class="d-none">
+                as: :radio_buttons, collection: ["shelter", "searcher"], checked: ["searcher"]  %>
+    <div data-toggle-signup-fields-target="searcherFields">
       <%= f.input :username,
                 required: true %>
     </div>
