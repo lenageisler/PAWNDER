@@ -33,9 +33,6 @@ class PreferencesController < ApplicationController
   def update
     if searcher?
       @preference = Preference.find(params[:id])
-      # values = preference_params
-      # values["breed_grade"].delete("") #um empty strings rauszulöschen
-      # if @preference.update(values)
       if @preference.update(preference_params)
         redirect_to preference_path(@preference), notice: "You successfully updated your preferences."
       else
