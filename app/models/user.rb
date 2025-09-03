@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :favored_dogs, through: :dogs, source: :favorites
   has_many :chats, through: :favored_dogs, as: :shelter_chats
 
-# Associations for SEARCHER users  
+# Associations for SEARCHER users
   has_one :preference
   has_many :favorites
   has_many :favorite_dogs, through: :favorites, source: :dogs
