@@ -1,0 +1,15 @@
+<%# Partial to broadcast the HTML of a message through the cable %>
+<% if message.role == "user" %>
+  <div class="d-flex justify-content-end mb-2">
+    <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
+      <%# kramdown gems are needed for render_markdown method %>
+      <%= raw(render_markdown(message.content)) %> <%# render_markdown is in application_helper.rb%>
+    </div>
+  </div>
+<% elsif message.role == "assistant" %>
+  <div class="dflex justify-content-start mb-5">
+    <div class="px-3 pb-0 pt-3">
+      <%= raw(render_markdown(message.content)) %>
+    </div>
+  </div>
+<% end %>
