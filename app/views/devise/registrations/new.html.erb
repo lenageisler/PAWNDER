@@ -3,11 +3,26 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs" data-controller="toggle-signup-fields">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :role, input_html: { 'data-action': 'change->toggle-signup-fields#toggle' },
+                as: :radio_buttons, collection: ["shelter", "searcher"], checked: ["searcher"]  %>
+    <div data-toggle-signup-fields-target="searcherFields">
+      <%= f.input :username,
+                required: true %>
+    </div>
+    <div data-toggle-signup-fields-target="shelterFields" class="d-none">
+      <%= f.input :name,
+                  required: true %>
+      <%= f.input :shelter_type,
+                  collection: ["Dog Shelter", "International Rescue", "Forster-based Rescue"], as: :radio_buttons,
+                  required: true %>
+      <%= f.input :location,
+                  required: true %>
+    </div>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
