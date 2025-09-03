@@ -74,18 +74,10 @@ class DogsController < ApplicationController
     @dogs = @dogs.where("weight <= ?", pref.weight_max) if pref.weight_max.present?
 
     # multiple choice
-    if pref.breed_grade.any?
-      @dogs = @dogs.where(breed_grade: pref.breed_grade)
-    end
-    if pref.breed_category.any?
-      @dogs = @dogs.where(breed_category: pref.breed_category)
-    end
-    if pref.location.any?
-      @dogs = @dogs.where(location: pref.location)
-    end
-    if pref.ideal_environment.any?
-      @dogs = @dogs.where(ideal_environment: pref.ideal_environment)
-    end
+    @dogs = @dogs.where(breed_grade: pref.breed_grade) if pref.breed_grade.any?
+    @dogs = @dogs.where(breed_category: pref.breed_category) if pref.breed_category.any?
+    @dogs = @dogs.where(location: pref.location) if pref.location.any?
+    @dogs = @dogs.where(ideal_environment: pref.ideal_environment) if pref.ideal_environment.any?
 
     #simple_values
     @dogs = @dogs.where(gender: pref.gender) if pref.gender.present?
