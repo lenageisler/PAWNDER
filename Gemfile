@@ -63,6 +63,9 @@ gem "kramdown-parser-gfm"
 # A syntax highlighter, works hand in hand with Markdown parsers like kramdown.
 gem "rouge"
 
+# Broadcasts chat messages and streams LLMChat answers chunk by chunk
+gem "solid_cable"
+
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
