@@ -5,22 +5,7 @@
   </div>
 
   <div id="ai_messages">
-    <% @ai_chat.ai_messages.each do |ai_message| %>
-      <%# kramdown gems are needed for render_markdown method %>
-      <% if ai_message.role == "user" %>
-        <div class="d-flex justify-content-end mb-2">
-          <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
-            <%= raw(render_markdown(ai_message.content)) %> <%# render_markdown is in application_helper.rb%>
-          </div>
-        </div>
-      <% elsif ai_message.role == "assistant" %>
-        <div class="dflex justify-content-start mb-5">
-          <div class="px-3 pb-0 pt-3">
-            <%= raw(render_markdown(ai_message.content)) %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    <%= render "ai_messages/messages", messages: @ai_chat.ai_messages %>
   </div>
 
   <div id="new_ai_message" class="mt-3">
