@@ -58,7 +58,7 @@ class PreferencesController < ApplicationController
     params.require(:preference).permit(:age_min, :age_max, :gender, :neutered, { breed_grade: [] },
       { breed_category: [] }, :main_breed, :shoulder_height_min, :shoulder_height_max, :weight_min,
       :weight_max, { location: [] }, :health_issus, :list_dog, :beginner_friendly, :male_compatible,
-      :female_compatible, :cat_compatible, :kids_compatible, { ideal_evironment: [] })
+      :female_compatible, :cat_compatible, :kids_compatible, { ideal_environment: [] })
   end
 
 end

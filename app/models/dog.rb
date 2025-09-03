@@ -20,6 +20,6 @@ class Dog < ApplicationRecord
   validates :female_compatible, presence: true, inclusion: { in: ["yes", "no", "unknown"] }
   validates :cat_compatible, presence: true, inclusion: { in: ["yes", "no", "unknown"] }
   validates :kids_compatible, presence: true, inclusion: { in: ["yes", "no", "unknown"] }
-  validates :ideal_evironment, presence: true, inclusion: { in: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"] }
+  validates :ideal_environment, presence: true, inclusion: { in: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"] }
 
 end

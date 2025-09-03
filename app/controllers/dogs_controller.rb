@@ -59,7 +59,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade, :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since, :location, :chipped, :health_issus, :health_issus_details, :list_dog, :beginner_friendly, :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_evironment, :info)
+    params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade, :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since, :location, :chipped, :health_issus, :health_issus_details, :list_dog, :beginner_friendly, :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_environment, :info)
   end
 
   def preference_filter
@@ -83,8 +83,8 @@ class DogsController < ApplicationController
     if pref.location.any?
       @dogs = @dogs.where(location: pref.location)
     end
-    if pref.ideal_evironment.any?
-      @dogs = @dogs.where(ideal_evironment: pref.ideal_evironment)
+    if pref.ideal_environment.any?
+      @dogs = @dogs.where(ideal_environment: pref.ideal_environment)
     end
 
     #simple_values
