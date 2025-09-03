@@ -3,5 +3,7 @@
 
 <h2><%= @dog.name %></h2>
 
-<%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_dog_path%>
-<%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@dog.name}?"} %>
+<% if shelter? %>
+    <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_dog_path%>
+    <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@dog.name}?"} %>
+<% end %>

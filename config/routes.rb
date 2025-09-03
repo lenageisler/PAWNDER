@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :dogs
-  
+
+  resources :preferences, only: [:show, :new, :create, :edit, :update, :destroy]
+
   resources :ai_chats, only: [:create, :show] do
     resources :ai_messages, only: [:new, :create]
   end

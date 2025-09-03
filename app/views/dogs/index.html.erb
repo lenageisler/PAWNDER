@@ -2,11 +2,11 @@
 
 <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to home'.html_safe, root_path %>
 
-<h3>all dogs of shelter: <%= @shelter_name %></h3>
+<% if shelter? %>
+    <h3>all dogs of shelter: <%= @shelter_name %></h3>
+    <%= link_to "Add dog", new_dog_path %>
+<% end %>
 
-<%= link_to "Add dog", new_dog_path %>
-
-<%# doesn't work - @dogs appears empty %>
 <% @dogs.each do |dog| %>
     <h2><%= link_to dog.name, dog_path(dog)  %></h2>
 <% end %>
