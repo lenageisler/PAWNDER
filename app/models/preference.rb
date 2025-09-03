@@ -8,10 +8,10 @@ class Preference < ApplicationRecord
   validates :shoulder_height, numericality: { only_integer: true }, allow_blank: true
   validates :weight, numericality: true, allow_blank: true
   validates :location, inclusion: { in: ["Shelter", "Foster Care", "Overseas"] }, allow_blank: true
-  validates :male_compatible, inclusion: { in: ["yes", "no"] }, allow_blank: true
-  validates :female_compatible, inclusion: { in: ["yes", "no"] }, allow_blank: true
-  validates :cat_compatible, inclusion: { in: ["yes", "no"] }, allow_blank: true
-  validates :kids_compatible, inclusion: { in: ["yes", "no"] }, allow_blank: true
+  validates :male_compatible, inclusion: { in: ["yes"] }, allow_blank: true
+  validates :female_compatible, inclusion: { in: ["yes"] }, allow_blank: true
+  validates :cat_compatible, inclusion: { in: ["yes"] }, allow_blank: true
+  validates :kids_compatible, inclusion: { in: ["yes"] }, allow_blank: true
   validates :ideal_evironment, inclusion: { in: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"] }, allow_blank: true
 
 end

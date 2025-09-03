@@ -63,7 +63,25 @@ class DogsController < ApplicationController
   end
 
   def preference_filter
+    pref = current_user.preference
 
+    # age von bis
+    @dogs = @dogs.where(gender: pref.gender) if pref.gender.present?
+    @dogs = @dogs.where(neutered: pref.neutered) if pref.neutered.present?
+    # breed grade multi
+    # breed cat multi
+    @dogs = @dogs.where("main_breed ILIKE ?", "%#{pref.main_breed}%") if pref.main_breed.present? #difficult to match - disclaimer in form??
+    # shoulder_height von bis
+    # weight von bis
+    # location multi
+    @dogs = @dogs.where(health_issus: pref.health_issus) if pref.health_issus.present?
+    @dogs = @dogs.where(list_dog: pref.list_dog) if pref.list_dog.present?
+    @dogs = @dogs.where(beginner_friendly: pref.beginner_friendly) if pref.beginner_friendly.present?
+    @dogs = @dogs.where(male_compatible: pref.male_compatible) if pref.male_compatible.present?
+    @dogs = @dogs.where(female_compatible: pref.female_compatible) if pref.female_compatible.present?
+    @dogs = @dogs.where(cat_compatible: pref.cat_compatible) if pref.cat_compatible.present?
+    @dogs = @dogs.where(kids_compatible: pref.kids_compatible) if pref.kids_compatible.present?
+    # environment multi
   end
 
 end

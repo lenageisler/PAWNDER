@@ -16,12 +16,11 @@
     <%= f.input :health_issus, as: :boolean, required: false, label: "Does the dog have any health issues?" %>
     <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?" %>
     <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?" %>
-    <%= f.input :male_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: false %>
-    <%= f.input :female_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: false %>
-    <%= f.input :cat_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: false %>
-    <%= f.input :kids_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: false %>
+    <%= f.input :male_compatible, collection: ["yes"], prompt: "Select", required: false %>
+    <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
+    <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
+    <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :ideal_evironment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: false %>
 
-    <%# <%= f.input :image, as: :file %>
     <%= f.submit class: "btn-flat" %>
 <% end %>
