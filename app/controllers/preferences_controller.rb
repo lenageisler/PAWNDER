@@ -33,6 +33,9 @@ class PreferencesController < ApplicationController
   def update
     if searcher?
       @preference = Preference.find(params[:id])
+      # values = preference_params
+      # values["breed_grade"].delete("") #um empty strings rauszulöschen
+      # if @preference.update(values)
       if @preference.update(preference_params)
         redirect_to preference_path(@preference), notice: "You successfully updated your preferences."
       else
@@ -52,7 +55,10 @@ class PreferencesController < ApplicationController
   private
 
   def preference_params
-    params.require(:preference).permit(:age, :gender, :neutered, :breed_grade, :breed_category, :main_breed, :shoulder_height, :weight, :location, :health_issus, :list_dog, :beginner_friendly, :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_evironment)
+    params.require(:preference).permit(:age_min, :age_max, :gender, :neutered, { breed_grade: [] },
+      { breed_category: [] }, :main_breed, :shoulder_height_min, :shoulder_height_max, :weight_min,
+      :weight_max, { location: [] }, :health_issus, :list_dog, :beginner_friendly, :male_compatible,
+      :female_compatible, :cat_compatible, :kids_compatible, { ideal_evironment: [] })
   end
 
 end
