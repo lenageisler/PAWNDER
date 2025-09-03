@@ -1,2 +1,14 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<% if shelter? %>
+    <%= link_to 'go to all dogs'.html_safe, dogs_path %>
+<% end %>
+
+<% if searcher? %>
+    <% if @preference.present?%>
+        <%= link_to 'look at your preferences'.html_safe, preference_path(@preference) %>
+    <% else %>
+        <%= link_to 'define your dog preferences'.html_safe, new_preference_path %>    
+    <% end %>
+<% end %>
+
