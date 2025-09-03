@@ -18,9 +18,16 @@ class AiMessagesController < ApplicationController
     @ai_message = AiMessage.new(ai_message_params.merge(role: "user", ai_chat: @ai_chat))
     if @ai_message.valid? # With ToolCall there's no need to save the message
       @ai_chat.with_instructions(SYSTEM_PROMPT).ask(@ai_message.content)
-      redirect_to ai_chat_path(@ai_chat)
+      respond_to do |format|
+        format.turbo_stream # renders `app/views/ai_messages/create.turbo_stream.erb`
+        format.html { redirect_to ai_chat_path(@ai_chat) }
+      end
     else
-      render 'ai_chats/show', status: :unprocessable_entity
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("new_message",
+          partial: "ai_messages/form", locals: { ai_chat: @ai_chat, ai_message: @ai_message})}
+        format.html { render 'ai_chats/show', status: :unprocessable_entity }
+      end
     end
   end
 
