@@ -65,18 +65,31 @@ class DogsController < ApplicationController
   def preference_filter
     pref = current_user.preference
 
+    # ranges
     @dogs = @dogs.where("age >= ?", pref.age_min) if pref.age_min.present?
     @dogs = @dogs.where("age <= ?", pref.age_max) if pref.age_max.present?
-    @dogs = @dogs.where(gender: pref.gender) if pref.gender.present?
-    @dogs = @dogs.where(neutered: pref.neutered) if pref.neutered.present?
-    # breed grade multi
-    # breed cat multi
-    @dogs = @dogs.where("main_breed ILIKE ?", "%#{pref.main_breed}%") if pref.main_breed.present? #difficult to match - disclaimer in form??
     @dogs = @dogs.where("shoulder_height >= ?", pref.shoulder_height_min) if pref.shoulder_height_min.present?
     @dogs = @dogs.where("shoulder_height <= ?", pref.shoulder_height_max) if pref.shoulder_height_max.present?
     @dogs = @dogs.where("weight >= ?", pref.weight_min) if pref.weight_min.present?
     @dogs = @dogs.where("weight <= ?", pref.weight_max) if pref.weight_max.present?
-    # location multi
+
+    # multiple choice
+    if pref.breed_grade.any?
+      @dogs = @dogs.where(breed_grade: pref.breed_grade)
+    end
+    if pref.breed_category.any?
+      @dogs = @dogs.where(breed_category: pref.breed_category)
+    end
+    if pref.location.any?
+      @dogs = @dogs.where(location: pref.location)
+    end
+    if pref.ideal_evironment.any?
+      @dogs = @dogs.where(ideal_evironment: pref.ideal_evironment)
+    end
+
+    #simple_values
+    @dogs = @dogs.where(gender: pref.gender) if pref.gender.present?
+    @dogs = @dogs.where(neutered: pref.neutered) if pref.neutered.present?
     @dogs = @dogs.where(health_issus: pref.health_issus) if pref.health_issus.present?
     @dogs = @dogs.where(list_dog: pref.list_dog) if pref.list_dog.present?
     @dogs = @dogs.where(beginner_friendly: pref.beginner_friendly) if pref.beginner_friendly.present?
@@ -84,7 +97,10 @@ class DogsController < ApplicationController
     @dogs = @dogs.where(female_compatible: pref.female_compatible) if pref.female_compatible.present?
     @dogs = @dogs.where(cat_compatible: pref.cat_compatible) if pref.cat_compatible.present?
     @dogs = @dogs.where(kids_compatible: pref.kids_compatible) if pref.kids_compatible.present?
-    # environment multi
+
+    # difficult to match - disclaimer in form??
+    @dogs = @dogs.where("main_breed ILIKE ?", "%#{pref.main_breed}%") if pref.main_breed.present?
+
   end
 
 end
