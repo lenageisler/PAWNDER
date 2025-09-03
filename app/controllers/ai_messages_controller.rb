@@ -17,7 +17,14 @@ class AiMessagesController < ApplicationController
     @ai_chat = AiChat.find(params[:ai_chat_id])
     @ai_message = AiMessage.new(ai_message_params.merge(role: "user", ai_chat: @ai_chat))
     if @ai_message.valid? # With ToolCall there's no need to save the message
-      @ai_chat.with_instructions(SYSTEM_PROMPT).ask(@ai_message.content)
+      @ai_chat.with_instructions(SYSTEM_PROMPT).ask(@ai_message.content) do |chunk|
+        next if chunk.content.blank? # skip empty chunks
+        # shows assistance response by chunks
+        message = @ai_chat.messages.last
+        message.content += chunk.content
+        broadcast_replace(message)
+      end
+      broadcast_replace(@ai_chat.ai_messages.last)  # solves a broadcast bug
       respond_to do |format|
         format.turbo_stream # renders `app/views/ai_messages/create.turbo_stream.erb`
         format.html { redirect_to ai_chat_path(@ai_chat) }
@@ -32,6 +39,12 @@ class AiMessagesController < ApplicationController
   end
 
   private
+
+  def broadcast_replace(message)
+    Turbo::StreamsChannel.broadcast_replace_to(@ai_chat, target:
+    helpers.dom_id(message), partial: "ai_messages/message",
+    locals: { message: message })
+  end
 
   def ai_message_params
     params.require(:ai_message).permit(:content)
