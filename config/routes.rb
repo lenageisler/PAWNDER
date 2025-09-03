@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: "pages#home"
 
-  resources :dogs
+  resources :dogs do
+    resources :favorites, only: [:create]
+  end
+
   resources :preferences, only: [:show, :new, :create, :edit, :update, :destroy]
 
 end

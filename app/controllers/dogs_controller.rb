@@ -11,6 +11,7 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @favorite = Favorite.new
   end
 
   def new
