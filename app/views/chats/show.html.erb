@@ -1,0 +1,18 @@
+<div class="container chat">
+  <h1>Your chat with <%= @chat.favorite.shelter_user.name %> </h1>
+
+  <div id="messages" class="messages">
+    <% @chat.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong>
+            <%= message.favorite.shelter_user.name if searcher? %>
+            <%= message.favorite.user.username if shelter? %>
+          </strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

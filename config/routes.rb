@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :chats, only: [:create]
   end
 
+  resources :chats, only: [:show]
+
   resources :preferences, only: [:show, :new, :create, :edit, :update, :destroy]
 
   resources :ai_chats, only: [:create, :show] do

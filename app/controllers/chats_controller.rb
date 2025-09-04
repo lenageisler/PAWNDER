@@ -10,4 +10,8 @@ class ChatsController < ApplicationController
     end
   end
 
+  def show
+    @chat = Chat.find(params[:id])
+  end
+
 end
