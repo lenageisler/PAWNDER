@@ -1,29 +1,51 @@
 <%= simple_form_for(preference, html: { id: "dog-form" }) do |f| %>
-    <%= f.input :age_min, required: false %>
-    <%= f.input :age_max, required: false %>
-    <%= f.input :gender, collection: ["male", "female"], prompt: "Select", required: false %>
-    <%= f.input :neutered, as: :boolean, required: false %>
-    <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
+    <div class="range">
+        <%= f.input :age_min, required: false, placeholder: "min" %>
+        <span>-</span>
+        <%= f.input :age_max, required: false, placeholder: "max" %>
+    </div>
+
+    <%= f.input :gender, collection: ["male", "female"],
+        required: false, as: :radio_buttons,
+        input_html: { class: "tag-selector" },
+        item_wrapper_class: 'tag-item' %>
+    <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" } %>
+    <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"],
+        required: false, as: :check_boxes, include_hidden: false,
+        input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
     <%= f.input :breed_category, collection: [
             "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
             "Sporty-Hunting-type", "Hound-type", "Spitz-type", "Compact & sturdy",
             "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
             "Medium mixed", "Large mixed", "Small mixed"
-        ], prompt: "Select Breed Category", required: false, as: :check_boxes, include_hidden: false %>
+        ], required: false, as: :check_boxes, include_hidden: false,
+        input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
     <%= f.input :main_breed, required: false %>
-    <%= f.input :shoulder_height_min, required: false%>
-    <%= f.input :shoulder_height_max, required: false%>
-    <%= f.input :weight_min, required: false %>
-    <%= f.input :weight_max, required: false %>
-    <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
-    <%= f.input :health_issus, as: :boolean, required: false, label: "Does the dog have any health issues?" %>
-    <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?" %>
-    <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?" %>
+
+    <div class="range">
+        <%= f.input :shoulder_height_min, required: false, placeholder: "min" %>
+        <span>-</span>
+        <%= f.input :shoulder_height_max, required: false, placeholder: "max" %>
+    </div>
+    <div class="range">
+        <%= f.input :weight_min, required: false, placeholder: "min" %>
+        <span>-</span>
+        <%= f.input :weight_max, required: false, placeholder: "max" %>
+    </div>
+
+    <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"],
+        required: false, as: :check_boxes, include_hidden: false,
+        input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+    <%= f.input :health_issus, as: :boolean, required: false, label: "Dogs with health issues", input_html: { class: "toggle" } %>
+    <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" } %>
+    <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" } %>
     <%= f.input :male_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
-    <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
+    <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"],
+        required: false, as: :check_boxes, include_hidden: false,
+        input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
 
     <%= f.submit class: "btn-flat" %>
 <% end %>
