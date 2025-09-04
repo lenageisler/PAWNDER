@@ -60,7 +60,10 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade, :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since, :location, :chipped, :health_issus, :health_issus_details, :list_dog, :beginner_friendly, :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_evironment, :info)
+    params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade,
+      :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since,
+      :location, :chipped, :health_issus, :health_issus_details, :list_dog, :beginner_friendly,
+      :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_environment, :info)
   end
 
   def preference_filter
@@ -75,18 +78,10 @@ class DogsController < ApplicationController
     @dogs = @dogs.where("weight <= ?", pref.weight_max) if pref.weight_max.present?
 
     # multiple choice
-    if pref.breed_grade.any?
-      @dogs = @dogs.where(breed_grade: pref.breed_grade)
-    end
-    if pref.breed_category.any?
-      @dogs = @dogs.where(breed_category: pref.breed_category)
-    end
-    if pref.location.any?
-      @dogs = @dogs.where(location: pref.location)
-    end
-    if pref.ideal_evironment.any?
-      @dogs = @dogs.where(ideal_evironment: pref.ideal_evironment)
-    end
+    @dogs = @dogs.where(breed_grade: pref.breed_grade) if pref.breed_grade.any?
+    @dogs = @dogs.where(breed_category: pref.breed_category) if pref.breed_category.any?
+    @dogs = @dogs.where(location: pref.location) if pref.location.any?
+    @dogs = @dogs.where(ideal_environment: pref.ideal_environment) if pref.ideal_environment.any?
 
     #simple_values
     @dogs = @dogs.where(gender: pref.gender) if pref.gender.present?
