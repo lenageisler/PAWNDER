@@ -3,7 +3,7 @@
     <%= f.input :birthday, as: :date, required: false %>
     <%= f.input :age, required: true %>
     <%= f.input :gender, collection: ["male", "female"], prompt: "Select", required: true %>
-    <%= f.input :neutered, as: :boolean, required: false %>
+    <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }  %>
     <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true %>
     <%= f.input :breed_category, collection: [
             "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
@@ -17,11 +17,11 @@
     <%= f.input :weight, required: true %>
     <%= f.input :in_shelter_since, as: :date, required: false %>
     <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: true %>
-    <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?" %>
-    <%= f.input :health_issus, as: :boolean, required: false, label: "Does the dog have any health issues?" %>
+    <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?", input_html: { class: "toggle" }  %>
+    <%= f.input :health_issus, as: :boolean, required: false, label: "Does the dog have any health issues?", input_html: { class: "toggle" }  %>
     <%= f.input :health_issus_details, as: :text, required: false %>
-    <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?" %>
-    <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?" %>
+    <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" }  %>
+    <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" }  %>
     <%= f.input :male_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
     <%= f.input :female_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
     <%= f.input :cat_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
