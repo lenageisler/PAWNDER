@@ -24,15 +24,15 @@ class AiMessagesController < ApplicationController
         message.content += chunk.content
         broadcast_replace(message)
       end
-      broadcast_replace(@ai_chat.ai_messages.last)  # solves a broadcast bug
+      broadcast_replace(@ai_chat.messages.last)  # solves last chunk broadcast bug
       respond_to do |format|
         format.turbo_stream # renders `app/views/ai_messages/create.turbo_stream.erb`
         format.html { redirect_to ai_chat_path(@ai_chat) }
       end
     else
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("new_message",
-          partial: "ai_messages/form", locals: { ai_chat: @ai_chat, ai_message: @ai_message})}
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("new_ai_message",
+          partial: "ai_messages/form", locals: { chat: @ai_chat, message: @ai_message})}
         format.html { render 'ai_chats/show', status: :unprocessable_entity }
       end
     end

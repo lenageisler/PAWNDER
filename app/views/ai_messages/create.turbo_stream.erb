@@ -1,7 +1,3 @@
-<%#= turbo_stream.append "ai_messages" do %>
-  <%#= render "ai_messages/messages", messages: @ai_chat.ai_messages.last(2) %>
-<%# end %>
-
 <%= turbo_stream.replace "new_ai_message" do %>
-  <%= render "ai_messages/form", ai_chat: @ai_chat, ai_message: AiMessage.new %>
+  <%= render "ai_messages/form", chat: @ai_chat, message: AiMessage.new %>
 <% end %>
