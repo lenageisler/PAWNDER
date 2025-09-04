@@ -1,0 +1,22 @@
+.btn-main {
+    background-color: white;
+    color: #4A4A4A;
+    border: 1px solid #4A4A4A;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: red;
+    }
+}
+
+.btn-second {
+
+}
+
+.btn-small {
+
+}
