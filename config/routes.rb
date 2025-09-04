@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   resources :preferences, only: [:show, :new, :create, :edit, :update, :destroy]
 
+  resources :favorites,  only: [:index, :destroy]
 end

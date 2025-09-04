@@ -10,8 +10,11 @@
 
 
 <% if searcher? %>
-  <h2>Add <%= @dog.name %> to favorites</h2>
+  <h3>Add <%= @dog.name %> to favorites</h3>
   <%= simple_form_for [@dog, @favorite] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <%= f.submit %>
   <% end %>
+  <%= link_to "Checkout your favorite dogs", favorites_path %>
 <% end %>

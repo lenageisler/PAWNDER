@@ -1,0 +1,7 @@
+<% if searcher? %>
+  <h1>Your favorite dogs</h1>
+  <% @favorites.each do |favorite| %>
+      <p><%= link_to "#{favorite.dog.name}", dog_path(favorite.dog) %></p>
+  <% end %>
+<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to all dogs'.html_safe, dogs_path %>
+<% end %>
