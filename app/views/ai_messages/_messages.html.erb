@@ -1,0 +1,4 @@
+<% messages.each do |message| %>
+  <%# message moved to its own partial for broadcasting %>
+  <%= render "ai_messages/message", message: message %>
+<% end %>

@@ -53,6 +53,19 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 
+# One AI API for all the AI API providers
+gem "ruby_llm"
+
+# Needed for parsing Markdown into HTML
+gem "kramdown"
+# Adds modern GitHub Flavored Markdown (GFM) support
+gem "kramdown-parser-gfm"
+# A syntax highlighter, works hand in hand with Markdown parsers like kramdown.
+gem "rouge"
+
+# Broadcasts chat messages and streams LLMChat answers chunk by chunk
+gem "solid_cable"
+
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
