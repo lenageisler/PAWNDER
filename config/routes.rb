@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create]
   end
 
+  resources :favorites,  only: [:index, :destroy]
+
   resources :preferences, only: [:show, :new, :create, :edit, :update, :destroy]
 
-  resources :favorites,  only: [:index, :destroy]
+  resources :ai_chats, only: [:create, :show] do
+    resources :ai_messages, only: [:new, :create]
+  end
+
 end
