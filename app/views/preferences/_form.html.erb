@@ -23,7 +23,7 @@
     <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
-    <%= f.input :ideal_evironment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
+    <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: false, as: :check_boxes, include_hidden: false %>
 
     <%= f.submit class: "btn-flat" %>
 <% end %>
