@@ -3,7 +3,7 @@
 
   <div class="form-login">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
-    <%= link_to "< back without editing ", :back %>
+    <%= link_to '<i class="fa-solid fa-arrow-left"></i> back without editing'.html_safe, :back %>
     
     <%= f.input :email, required: true, autofocus: true %>
 
@@ -25,9 +25,8 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-  </div>
-  
-  <div>
-    <%= f.button :submit, "Save changes" %>
+
+    <%= f.button :submit, "Save changes", class: "btn-main" %>
+
   </div>
 <% end %>

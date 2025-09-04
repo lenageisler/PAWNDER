@@ -15,10 +15,9 @@
                       placeholder: "••••••",
                       input_html: { autocomplete: "current-password" } %>
           <%= f.input :remember_me, as: :boolean, input_html: { class: "toggle" } if devise_mapping.rememberable? %>
-        </div>
 
-        <div>
-          <%= f.button :submit, "Log in" %>
+          <%= f.button :submit, "Log in", class: "btn-main" %>
+
         </div>
 
       <% end %>
