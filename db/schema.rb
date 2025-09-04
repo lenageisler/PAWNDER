@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_03_183210) do
     t.string "female_compatible"
     t.string "cat_compatible"
     t.string "kids_compatible"
-    t.string "ideal_evironment"
+    t.string "ideal_environment"
     t.text "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_03_183210) do
     t.string "female_compatible"
     t.string "cat_compatible"
     t.string "kids_compatible"
-    t.string "ideal_evironment", default: [], array: true
+    t.string "ideal_environment", default: [], array: true
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

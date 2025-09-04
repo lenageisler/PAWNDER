@@ -51,7 +51,7 @@ Dog.create!(
   female_compatible: "yes",
   cat_compatible: "unknown",
   kids_compatible: "yes",
-  ideal_evironment: "House with garden",
+  ideal_environment: "House with garden",
   info: "Playful and intelligent, loves agility training."
 )
 
@@ -78,7 +78,7 @@ Dog.create!(
   female_compatible: "no",
   cat_compatible: "yes",
   kids_compatible: "yes",
-  ideal_evironment: "Quiet environment",
+  ideal_environment: "Quiet environment",
   info: "Gentle and affectionate, needs calm environment."
 )
 
@@ -103,7 +103,7 @@ Dog.create!(
   female_compatible: "yes",
   cat_compatible: "no",
   kids_compatible: "unknown",
-  ideal_evironment: "Countryside",
+  ideal_environment: "Countryside",
   info: "Strong and loyal, trained in basic obedience."
 )
 
@@ -137,7 +137,7 @@ Dog.create!(
   female_compatible: "yes",
   cat_compatible: "yes",
   kids_compatible: "yes",
-  ideal_evironment: "House with garden",
+  ideal_environment: "House with garden",
   info: "Sweet and loyal, perfect family dog."
 )
 
@@ -163,7 +163,7 @@ Dog.create!(
   female_compatible: "yes",
   cat_compatible: "no",
   kids_compatible: "unknown",
-  ideal_evironment: "City life",
+  ideal_environment: "City life",
   info: "Energetic and clever, needs an active handler."
 )
 
@@ -188,7 +188,7 @@ Dog.create!(
   female_compatible: "yes",
   cat_compatible: "yes",
   kids_compatible: "yes",
-  ideal_evironment: "Apartment-friendly",
+  ideal_environment: "Apartment-friendly",
   info: "Young and curious, still learning the basics."
 )
 
@@ -216,7 +216,7 @@ Dog.create!(
   female_compatible: "unknown",
   cat_compatible: "no",
   kids_compatible: "yes",
-  ideal_evironment: "Countryside",
+  ideal_environment: "Countryside",
   info: "Athletic and affectionate, loves long walks."
 )
 
@@ -241,7 +241,7 @@ Dog.create!(
   female_compatible: "yes",
   cat_compatible: "yes",
   kids_compatible: "yes",
-  ideal_evironment: "Quiet environment",
+  ideal_environment: "Quiet environment",
   info: "Calm and loving, enjoys relaxing with people."
 )
 
@@ -261,7 +261,7 @@ Preference.create!(
   gender: "female",
   breed_grade: ["Mix"],
   breed_category: ["Small & fluffy"],
-  ideal_evironment: ["Apartment-friendly"]
+  ideal_environment: ["Apartment-friendly"]
 )
 
 searcher2 = User.create!(
@@ -277,7 +277,7 @@ Preference.create!(
   neutered: true,
   location: ["Shelter"],
   kids_compatible: "yes",
-  ideal_evironment: ["House with garden"]
+  ideal_environment: ["House with garden"]
 )
 
 searcher3 = User.create!(
@@ -292,7 +292,7 @@ Preference.create!(
   breed_grade: ["Pure breed"],
   breed_category: ["Shepherd-type"],
   female_compatible: "yes",
-  ideal_evironment: ["Countryside"]
+  ideal_environment: ["Countryside"]
 )
 
 puts "seeding searchers done"
