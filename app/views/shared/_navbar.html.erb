@@ -1,38 +1,47 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+<nav class="navbar-top">
+    <div>PAWNDER Logo</div>
+</nav>
+
+<nav class="navbar-bottom">
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-house-chimney"></i>'.html_safe, root_path, class: "nav-link" %>
+    </li>
+
+    <% if searcher? %>
+      <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, favorites_path, class: "nav-link" %>
+    </li>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-dog"></i>'.html_safe, dogs_path, class: "nav-link" %>
+    </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Ask AI Bot for help", ai_chats_path, class: "dropdown-item", data: { turbo_method: :post }%>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
+    <% if searcher? %>
+      <li class="nav-item">
+        <%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, ai_chats_path, class: "nav-link", data: { turbo_method: :post } %>
+      </li>
+    <% end %>
+
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-inbox"></i>'.html_safe, "#", class: "nav-link" %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-house-chimney"></i>'.html_safe, new_user_session_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, new_user_session_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-dog"></i>'.html_safe, new_user_session_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, new_user_session_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to '<i class="fa-solid fa-inbox"></i>'.html_safe, new_user_session_path, class: "nav-link" %>
+    </li>
+  <% end %>
+</nav>
