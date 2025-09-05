@@ -1,14 +1,18 @@
-<h1>Dogs Show Page</h1>
-<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to all dogs'.html_safe, dogs_path %>
 
-<h2><%= @dog.name %></h2>
+<div class='container'>
+  <h1><%= @dog.name %>'s page</h1>
+  <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to all dogs'.html_safe, dogs_path %>
+</div>
 
-<% if shelter? %>
-  <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
-<% end %>
+<div class='container'>
+  <% if shelter? %>
+    <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
+  <% end %>
+</div>
 
-
-<% if searcher? %>
-  <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
-  <%= link_to "Checkout your favorite dogs", favorites_path %>
-<% end %>
+<div class='container'>
+  <% if searcher? %>
+    <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
+    <%= link_to "Checkout your favorite dogs", favorites_path %>
+  <% end %>
+</div>

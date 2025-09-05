@@ -3,11 +3,12 @@
 <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to home'.html_safe, root_path %>
 
 <% if shelter? %>
-    <h3>all dogs of shelter: <%= @shelter_name %></h3>
-    <%= link_to "Add dog", new_dog_path %>
+    <h3><%= @shelter_name %>, here are your dogs</h3>
+    <%= link_to "Add dog", new_dog_path, class: 'btn-main' %>
 <% end %>
 
 <% if searcher? %>
+  <h3>Here are the dogs that matches your preferences</h3>
   <p><%= link_to "Checkout your favorite dogs", favorites_path %></p>
 <% end %>
 
