@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: turbo_stream.append(:messages, partial: "messages/message",
-          locals: {message: @message, favorite: @chat.favorite })
+          locals: {message: @message, favorite: @chat.favorite, user_role: current_user.role })
         end
         format.html { redirect_to chat_path(@chat) }
       end

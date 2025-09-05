@@ -1,10 +1,12 @@
-<div id="message-<%= message.id %>">
-  <small>
+<div
+    id="message-<%= message.id %>"
+    class="message <%= message.role == user_role ? 'sent' : 'received' %>">
+  <small class="message-info">
     <strong>
       <%= favorite.user.username if message.role == "searcher" %>
       <%= favorite.shelter_user.name if message.role == "shelter" %>
     </strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <p><%= message.content %></p>
+  <p class="message-content"><%= message.content %></p>
 </div>

@@ -7,7 +7,7 @@
   <%= turbo_stream_from "chat_#{@chat.id}_messages" %> <%# Subscribe the chat_id_messages client to a Turbo Stream channel %>
   <div id="messages" class="messages">
     <% @chat.messages.each do |message| %>
-      <%= render "messages/message", message: message, favorite: @favorite %>
+      <%= render "messages/message", message: message, favorite: @favorite, user_role: current_user.role %>
     <% end %>
   </div>
 
