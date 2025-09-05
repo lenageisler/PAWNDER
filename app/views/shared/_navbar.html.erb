@@ -16,7 +16,7 @@
 
     <% if searcher? %>
       <li class="nav-item">
-        <%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, "ai_chats", class: "nav-link", data: { turbo_method: :post }%>
+        <%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, ai_chats_path, class: "nav-link", data: { turbo_method: :post } %>
       </li>
     <% end %>
 
@@ -34,7 +34,7 @@
       <%= link_to '<i class="fa-solid fa-dog"></i>'.html_safe, new_user_session_path, class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, new_user_session_path, class: "nav-link", data: { turbo_method: :post }%>
+      <%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, new_user_session_path, class: "nav-link" %>
     </li>
     <li class="nav-item">
       <%= link_to '<i class="fa-solid fa-inbox"></i>'.html_safe, new_user_session_path, class: "nav-link" %>

@@ -4,7 +4,14 @@
     </a>
         <div class="dropdown-menu avatar-dropdown" aria-labelledby="navbarDropdown">
             <% if searcher? %>
-                <%= link_to "Change preferences", edit_preference_path, class: "dropdown-item" %>
+                
+                <% if current_user.preference.present? %>
+                    <%= link_to "Edit your preferences", edit_preference_path(@preference), class: "dropdown-item" %>
+                <% else %>
+                    <%= link_to "Set your preferences", new_preference_path, class: "dropdown-item" %>
+                <% end %>
+                
+
             <% end %>
             <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

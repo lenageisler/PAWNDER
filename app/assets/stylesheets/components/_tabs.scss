@@ -1,9 +1,27 @@
-.tabs-underlined {
+.tabs-desktop {
+    display: block;
+
+    @media (max-width: 760px) {
+        display: none; // navbar hidden from tablet on and bigger
+    }
+
     display: flex;
     align-items: center;
+    justify-content: start;
+    list-style: none;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    flex-grow: 0;
+
+
+    gap: 20px;
+    background: #ECEFEC;
+    height: 60px;
 }
 
-.tabs-underlined .tab-underlined {
+.tabs-desktop .tab-desktop {
     color: black;
     padding: 8px;
     margin: 8px;
@@ -13,7 +31,7 @@
     border-bottom: 4px solid transparent;
 }
 
-.tabs-underlined .tab-underlined.active {
+.tabs-desktop .tab-desktop.active {
     opacity: 1;
     border-bottom: 3px solid #555555;
 }
