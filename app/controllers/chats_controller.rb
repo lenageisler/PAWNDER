@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
     @chat = Chat.new
     @chat.favorite = Favorite.find(params[:favorite_id])
     if @chat.save
-      redirect_to chat_path
+      redirect_to chat_path(@chat)
     else
       render "favorites/index"
     end
