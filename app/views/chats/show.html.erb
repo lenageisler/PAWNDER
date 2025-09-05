@@ -1,13 +1,13 @@
 <div class="container chat">
-  <h1>Your chat with <%= @chat.favorite.shelter_user.name %> about <%= @chat.dog.name %> </h1>
+  <h1>Your chat with <%= searcher? ? @favorite.shelter_user.name : @favorite.user.username %> about <%= @chat.dog.name %> </h1>
 
   <div id="messages" class="messages">
     <% @chat.messages.each do |message| %>
       <div id="message-<%= message.id %>">
         <small>
           <strong>
-            <%= @favorite.shelter_user.name if searcher? %>
-            <%= @favorite.user.username if shelter? %>
+            <%= @favorite.user.username if message.role == "searcher" %>
+            <%= @favorite.shelter_user.name if message.role == "shelter" %>
           </strong>
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
@@ -19,7 +19,7 @@
     <% other_user = current_user == @favorite.shelter_user ?  @favorite.user : @favorite.shelter_user %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message #{shelter? ? other_user.name : other_user.username}",
+      placeholder: "Message #{searcher? ? other_user.name : other_user.username}",
       wrapper_html: {class: "flex-grow-1"}
     %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
