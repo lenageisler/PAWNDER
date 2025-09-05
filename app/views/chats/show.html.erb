@@ -6,8 +6,8 @@
       <div id="message-<%= message.id %>">
         <small>
           <strong>
-            <%= message.favorite.shelter_user.name if searcher? %>
-            <%= message.favorite.user.username if shelter? %>
+            <%= @favorite.shelter_user.name if searcher? %>
+            <%= @favorite.user.username if shelter? %>
           </strong>
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
@@ -15,4 +15,13 @@
       </div>
     <% end %>
   </div>
+  <%= simple_form_for [@chat, @message], html: {class: "d-flex"} do |f| %>
+    <% other_user = current_user == @favorite.shelter_user ?  @favorite.user : @favorite.shelter_user %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message #{shelter? ? other_user.name : other_user.username}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
 </div>

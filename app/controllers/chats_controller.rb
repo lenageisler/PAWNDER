@@ -12,6 +12,8 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
+    @message = Message.new
+    @favorite = @chat.favorite
   end
 
 end
