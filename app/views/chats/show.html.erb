@@ -1,11 +1,16 @@
 <div class="container chat">
-  <h1>Your chat with <%= searcher? ? @favorite.shelter_user.name : @favorite.user.username %> about <%= @chat.dog.name %> </h1>
+  <h1>
+    Your chat with <%= searcher? ? @favorite.shelter_user.name : @favorite.user.username %>
+    about <%= @chat.dog.name %>
+  </h1>
 
+  <%= turbo_stream_from "chat_#{@chat.id}_messages" %> <%# Subscribe the chat_id_messages client to a Turbo Stream channel %>
   <div id="messages" class="messages">
     <% @chat.messages.each do |message| %>
       <%= render "messages/message", message: message, favorite: @favorite %>
     <% end %>
   </div>
+
   <%= simple_form_for [@chat, @message],
     html: {class: "d-flex",
             data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
