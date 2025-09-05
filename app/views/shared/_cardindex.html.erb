@@ -1,9 +1,14 @@
-<div class="card" style="width: 18rem">
-  <%# <img src="..." class="card-img-top" alt="..."> %>
-  <div class="card-future-img-top"></div>
-  <div class="card-body">
-    <h5 class="card-title"><%= link_to dog.name, dog_path(dog)  %></h5>
-    <p class="card-text"><%= dog.age %> years old</p>
-    <%# <a href="#" class="btn btn-main">Add to favorite</a> %>
+
+  <div class="col">
+    <%= link_to dog_path(dog) do %>
+    <div class="card" style="width: 18rem">
+        <%# <img src="..." class="card-img-top" alt="..."> %>
+      <div class="card-future-img-top"></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= dog.name %></h5>
+        <p class="card-text"><%= dog.age %> years old</p>
+          <%# <a href="#" class="btn btn-main">Add to favorite</a> %>
+      </div>
+    </div>
+    <% end %>
   </div>
-</div>
