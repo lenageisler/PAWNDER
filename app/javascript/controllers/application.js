@@ -8,5 +8,3 @@ window.Stimulus   = application
 
 export { application }
 
-import ToggleSignupFieldsController from "./toggle_signup_fields_controller.js"
-Stimulus.register("toggle-signup-fields", ToggleSignupFieldsController)
