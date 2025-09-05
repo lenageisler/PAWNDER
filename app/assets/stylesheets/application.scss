@@ -18,12 +18,12 @@ body {
 #main-content {
 
     @media (min-width: 800px) {
-        padding-top: 144px;
+        padding-top: 176px;
         padding-bottom: 0px;
     }
     @media (max-width: 800px) {
         padding-bottom: 48px;
-        padding-top: 144px;
+        padding-top: 176px;
     }
     @media (max-width: 500px) {
         padding-top: 0px;        
