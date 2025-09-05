@@ -13,11 +13,14 @@
 
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
   align-items: center;
 
   list-style: none;
-  background: #ECEFEC;
+  background: #FAEB7C;
+  border-top: 2px solid black;
+  font-size: 24px;
+  text-shadow: 1px 1px 1.5px rgba(128, 128, 128, 0.5);
 
 }
 
@@ -31,13 +34,19 @@
   position: fixed;
   top: 0;
   height: 80px;
-  width: 100%;
+  width: calc(100% - 32px);
   flex-grow: 0;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  background: #85df85;
+  background: #9DC4F5;
+  border-radius: 16px;
+  border: 2px solid black;
 
+  padding: 16px;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
 }

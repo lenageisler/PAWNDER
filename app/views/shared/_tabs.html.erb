@@ -2,52 +2,54 @@
     <% if user_signed_in? %>
         
         <% if searcher? %>
-            <li class="nav-item">
-                <%= link_to 'Browse all dogs', dogs_path, class: "nav-link #{'active' if current_page?(dogs_path)}" %>
+
+            <li class="tab-desktop <%= 'active' if current_page?(dogs_path) %>">
+                <%= link_to 'Browse all dogs', dogs_path %>
             </li>
-            <li class="nav-item">
-                <%= link_to 'Your favorite dogs', favorites_path, class: "nav-link #{'active' if current_page?(favorites_path)}" %>
+            <li class="tab-desktop <%= 'active' if current_page?(favorites_path) %>">
+                <%= link_to 'Your favorite dogs', favorites_path %>
             </li>
 
             <% if current_user.preference.present? %>
-                <li class="nav-item">
-                    <%= link_to 'Your preferences', preference_path(@preference), class: "nav-link #{'active' if current_page?(preference_path(@preference))}" %>
+                <li class="tab-desktop <%= 'active' if current_page?(preference_path(@preference)) %>">
+                    <%= link_to 'Your preferences', preference_path(@preference) %>
                 </li>
-                <li class="nav-item">
-                    <%= link_to "Edit your preferences", edit_preference_path(@preference), class: "nav-link #{'active' if current_page?(edit_preference_path(@preference))}" %>
+                <li class="tab-desktop <%= 'active' if current_page?(edit_preference_path(@preference)) %>">
+                    <%= link_to "Edit your preferences", edit_preference_path(@preference) %>
                 </li>
             <% else %>
-                <li class="nav-item">
-                    <%= link_to "Set your preferences", new_preference_path, class: "nav-link #{'active' if current_page?(new_preference_path)}" %>
+
+                <li class="tab-desktop <%= 'active' if current_page?(new_preference_path) %>">
+                    <%= link_to "Set your preferences", new_preference_path %>
                 </li>
             <% end %>
 
-            <li class="nav-item">
-                <%= link_to 'Ask our Dog-Bot for help', ai_chats_path, class: "nav-link #{'active' if current_page?(ai_chats_path)}", data: { turbo_method: :post }%>
+            <li class="tab-desktop <%= 'active' if current_page?(ai_chats_path) %>">
+                <%= link_to 'Ask our Dog-Bot for help', ai_chats_path, data: { turbo_method: :post }%>
             </li>
-            <li class="nav-item">
-                <%= link_to 'Inbox', root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
+            <li class="tab-desktop <%= 'active' if current_page?(root_path) %>">
+                <%= link_to 'Inbox', root_path %>
             </li>
         <% end %>
 
         <% if shelter? %>
-            <li class="nav-item">
-                <%= link_to 'Look at your dogs', dogs_path, class: "nav-link #{'active' if current_page?(dogs_path)}" %>
+            <li class="tab-desktop <%= 'active' if current_page?(dogs_path) %>">
+                <%= link_to 'Look at your dogs', dogs_path %>
             </li>
-            <li class="nav-item">
-                <%= link_to 'Add a new dog', new_dog_path, class: "nav-link #{'active' if current_page?(new_dog_path)}" %>
+            <li class="tab-desktop <%= 'active' if current_page?(new_dog_path) %>">
+                <%= link_to 'Add a new dog', new_dog_path %>
             </li>
-            <li class="nav-item">
-                <%= link_to 'Inbox', root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
+            <li class="tab-desktop <%= 'active' if current_page?(root_path) %>">
+                <%= link_to 'Inbox', root_path %>
             </li>
         <% end %>
 
     <% else %>
-        <li class="nav-item active">
-            <%= link_to 'Log in'.html_safe, new_user_session_path, class: "nav-link #{'active' if current_page?(new_user_session_path)}" %>
+        <li class="tab-desktop <%= 'active' if current_page?(new_user_session_path) %>">
+            <%= link_to 'Log in'.html_safe, new_user_session_path %>
         </li>
-        <li class="nav-item">
-            <%= link_to 'Sign up', new_user_registration_path, class: "nav-link #{'active' if current_page?(new_user_registration_path)}" %>
+        <li class="tab-desktop <%= 'active' if current_page?(new_user_registration_path) %>">
+            <%= link_to 'Sign up', new_user_registration_path %>
         </li>
     <% end %>
 </ul>

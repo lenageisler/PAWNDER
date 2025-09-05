@@ -11,13 +11,13 @@
     list-style: none;
 
     position: fixed;
-    top: 80px;
+    top: 96px;
     width: 100%;
     flex-grow: 0;
 
 
     gap: 20px;
-    background: #ECEFEC;
+    background-color: white;
     height: 48px;
 }
 
@@ -34,4 +34,16 @@
 .tabs-desktop .tab-desktop.active {
     opacity: 1;
     border-bottom: 3px solid #555555;
+}
+
+.tab-blue {
+
+}
+
+.tab-rosa {
+
+}
+
+.tab-yellow {
+    
 }
