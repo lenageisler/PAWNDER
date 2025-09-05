@@ -1,15 +1,20 @@
 .navbar-bottom {
-  justify-content: space-between;
-  background: #ECEFEC;
+  display: block;
+
+  @media (min-width: 820px) {
+    display: none; // navbar hidden from tablet on and bigger
+  }
+
   position: fixed;
   bottom: 0;
   width: 100%;
-}
-
-.navbar-bottom .navbar-collapse {
   flex-grow: 0;
-}
 
-.navbar-bottom .navbar-brand img {
-  width: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  list-style: none;
+  background: #ECEFEC;
+  height: 60px;
 }
