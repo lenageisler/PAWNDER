@@ -3,7 +3,7 @@ class Dog < ApplicationRecord
   belongs_to :user
 
   # SEARCHER user
-  has_many :users, through: :favorites, as: :dog_searchers
+  has_many :dog_searchers, through: :favorites, source: :user
 
   has_many :favorites, dependent: :destroy
   has_many :chats, through: :favorites, as: :dog_chats

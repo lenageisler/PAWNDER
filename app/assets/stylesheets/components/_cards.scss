@@ -1,0 +1,27 @@
+.card-future-img-top {
+  height: 300px;
+  width: 100%;
+  background-color: $brand-pink;
+  border-radius: .750rem;
+}
+
+.card-body {
+  position: relative;
+}
+
+.heart-button {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  font-size: 24px;
+}
+
+.card-title {
+  color: $brand-green;
+}
+
+.card-text {
+  color: $brand-black;
+}

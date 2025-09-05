@@ -11,7 +11,7 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
-    @favorite = Favorite.new
+    @favorite = @dog.favorites.find_by(user: current_user) if current_user
   end
 
   def new

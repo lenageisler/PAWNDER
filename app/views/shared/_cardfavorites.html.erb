@@ -1,0 +1,18 @@
+<div class="col">
+  <%= link_to dog_path(favorite.dog) do %>
+  <div class="card" style="width: 18rem">
+        <%# <img src="..." class="card-img-top" alt="..."> %>
+    <div class="card-future-img-top"></div>
+    <div class="card-body">
+      <h5 class="card-title"><%= favorite.dog.name %></h5>
+      <p class="card-text"><%= favorite.dog.age %> years old</p>
+      <div class="heart-button">
+        <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(favorite.dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{favorite.dog.name} from your favorites?"} %></p>
+      </div>    <%# <a href="#" class="btn btn-main">Add to favorite</a> %>
+      <div class="heart-button" style="right: 60px">
+        <%= link_to '<i class="fa-solid fa-message"></i>'.html_safe, favorite_chats_path(favorite), data: { turbo_method: :post }%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

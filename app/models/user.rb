@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
 # Associations for SEARCHER users
   has_one :preference
-  has_many :favorites
-  # has_many :favorite_dogs, through: :favorites, source: :dogs
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_dogs, through: :favorites, source: :dogs
   has_many :ai_chats, dependent: :destroy
   has_many :chats, through: :favorites, as: :searcher_chats
 

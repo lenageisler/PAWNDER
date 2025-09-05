@@ -5,5 +5,5 @@ class Favorite < ApplicationRecord
   has_one :chat
   has_many :messages, through: :chat
 
-  validates :dog_id, uniqueness: { scope: :user_id }
+  validates :user_id, uniqueness: { scope: :dog_id }
 end

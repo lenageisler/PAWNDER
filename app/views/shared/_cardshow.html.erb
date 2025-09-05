@@ -1,0 +1,37 @@
+<div class="card" style="width: 18rem">
+  <%# <img src="..." class="card-img-top" alt="..."> %>
+  <div class="card-future-img-top"></div>
+  <div class="card-body">
+    <h5 class="card-title"><%= dog.name %></h5>
+    <p class="card-text"><%= dog.age %> years old</p>
+    <p class="card-text"><%= dog.gender %> </p>
+    <p class="card-text"><%= dog.breed_grade %> </p>
+    <p class="card-text"><%= dog.breed_category %> </p>
+    <div class="card-button">
+      <% if shelter? %>
+      <div class="heart-button">
+        <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_dog_path%>
+        <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, dog_path(dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{dog.name}?"} %>
+      </div>
+      <% end %>
+      <% if searcher? %>
+        <% if (favorite = @dog.favorites.find_by(user: current_user))%>
+        <div class="heart-button">
+          <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(@dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{dog.name} from your favorites?"} %></p>
+        </div>
+        <% else %>
+          <%= simple_form_for [dog, Favorite.new] do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+            <%= button_tag type: 'submit', class: 'heart-button' do %>
+                <i class="fa-regular fa-heart"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <%# <a href="#" class="btn btn-main">Add to favorite</a> %>
+  </div>
+</div>
+
+<%# If you want equal heights by default, you can set $card-height: 100% in Sass. %>

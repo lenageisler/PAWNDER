@@ -1,16 +1,19 @@
-<h1>Dogs Index Page</h1>
-
 <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to home'.html_safe, root_path %>
 
 <% if shelter? %>
-    <h3>all dogs of shelter: <%= @shelter_name %></h3>
-    <%= link_to "Add dog", new_dog_path %>
+    <h3><%= @shelter_name %>, here are your dogs</h3>
+    <%= link_to "Add dog", new_dog_path, class: 'btn-main' %>
 <% end %>
 
 <% if searcher? %>
+  <h3>Here are the dogs that matches your preferences</h3>
   <p><%= link_to "Checkout your favorite dogs", favorites_path %></p>
 <% end %>
 
-<% @dogs.each do |dog| %>
-    <h2><%= link_to dog.name, dog_path(dog)  %></h2>
-<% end %>
+<div class="container text-center">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @dogs.each do |dog| %>
+        <%= render "shared/cardindex", dog: dog %>
+    <% end %>
+  </div>
+</div>
