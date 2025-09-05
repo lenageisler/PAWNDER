@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :dogs do
-    resources :favorites, only: [:create]
+    resources :favorites, only: [:create, :destroy]
   end
 
-  resources :favorites,  only: [:index, :destroy]
+  resources :favorites, only: [:index]
 
   resources :preferences, only: [:show, :new, :create, :edit, :update, :destroy]
 

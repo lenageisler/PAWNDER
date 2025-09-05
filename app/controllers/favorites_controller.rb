@@ -22,9 +22,14 @@ class FavoritesController < ApplicationController
 
   def destroy
     if searcher?
-      @favorite = Favorite.find(params[:id])
-      @favorite.destroy
-      redirect_to favorites_path, alert: "#{@favorite.dog.name} was deleted from your favorites."
+      @dog = Dog.find(params[:dog_id])
+      @favorite = @dog.favorites.find_by(user: current_user)
+      if @favorite
+        @favorite.destroy
+        redirect_to dog_path(@dog), alert: "#{@favorite.dog.name} was deleted from your favorites."
+      else
+        redirect_to dog_path(@dog), alert: "Favorite not found."
+      end
     end
   end
 end

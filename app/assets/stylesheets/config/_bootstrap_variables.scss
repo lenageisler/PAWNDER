@@ -26,3 +26,23 @@ $border-radius-xl:            .5rem;
 $border-radius-xxl:           1rem;
 
 // Override other variables below!
+$card-spacer-y:                     1rem;
+$card-spacer-x:                     1rem;
+$card-title-spacer-y:               1rem * .5;
+$card-title-color:                  $brand-black;
+$card-subtitle-color:               $brand-gray;
+$card-border-width:                 4px;
+$card-border-color:                 $brand-black;
+$card-border-radius:                .750rem;
+$card-box-shadow:                   null;
+$card-inner-border-radius:          subtract($card-border-radius, $card-border-width);
+$card-cap-padding-y:                $card-spacer-y * .5;
+$card-cap-padding-x:                $card-spacer-x;
+$card-cap-bg:                       rgba($body-color, .03);
+$card-cap-color:                    null;
+$card-widht:                        75%;
+$card-height:                       100%;
+$card-color:                        null;
+$card-bg:                           $brand-light-gray;
+$card-img-overlay-padding:          1rem;
+$card-group-margin:                 1.5rem * .5;

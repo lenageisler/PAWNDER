@@ -12,5 +12,5 @@
 <% end %>
 
 <% @dogs.each do |dog| %>
-    <h2><%= link_to dog.name, dog_path(dog)  %></h2>
+    <%= render "shared/cardindex", dog: dog %>
 <% end %>
