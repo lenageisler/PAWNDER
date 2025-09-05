@@ -14,7 +14,7 @@
                     <%= link_to 'Your preferences', preference_path(@preference), class: "nav-link #{'active' if current_page?(preference_path(@preference))}" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Edit your preferences", edit_preference_path(@preference), class: "nav-link #{'active' if current_page?(edit_preference_path(@preference))}", data: { turbo_method: :patch } %>
+                    <%= link_to "Edit your preferences", edit_preference_path(@preference), class: "nav-link #{'active' if current_page?(edit_preference_path(@preference))}" %>
                 </li>
             <% else %>
                 <li class="nav-item">

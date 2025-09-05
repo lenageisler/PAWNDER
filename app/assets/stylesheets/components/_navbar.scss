@@ -9,13 +9,35 @@
   bottom: 0;
   width: 100%;
   flex-grow: 0;
+  height: 60px;
 
   display: flex;
   justify-content: center;
   gap: 20px;
   align-items: center;
+
   list-style: none;
   background: #ECEFEC;
-  height: 60px;
+
 }
 
+.navbar-top {
+  display: block;
+
+  @media (max-width: 820px) {
+    display: none; // navbar hidden from small devices
+  }
+
+  position: fixed;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  flex-grow: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #85df85;
+
+}
