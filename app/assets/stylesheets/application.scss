@@ -11,6 +11,19 @@
 @import "components/index";
 @import "pages/index";
 
+#main-content {
+    @media (max-width: 500px) {
+        padding-bottom: 48px;
+    }
+    @media (max-width: 800px) {
+        padding-bottom: 48px;
+        padding-top: 128px;
+    }
+    @media (min-width: 800px) {
+        padding-top: 128px;
+    }
+}
+
 a {
     text-decoration: none;
 }

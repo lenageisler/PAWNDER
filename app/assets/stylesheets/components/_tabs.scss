@@ -1,8 +1,8 @@
 .tabs-desktop {
     display: block;
 
-    @media (max-width: 760px) {
-        display: none; // navbar hidden from tablet on and bigger
+    @media (max-width: 500px) {
+        display: none; // navbar hidden from smaller devices
     }
 
     display: flex;
@@ -18,7 +18,7 @@
 
     gap: 20px;
     background: #ECEFEC;
-    height: 60px;
+    height: 48px;
 }
 
 .tabs-desktop .tab-desktop {

@@ -2,13 +2,13 @@
   position: fixed;
   z-index: 1000;
 
-  @media (max-width: 560px) {
+  @media (max-width: 500px) {
     top: 16px;
     right: 16px;
     width: 48px;
     height: 48px;
   }
-  @media (min-width: 560px) {
+  @media (min-width: 500px) {
     top: 10px;
     right: 20px;
     width: 60px;
