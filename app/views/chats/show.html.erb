@@ -6,7 +6,10 @@
       <%= render "messages/message", message: message, favorite: @favorite %>
     <% end %>
   </div>
-  <%= simple_form_for [@chat, @message], html: {class: "d-flex"} do |f| %>
+  <%= simple_form_for [@chat, @message],
+    html: {class: "d-flex",
+            data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+  %>
     <% other_user = current_user == @favorite.shelter_user ?  @favorite.user : @favorite.shelter_user %>
     <%= f.input :content,
       label: false,
