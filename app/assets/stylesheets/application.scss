@@ -12,16 +12,20 @@
 @import "pages/index";
 
 #main-content {
-    @media (max-width: 500px) {
-        padding-bottom: 48px;
+
+    @media (min-width: 800px) {
+        padding-top: 128px;
+        padding-bottom: 0px;
     }
     @media (max-width: 800px) {
         padding-bottom: 48px;
         padding-top: 128px;
     }
-    @media (min-width: 800px) {
-        padding-top: 128px;
+    @media (max-width: 500px) {
+        padding-top: 0px;        
+        padding-bottom: 48px;
     }
+
 }
 
 a {
