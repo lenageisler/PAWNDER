@@ -3,16 +3,7 @@
 
   <div id="messages" class="messages">
     <% @chat.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong>
-            <%= @favorite.user.username if message.role == "searcher" %>
-            <%= @favorite.shelter_user.name if message.role == "shelter" %>
-          </strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+      <%= render "messages/message", message: message, favorite: @favorite %>
     <% end %>
   </div>
   <%= simple_form_for [@chat, @message], html: {class: "d-flex"} do |f| %>
