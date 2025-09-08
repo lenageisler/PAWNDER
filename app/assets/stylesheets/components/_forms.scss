@@ -12,6 +12,12 @@
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 40px;
+
+    p {
+        text-align: right;
+        color: #b6b7b6;
+        font-weight: 600;
+    }
 }
 
 // toggles for basic form inputs
@@ -36,7 +42,7 @@
     top: 0;
     left: 0;
     background-color: #EAEAEA;
-    border-radius: 50rem;
+    border-radius: 8px;
 }
 
 .toggle:checked + label::before {
@@ -78,12 +84,10 @@
 .tag-selector + label {
     cursor: pointer;
     display: inline-block;
-    font-size: 0.7rem;
     border-radius: 8px;
     padding: 0.1rem 0.5rem;
-    background-color: #f7f1c2;
-    color: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(0, 0, 0, 0.6);
+    background-color: #FBE74E;
+    color: black;
     margin-right: 0.6rem;
     margin-bottom: 0.4rem;
 }
@@ -107,6 +111,11 @@
         border-radius: 50px;
         text-align: center;
     }
+}
+
+// text input fields
+.input-field {
+    border-radius: 8px;
 }
 
 // login and signup
