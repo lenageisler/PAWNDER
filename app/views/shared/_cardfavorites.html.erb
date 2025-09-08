@@ -1,28 +1,11 @@
 <div class="col">
   <%= link_to dog_path(favorite.dog) do %>
   <div class="card h-100">
-    <div class="dog-image-wrapper">
       <% if favorite.dog.photos.attached? %>
-        <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-show-img" %>
-        <% if favorite.dog.photos.many? %>
-          <div class="dog-thumbnails mt-2">
-            <% favorite.dog.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-thumb-img" %>
-            <% end %>
-          </div>
-        <% end %>
+        <%= cl_image_tag favorite.photo.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
       <% else %>
-        <div class="dog-show-img placeholder"></div>
+        <div class="dog-index-img background" style="background-color: #FBE74E"></div>
       <% end %>
-    </div>
-
-    <% if favorite.dog.photos.attached? %>
-      <% favorite.dog.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-card-img" %>
-      <% end %>
-    <% else %>
-      <div class="dog-card-img background"></div>
-    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= favorite.dog.name %></h5>
       <p class="card-text"><%= favorite.dog.age %> years old</p>

@@ -25,11 +25,6 @@
   display: block;
 }
 
-.dog-show-img.placeholder {
-  background: linear-gradient(135deg, $brand-pink, $brand-light-gray);
-  height: 400px;
-}
-
 .dog-thumbnails {
   display: flex;
   gap: 0.5rem;
@@ -49,12 +44,12 @@
   }
 }
 
-.card-future-img-top {
-  height: 300px;
-  width: 100%;
-  background-color: $brand-pink;
-  border-radius: .750rem;
-}
+// .card-future-img-top {
+//   height: 300px;
+//   width: 100%;
+//   background-color: $brand-pink;
+//   border-radius: .750rem;
+// }
 
 .card {
   border-radius: 1rem;

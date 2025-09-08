@@ -2,19 +2,21 @@
   <div class="row">
     <!-- Left column: image -->
     <div class="col-md-6">
-      <div class="card">
-        <% if dog.photos.attached? %>
-          <% dog.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-card-img" %>
-          <% end %>
-        <% else %>
-          <div class="dog-card-img background"></div>
+      <div class="dog-image-wrapper">
+      <% if dog.photos.attached? %>
+        <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-show-img" %>
+        <% if dog.photos.many? %>
+          <div class="dog-thumbnails mt-2">
+            <% dog.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-thumb-img" %>
+            <% end %>
+          </div>
         <% end %>
-        <%# Later replace with Cloudinary: cl_image_tag @dog.photo.key, class: "img-fluid rounded-3" %>
-        <div class="card-future-img-top"></div>
+      <% else %>
+        <div class="dog-show-img background"></div>
+      <% end %>
       </div>
     </div>
-
     <!-- Right column: details -->
     <div class="col-md-6">
       <div class="card p-4">
@@ -29,7 +31,7 @@
             <p><strong>Main breed:</strong> <%= @dog.main_breed %></p>
           <% end %>
           <p><strong>Breed type:</strong> <%= @dog.breed_grade %> (<%= @dog.breed_category %>)</p>
-          <p><strong>Restricted breed:</strong> <%= @dog.list_dog ? "Yes" : "No" %></p>
+          <p><strong>Restricted breed:</strong> <%= @dog.restricted_breed ? "Yes" : "No" %></p>
           <% if @dog.breed_mix.present? %>
             <p><strong>Breed mix:</strong> <%= @dog.breed_mix %></p>
           <% end %>
@@ -46,9 +48,9 @@
 
           <h5>Health</h5>
           <p><strong>Microchipped:</strong> <%= @dog.chipped ? "Yes" : "No" %></p>
-          <p><strong>Health issues:</strong> <%= @dog.health_issus ? "Yes" : "No" %></p>
-          <% if @dog.health_issus_details.present? %>
-            <p><strong>Details:</strong> <%= @dog.health_issus_details %></p>
+          <p><strong>Health issues:</strong> <%= @dog.health_issues ? "Yes" : "No" %></p>
+          <% if @dog.health_issues_details.present? %>
+            <p><strong>Details:</strong> <%= @dog.health_issues_details %></p>
           <% end %>
 
           <hr>
