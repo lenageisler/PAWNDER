@@ -2,8 +2,13 @@
   <div class="col">
     <%= link_to dog_path(dog) do %>
     <div class="card h-100">
-        <%# <img src="..." class="card-img-top" alt="..."> %>
-      <div class="card-future-img-top"></div>
+      <% if dog.photos.attached? %>
+        <% dog.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-card-img" %>
+        <% end %>
+      <% else %>
+        <div class="dog-card-img placeholder"></div>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= dog.name %></h5>
         <p class="card-text"><%= dog.age %> years old</p>

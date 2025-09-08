@@ -66,6 +66,9 @@ gem "rouge"
 # Broadcasts chat messages and streams LLMChat answers chunk by chunk
 gem "solid_cable"
 
+# image upload in production
+gem "cloudinary"
+
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

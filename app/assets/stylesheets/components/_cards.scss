@@ -1,9 +1,13 @@
-.card-future-img-top {
-  height: 300px;
+.dog-card-img {
   width: 100%;
-  background-color: $brand-pink;
-  border-radius: .750rem;
+  height: 250px;
   object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+
+  .placeholder {
+    background: linear-gradient(135deg, $brand-pink, $brand-light-gray);
+  }
 }
 
 .card {
