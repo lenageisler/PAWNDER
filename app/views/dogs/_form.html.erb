@@ -2,7 +2,7 @@
     <div class="dog-form-div">
         <p>BASICS</p>
         <%= f.input :name, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
-        <%= f.input :birthday, as: :date, html5: true, required: false %>
+        <%= f.input :birthday, as: :string, required: false, label: "Birthday (optional)" %>
         <%= f.input :age, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
         <%= f.input :gender, collection: ["male", "female"], prompt: "Please select the gender", required: true, as: :radio_buttons, include_hidden: false,
             input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
@@ -18,15 +18,15 @@
                 "Medium mixed", "Large mixed", "Small mixed"
             ], prompt: "Select Breed Category", required: true, as: :radio_buttons, include_hidden: false,
             input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-        <%= f.input :main_breed, required: false, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
-        <%= f.input :breed_mix, as: :text, required: false, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
+        <%= f.input :main_breed, required: false, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" }, label: "Main Breed (optional)" %>
+        <%= f.input :breed_mix, as: :text, required: false, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" }, label: "Decription of breed-mix (optional)" %>
     </div>
     <div class="dog-form-div">
         <p>PHYSIQUE</p>
     <%= f.input :shoulder_height, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
     <%= f.input :weight, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
     </div>
-    <%= f.input :in_shelter_since, as: :date, required: false %>
+    <%= f.input :in_shelter_since, as: :string, required: false, label: "In the Shelter since (optional)" %>
     <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
         input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
     <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?", input_html: { class: "toggle" } %>
