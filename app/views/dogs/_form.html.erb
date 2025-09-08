@@ -19,9 +19,9 @@
     <%= f.input :in_shelter_since, as: :date, required: false %>
     <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: true %>
     <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?", input_html: { class: "toggle" }  %>
-    <%= f.input :health_issus, as: :boolean, required: false, label: "Does the dog have any health issues?", input_html: { class: "toggle" }  %>
-    <%= f.input :health_issus_details, as: :text, required: false %>
-    <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" }  %>
+    <%= f.input :health_issues, as: :boolean, required: false, label: "Does the dog have any health issues?", input_html: { class: "toggle" }  %>
+    <%= f.input :health_issues_details, as: :text, required: false %>
+    <%= f.input :restricted_breed, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" }  %>
     <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" }  %>
     <%= f.input :male_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
     <%= f.input :female_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
