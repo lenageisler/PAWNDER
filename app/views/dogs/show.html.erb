@@ -1,20 +1,18 @@
-<h1>Dogs Show Page</h1>
-<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to all dogs'.html_safe, dogs_path %>
 
-<h2><%= @dog.name %></h2>
+<div class='container'>
+  <h1><%= @dog.name %>'s page</h1>
+  <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to all dogs'.html_safe, dogs_path %>
+</div>
 
-<% if shelter? %>
-    <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_dog_path%>
-    <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, dog_path(@dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@dog.name}?"} %>
-<% end %>
-
-
-<% if searcher? %>
-  <h3>Add <%= @dog.name %> to favorites</h3>
-  <%= simple_form_for [@dog, @favorite] do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <%= f.submit %>
+<div class='container'>
+  <% if shelter? %>
+    <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
   <% end %>
-  <%= link_to "Checkout your favorite dogs", favorites_path %>
-<% end %>
+</div>
+
+<div class='container'>
+  <% if searcher? %>
+    <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
+    <%= link_to "Checkout your favorite dogs", favorites_path %>
+  <% end %>
+</div>
