@@ -12,11 +12,14 @@
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 40px;
+    position: relative;
 
     p {
-        text-align: right;
-        color: #b6b7b6;
+        color: #c7c8c7;
         font-weight: 600;
+        position: absolute;
+        top: 28px;
+        right: 32px;
     }
 }
 
@@ -116,6 +119,16 @@
 // text input fields
 .input-field {
     border-radius: 8px;
+}
+
+.input-field-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+
+    label {
+        width: 120px;
+    }
 }
 
 // login and signup
