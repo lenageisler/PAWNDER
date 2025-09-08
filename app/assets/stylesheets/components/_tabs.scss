@@ -1,0 +1,43 @@
+.tabs-desktop {
+    display: block;
+
+    @media (max-width: 500px) {
+        display: none; // navbar hidden from smaller devices
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    list-style: none;
+
+    position: fixed;
+    top: 96px;
+    width: 100%;
+    flex-grow: 0;
+    margin-left: 18px;
+    padding: 0;
+    gap: 28px;
+    background-color: white;
+    height: 80px;
+}
+
+.tabs-desktop .tab-desktop {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background-color: #ECEFEC;
+
+    &:hover {
+        opacity: 0.8;
+        border: 2px solid black;
+    }
+}
+
+.tab-desktop a {
+    color: black;
+    text-decoration: none;
+}
+
+.tabs-desktop .tab-desktop.active {
+    background-color: #9DC5F5;
+}
