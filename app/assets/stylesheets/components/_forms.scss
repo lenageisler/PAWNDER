@@ -111,7 +111,7 @@
     input {
         width: 100px;
         border: 1px solid black;
-        border-radius: 50px;
+        border-radius: 8px;
         text-align: center;
     }
 }
@@ -130,6 +130,25 @@
         width: 120px;
     }
 }
+
+// dates
+.date-line {
+    border-radius: 8px;
+}
+
+body .flatpickr-calendar {
+    background: #FFCADC;
+    border: 2px solid black;
+    border-radius: 16px;
+    overflow: hidden;
+    font-family: $my-font;
+}
+
+body .flatpickr-day.selected {
+    background-color: #18CA30;
+    border: 1px solid black;
+}
+
 
 // login and signup
 .form-login {
