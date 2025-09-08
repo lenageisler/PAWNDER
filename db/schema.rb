@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_08_102227) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_08_103424) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,8 +59,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_08_102227) do
     t.date "in_shelter_since"
     t.string "location"
     t.boolean "chipped"
-    t.boolean "health_issus"
-    t.text "health_issus_details"
+    t.boolean "health_issues"
+    t.text "health_issues_details"
     t.boolean "restricted_breed"
     t.boolean "beginner_friendly"
     t.string "male_compatible"
@@ -102,7 +102,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_08_102227) do
     t.integer "shoulder_height_min"
     t.float "weight_min"
     t.string "location", default: [], array: true
-    t.boolean "health_issus"
+    t.boolean "health_issues"
     t.boolean "restricted_breed"
     t.boolean "beginner_friendly"
     t.string "male_compatible"

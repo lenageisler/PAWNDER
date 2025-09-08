@@ -62,7 +62,7 @@ class DogsController < ApplicationController
   def dog_params
     params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade,
       :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since,
-      :location, :chipped, :health_issus, :health_issus_details, :restricted_breed, :beginner_friendly,
+      :location, :chipped, :health_issues, :health_issues_details, :restricted_breed, :beginner_friendly,
       :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_environment, :info)
   end
 
@@ -86,7 +86,7 @@ class DogsController < ApplicationController
     #simple_values
     @dogs = @dogs.where(gender: pref.gender) if pref.gender.present?
     @dogs = @dogs.where(neutered: pref.neutered) if pref.neutered.present?
-    @dogs = @dogs.where(health_issus: false) if pref.health_issus == true
+    @dogs = @dogs.where(health_issues: false) if pref.health_issues == true
     @dogs = @dogs.where(restricted_breed: false) if pref.restricted_breed == true
     @dogs = @dogs.where(beginner_friendly: pref.beginner_friendly) if pref.beginner_friendly.present?
     @dogs = @dogs.where(male_compatible: pref.male_compatible) if pref.male_compatible.present?
