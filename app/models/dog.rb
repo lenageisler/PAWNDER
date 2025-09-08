@@ -6,7 +6,7 @@ class Dog < ApplicationRecord
   has_many :dog_searchers, through: :favorites, source: :user
 
   has_many :favorites, dependent: :destroy
-  has_many :chats, through: :favorites, as: :dog_chats, dependent: :destroy
+  has_many :chats, through: :favorites, as: :dog_chats
 
   validates :name, presence: true
   validates :age, presence: true, numericality: { only_integer: true }
