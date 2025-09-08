@@ -3,6 +3,13 @@
     <!-- Left column: image -->
     <div class="col-md-6">
       <div class="card">
+        <% if dog.photos.attached? %>
+          <% dog.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-card-img" %>
+          <% end %>
+        <% else %>
+          <div class="dog-card-img background"></div>
+        <% end %>
         <%# Later replace with Cloudinary: cl_image_tag @dog.photo.key, class: "img-fluid rounded-3" %>
         <div class="card-future-img-top"></div>
       </div>

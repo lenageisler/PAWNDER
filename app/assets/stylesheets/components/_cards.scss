@@ -1,13 +1,59 @@
-.dog-card-img {
+.dog-index-img {
   width: 100%;
-  height: 250px;
+  height: 350px;
   object-fit: cover;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: .750rem;
+  border-top-right-radius: .750rem;
+}
 
-  .placeholder {
-    background: linear-gradient(135deg, $brand-pink, $brand-light-gray);
+.background {
+    background-color: $brand-pink;
   }
+
+.dog-image-wrapper {
+  border: 4px solid $brand-black;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: $brand-light-gray;
+  padding: 0;
+}
+
+.dog-show-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.dog-show-img.placeholder {
+  background: linear-gradient(135deg, $brand-pink, $brand-light-gray);
+  height: 400px;
+}
+
+.dog-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.dog-thumb-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.card-future-img-top {
+  height: 300px;
+  width: 100%;
+  background-color: $brand-pink;
+  border-radius: .750rem;
 }
 
 .card {
@@ -19,7 +65,6 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   }
 }
-
 
 .card-body {
   position: relative;
