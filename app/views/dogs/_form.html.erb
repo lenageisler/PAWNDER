@@ -2,10 +2,10 @@
     <%= f.input :name, required: true %>
     <%= f.input :birthday, as: :date, required: false %>
     <%= f.input :age, required: true %>
-    <%= f.input :gender, collection: ["male", "female"], prompt: "Select", required: true, as: :check_boxes, include_hidden: false,
+    <%= f.input :gender, collection: ["male", "female"], prompt: "Please select the gender", required: true, as: :check_boxes, include_hidden: false,
         input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
     <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }  %>
-    <div>
+    <div class="dog-form-div">
         <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true,
             as: :check_boxes, include_hidden: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
         <%= f.input :breed_category, collection: [
