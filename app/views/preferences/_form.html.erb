@@ -37,7 +37,7 @@
         required: false, as: :check_boxes, include_hidden: false,
         input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
     <%= f.input :health_issus, as: :boolean, required: false, label: "Dogs with health issues", input_html: { class: "toggle" } %>
-    <%= f.input :list_dog, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" } %>
+    <%= f.input :restricted_breed, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" } %>
     <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" } %>
     <%= f.input :male_compatible, collection: ["yes"], prompt: "Select", required: false %>
     <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>

@@ -18,7 +18,7 @@ class AiMessagesController < ApplicationController
     "Small & slick", "Sausage-type", "Medium mixed", "Large mixed", "Small mixed“]\n\n
     - main_breed, string (disclaimer: not encouraged to use, because of difficult matching)\n\n
     - shoulder_height_min, integer\n\n - shoulder_height_max, integer\n\n - weight_min, float\n\n - weight_max, float\n\n
-    - location, collection: ["Shelter", "Foster Care", „Overseas"]\n\n - health_issus, boolean\n\n - list_dog, boolean\n\n
+    - location, collection: ["Shelter", "Foster Care", „Overseas"]\n\n - health_issus, boolean\n\n - restricted_breed, boolean\n\n
     - beginner_friendly, boolean\n\n - male_compatible, collection: [„yes"]\n\n - female_compatible, collection: [„yes"]\n\n - cat_compatible, collection: [„yes"]\n\n
     - kids_compatible, collection: [„yes"]\n\n - ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"]"
   SCHEMA

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_03_183210) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_08_102227) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_03_183210) do
     t.boolean "chipped"
     t.boolean "health_issus"
     t.text "health_issus_details"
-    t.boolean "list_dog"
+    t.boolean "restricted_breed"
     t.boolean "beginner_friendly"
     t.string "male_compatible"
     t.string "female_compatible"
@@ -103,7 +103,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_03_183210) do
     t.float "weight_min"
     t.string "location", default: [], array: true
     t.boolean "health_issus"
-    t.boolean "list_dog"
+    t.boolean "restricted_breed"
     t.boolean "beginner_friendly"
     t.string "male_compatible"
     t.string "female_compatible"
