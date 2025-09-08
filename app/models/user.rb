@@ -5,12 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 # Associations for SHELTER users
-  has_many :dogs
+  has_many :dogs, dependent: :destroy
   has_many :favored_dogs, through: :dogs, source: :favorites
   has_many :chats, through: :favored_dogs, as: :shelter_chats
 
 # Associations for SEARCHER users
-  has_one :preference
+  has_one :preference, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_dogs, through: :favorites, source: :dogs
   has_many :ai_chats, dependent: :destroy
