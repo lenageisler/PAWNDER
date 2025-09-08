@@ -1,35 +1,77 @@
-<%= simple_form_for(dog, html: { id: "dog-form" }) do |f| %>
-    <%= f.input :name, required: true %>
-    <%= f.input :birthday, as: :date, required: false %>
-    <%= f.input :age, required: true %>
-    <%= f.input :gender, collection: ["male", "female"], prompt: "Select", required: true %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }  %>
-    <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true %>
-    <%= f.input :breed_category, collection: [
-            "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
-            "Sporty-Hunting-type", "Hound-type", "Spitz-type", "Compact & sturdy",
-            "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
-            "Medium mixed", "Large mixed", "Small mixed"
-        ], prompt: "Select Breed Category", required: true %>
-    <%= f.input :main_breed, required: false %>
-    <%= f.input :breed_mix, as: :text, required: false %>
-    <%= f.input :shoulder_height, required: true %>
-    <%= f.input :weight, required: true %>
-    <%= f.input :in_shelter_since, as: :date, required: false %>
-    <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: true %>
-    <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?", input_html: { class: "toggle" }  %>
-    <%= f.input :health_issues, as: :boolean, required: false, label: "Does the dog have any health issues?", input_html: { class: "toggle" }  %>
-    <%= f.input :health_issues_details, as: :text, required: false %>
-    <%= f.input :restricted_breed, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" }  %>
-    <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" }  %>
-    <%= f.input :male_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
-    <%= f.input :female_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
-    <%= f.input :cat_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
-    <%= f.input :kids_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true %>
-    <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: true %>
-    <%= f.input :info, as: :text, required: false, label: "Please describe your dog:" %>
+<%= simple_form_for(dog, html: { class: "dog-form" }) do |f| %>
+    <div class="dog-form-div">
+        <p class="dog-form-div-header">BASICS</p>
+        <p>Please give basic informations on you adoptable dog and add multiple pictures.</p>
+        <div class="input-field-columns">
+            <%= f.input :name, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
+            <%= f.input :gender, collection: ["male", "female"], prompt: "Please select the gender", required: true, as: :radio_buttons, include_hidden: false,
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        </div>
+        <div class="input-field-columns">
+            <%= f.input :birthday, as: :string, input_html: { data: { controller: "flatpickr" }, class: "date-line" }, required: false, label: "Birthday (optional)" %>
+            <%= f.input :age, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
+        </div>
 
-    <%# <%= f.input :image, as: :file %>
-    <%= f.submit class: "btn-flat" %>
+        <%= f.input :info, as: :text, required: false, label: "Please describe your dog:", input_html: { class: "input-field" } %>
+
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+
+    <div class="dog-form-div">
+        <p class="dog-form-div-header">SUITABILITY & ENVIRONMENT</p>
+        <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: true,
+            as: :radio_buttons, include_hidden: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" } %>
+        <%= f.input :restricted_breed, as: :boolean, required: false, label: "Restricted Breed?", input_html: { class: "toggle" } %>
+    </div>
+
+    <div class="dog-form-div">
+        <p class="dog-form-div-header">BREED SPECIFICATIONS</p>
+        <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true,
+            as: :radio_buttons, include_hidden: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <%= f.input :breed_category, collection: [
+                "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
+                "Sporty-Hunting-type", "Hound-type", "Spitz-type", "Compact & sturdy",
+                "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
+                "Medium mixed", "Large mixed", "Small mixed"
+            ], prompt: "Select Breed Category", required: true, as: :radio_buttons, include_hidden: false,
+            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <%= f.input :main_breed, required: false, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" }, label: "Main Breed (optional)" %>
+        <%= f.input :breed_mix, as: :text, required: false, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" }, label: "Decription of breed-mix (optional)" %>
+    </div>
+
+    <div class="dog-form-div">
+        <p class="dog-form-div-header">PHYSIQUE</p>
+        <%= f.input :shoulder_height, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
+        <%= f.input :weight, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
+    </div>
+
+    <div class="dog-form-div">
+        <p class="dog-form-div-header">MEDICAL</p>
+        <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?", input_html: { class: "toggle" } %>
+        <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" } %>
+        <%= f.input :health_issues, as: :boolean, required: false, label: "Does the dog have any health issues?", input_html: { class: "toggle" } %>
+        <%= f.input :health_issues_details, as: :text, required: false, input_html: { class: "input-field" } %>
+    </div>
+
+    <div class="dog-form-div">
+        <p class="dog-form-div-header">COMPATIBILITIES</p>
+        <%= f.input :male_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
+            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label: "Male dogs" %>
+        <%= f.input :female_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
+            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label: "Female dogs" %>
+        <%= f.input :cat_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
+            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label: "Cats" %>
+        <%= f.input :kids_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
+            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label: "Kids" %>
+    </div>
+
+    <div class="dog-form-div">
+        <p class="dog-form-div-header">SHELTER / FOSTER INFORMATION</p>
+        <%= f.input :in_shelter_since, as: :string, input_html: { data: { controller: "flatpickr" }, class: "date-line" }, required: false, label: "In the Shelter since (optional)" %>
+        <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
+            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+    </div>
+
+    <%= f.submit class: "btn-main" %>
 <% end %>

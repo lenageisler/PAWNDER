@@ -6,6 +6,7 @@
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr.min.css";
 
 // Your CSS partials
 @import "components/index";
@@ -19,19 +20,26 @@ body {
 
     @media (min-width: 800px) {
         padding-top: 176px;
-        padding-bottom: 0px;
+        padding-bottom: 40px;
+        padding-left: 120px;
+        padding-right: 120px;
     }
     @media (max-width: 800px) {
-        padding-bottom: 48px;
+        padding-bottom: 64px;
         padding-top: 176px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
     @media (max-width: 500px) {
-        padding-top: 0px;        
-        padding-bottom: 48px;
+        padding-top: 16px;        
+        padding-bottom: 64px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
 }
 
 a {
     text-decoration: none;
+    color: $brand-black;
 }
