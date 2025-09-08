@@ -7,10 +7,13 @@ class Message < ApplicationRecord
   private
 
   def broadcast_message
-    role = chat.user.role # This is a bug! the rol user_sole is always the same no matter who writes the message
     broadcast_append_to "chat_#{chat.id}_messages",
                         partial: "messages/message",
-                        locals: { message: self, favorite: self.chat.favorite, user_role: role}, # bug in user_role
+                        locals: { message: self, favorite: self.chat.favorite, user_role: role}, # Always set as 'sent' for the sender.
                         target: "messages"
+    # Although a new message is always set as 'sent', the receiver user will
+    # get the message with the proper 'received' style CSS class via Stimulus,
+    # thanks to the javascript message_controller, and the data target and value
+    # set in the application layout and the message partial.
   end
 end
