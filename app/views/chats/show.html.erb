@@ -15,7 +15,7 @@
     html: {class: "d-flex",
             data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
   %>
-    <% other_user = current_user == @favorite.shelter_user ?  @favorite.user : @favorite.shelter_user %>
+    <% other_user = searcher? ?  @chat.shelter : @chat.searcher %> <%# for display in placeholder form %>
     <%= f.input :content,
       label: false,
       placeholder: "Message #{searcher? ? other_user.name : other_user.username}",
