@@ -1,13 +1,13 @@
 <div class="container chat">
   <h1>
-    Your chat with <%= searcher? ? @favorite.shelter_user.name : @favorite.user.username %>
+    Your chat with <%= searcher? ? @chat.shelter.name : @chat.searcher.username %>
     about <%= @chat.dog.name %>
   </h1>
 
   <%= turbo_stream_from "chat_#{@chat.id}_messages" %> <%# Subscribe the chat_id_messages client to a Turbo Stream channel %>
   <div id="messages" class="messages">
     <% @chat.messages.each do |message| %>
-      <%= render "messages/message", message: message, favorite: @favorite, user_role: current_user.role %>
+      <%= render "messages/message", message: message, user_role: current_user.role %>
     <% end %>
   </div>
 
