@@ -1,10 +1,12 @@
 <div
     id="message-<%= message.id %>"
-    class="message <%= message.role == user_role ? 'sent' : 'received' %>">
+    class="message <%= message.role == user_role ? 'sent' : 'received' %>"
+    data-controller="message"
+    data-message-user-role-value="<%= message.role %>">
   <small class="message-info">
     <strong>
-      <%= favorite.user.username if message.role == "searcher" %>
-      <%= favorite.shelter_user.name if message.role == "shelter" %>
+      <%= message.searcher_user.username if message.role == "searcher" %>
+      <%= message.shelter_user.name if message.role == "shelter" %>
     </strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
