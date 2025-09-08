@@ -3,7 +3,19 @@
   width: 100%;
   background-color: $brand-pink;
   border-radius: .750rem;
+  object-fit: cover;
 }
+
+.card {
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
 
 .card-body {
   position: relative;
@@ -16,6 +28,18 @@
   right: 20px;
   top: 12px;
   font-size: 24px;
+  color: $brand-red;
+}
+
+#heart-button-bordered {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  font-size: 40px;
+  color: $brand-red;
+  // text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
 .card-title {

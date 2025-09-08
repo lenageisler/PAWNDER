@@ -30,10 +30,10 @@
           <hr>
 
           <h5>Physical Info</h5>
-          <p><strong>Birthday:</strong> <%= @dog.birthday&.strftime("%B %d, %Y") || "Unknown" %></p>
           <p><strong>Shoulder height:</strong> <%= @dog.shoulder_height %> cm</p>
           <p><strong>Weight:</strong> <%= @dog.weight %> kg</p>
           <p><strong>Neutered:</strong> <%= @dog.neutered ? "Yes" : "No" %></p>
+          <p><strong>Birthday:</strong> <%= @dog.birthday&.strftime("%B %d, %Y") || "Unknown" %></p>
 
           <hr>
 
@@ -78,10 +78,10 @@
 
             <% if searcher? %>
               <% if (favorite = @dog.favorites.find_by(user: current_user)) %>
-                <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(@dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Remove #{@dog.name} from favorites?"}, class: "heart-button" %>
+                <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(@dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Remove #{@dog.name} from favorites?"}, id: "heart-button-bordered" %>
               <% else %>
                 <%= simple_form_for [@dog, Favorite.new] do |f| %>
-                  <%= button_tag type: 'submit', class: "heart-button" do %>
+                  <%= button_tag type: 'submit', id: "heart-button-bordered" do %>
                     <i class="fa-regular fa-heart"></i>
                   <% end %>
                 <% end %>
