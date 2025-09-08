@@ -18,10 +18,9 @@
   z-index: 900;
 
   list-style: none;
-  background: #FAEB7C;
+  background: #FBE74E;
   border-top: 2px solid black;
   font-size: 24px;
-  text-shadow: 1px 1px 1.5px rgba(128, 128, 128, 0.5);
 }
 
 .navbar-top {
@@ -50,4 +49,20 @@
   margin-top: 16px;
   margin-left: 16px;
   margin-right: 16px;
+}
+
+.navbar-top-background {
+  display: block;
+
+  @media (max-width: 500px) {
+    display: none; // navbar hidden from small devices
+  }
+
+  position: fixed;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  flex-grow: 0;
+  z-index: 800;
+  background-color: white;
 }
