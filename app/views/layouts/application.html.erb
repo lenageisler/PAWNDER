@@ -14,9 +14,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render "shared/tabs" %>       
-    <%= render "shared/avatar" %>   
+  <body data-current-user-role="<%= current_user ? current_user.role : "" %>">
+    <%= render "shared/tabs" %>
+    <%= render "shared/avatar" %>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <main id="main-content">
