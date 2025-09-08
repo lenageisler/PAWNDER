@@ -63,7 +63,7 @@ class DogsController < ApplicationController
     params.require(:dog).permit(:name, :birthday, :age, :gender, :neutered, :breed_grade,
       :breed_category, :main_breed, :breed_mix, :shoulder_height, :weight, :in_shelter_since,
       :location, :chipped, :health_issues, :health_issues_details, :restricted_breed, :beginner_friendly,
-      :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_environment, :info)
+      :male_compatible, :female_compatible, :cat_compatible, :kids_compatible, :ideal_environment, :info, photos: [])
   end
 
   def preference_filter

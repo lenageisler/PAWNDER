@@ -1,37 +1,104 @@
-<div class="card" style="width: 18rem">
-  <%# <img src="..." class="card-img-top" alt="..."> %>
-  <div class="card-future-img-top"></div>
-  <div class="card-body">
-    <h5 class="card-title"><%= dog.name %></h5>
-    <p class="card-text"><%= dog.age %> years old</p>
-    <p class="card-text"><%= dog.gender %> </p>
-    <p class="card-text"><%= dog.breed_grade %> </p>
-    <p class="card-text"><%= dog.breed_category %> </p>
-    <div class="card-button">
-      <% if shelter? %>
-      <div class="heart-button">
-        <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_dog_path%>
-        <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, dog_path(dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{dog.name}?"} %>
-      </div>
-      <% end %>
-      <% if searcher? %>
-        <% if (favorite = @dog.favorites.find_by(user: current_user))%>
-        <div class="heart-button">
-          <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(@dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{dog.name} from your favorites?"} %></p>
-        </div>
-        <% else %>
-          <%= simple_form_for [dog, Favorite.new] do |f| %>
-            <%= f.error_notification %>
-            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-            <%= button_tag type: 'submit', class: 'heart-button' do %>
-                <i class="fa-regular fa-heart"></i>
+<div class="container mt-4">
+  <div class="row">
+    <!-- Left column: image -->
+    <div class="col-md-6">
+      <div class="dog-image-wrapper">
+      <% if dog.photos.attached? %>
+        <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-show-img" %>
+        <% if dog.photos.many? %>
+          <div class="dog-thumbnails mt-2">
+            <% dog.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-thumb-img" %>
             <% end %>
-          <% end %>
+          </div>
         <% end %>
+      <% else %>
+        <div class="dog-show-img background"></div>
       <% end %>
+      </div>
     </div>
-    <%# <a href="#" class="btn btn-main">Add to favorite</a> %>
+    <!-- Right column: details -->
+    <div class="col-md-6">
+      <div class="card p-4">
+        <div class="card-body">
+          <h2 class="card-title"><%= @dog.name %></h2>
+          <p class="text-muted">
+            <%= @dog.age %> years old
+            <% if @dog.gender.present? %> • <%= @dog.gender %><% end %>
+          </p>
+
+          <% if @dog.main_breed.present? %>
+            <p><strong>Main breed:</strong> <%= @dog.main_breed %></p>
+          <% end %>
+          <p><strong>Breed type:</strong> <%= @dog.breed_grade %> (<%= @dog.breed_category %>)</p>
+          <p><strong>Restricted breed:</strong> <%= @dog.restricted_breed ? "Yes" : "No" %></p>
+          <% if @dog.breed_mix.present? %>
+            <p><strong>Breed mix:</strong> <%= @dog.breed_mix %></p>
+          <% end %>
+
+          <hr>
+
+          <h5>Physical Info</h5>
+          <p><strong>Shoulder height:</strong> <%= @dog.shoulder_height %> cm</p>
+          <p><strong>Weight:</strong> <%= @dog.weight %> kg</p>
+          <p><strong>Neutered:</strong> <%= @dog.neutered ? "Yes" : "No" %></p>
+          <p><strong>Birthday:</strong> <%= @dog.birthday&.strftime("%B %d, %Y") || "Unknown" %></p>
+
+          <hr>
+
+          <h5>Health</h5>
+          <p><strong>Microchipped:</strong> <%= @dog.chipped ? "Yes" : "No" %></p>
+          <p><strong>Health issues:</strong> <%= @dog.health_issues ? "Yes" : "No" %></p>
+          <% if @dog.health_issues_details.present? %>
+            <p><strong>Details:</strong> <%= @dog.health_issues_details %></p>
+          <% end %>
+
+          <hr>
+
+          <h5>Compatibility</h5>
+          <p><strong>With male dogs:</strong> <%= @dog.male_compatible.capitalize %></p>
+          <p><strong>With female dogs:</strong> <%= @dog.female_compatible.capitalize %></p>
+          <p><strong>With cats:</strong> <%= @dog.cat_compatible.capitalize %></p>
+          <p><strong>With kids:</strong> <%= @dog.kids_compatible.capitalize %></p>
+          <p><strong>Beginner friendly:</strong> <%= @dog.beginner_friendly ? "Yes" : "No" %></p>
+
+          <hr>
+
+          <h5>Environment</h5>
+          <p><strong>In shelter since:</strong> <%= @dog.in_shelter_since&.strftime("%B %d, %Y") || "Unknown" %></p>
+          <p><strong>Current location:</strong> <%= @dog.location %></p>
+          <p><strong>Ideal environment:</strong> <%= @dog.ideal_environment %></p>
+
+          <% if @dog.info.present? %>
+            <hr>
+            <h5>About <%= @dog.name %></h5>
+            <p><%= @dog.info %></p>
+          <% end %>
+
+          <hr>
+
+          <div class="d-flex gap-3 align-items-center">
+            <% if shelter? %>
+            <div class="heart-button">
+              <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_dog_path%>
+              <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, dog_path(dog), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{dog.name}?"} %>
+            </div>
+            <% end %>
+
+            <% if searcher? %>
+              <% if (favorite = @dog.favorites.find_by(user: current_user)) %>
+                <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(@dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Remove #{@dog.name} from favorites?"}, id: "heart-button-bordered" %>
+              <% else %>
+                <%= simple_form_for [@dog, Favorite.new] do |f| %>
+                  <%= button_tag type: 'submit', id: "heart-button-bordered" do %>
+                    <i class="fa-regular fa-heart"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<%# If you want equal heights by default, you can set $card-height: 100% in Sass. %>

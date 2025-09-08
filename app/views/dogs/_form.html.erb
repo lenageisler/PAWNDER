@@ -3,6 +3,7 @@
     <%= f.input :birthday, as: :date, required: false %>
     <%= f.input :age, required: true %>
     <%= f.input :gender, collection: ["male", "female"], prompt: "Select", required: true %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }  %>
     <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true %>
     <%= f.input :breed_category, collection: [
