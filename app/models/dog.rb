@@ -1,4 +1,5 @@
 class Dog < ApplicationRecord
+  has_many_attached :photos
   # SHELTER user
   belongs_to :user
 

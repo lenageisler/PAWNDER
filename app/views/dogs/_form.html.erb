@@ -14,7 +14,7 @@
 
         <%= f.input :info, as: :text, required: false, label: "Please describe your dog:", input_html: { class: "input-field" } %>
 
-    <%# <%= f.input :image, as: :file %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
 
     <div class="dog-form-div">

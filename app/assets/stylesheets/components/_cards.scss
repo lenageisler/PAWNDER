@@ -1,8 +1,64 @@
-.card-future-img-top {
-  height: 300px;
+.dog-index-img {
   width: 100%;
-  background-color: $brand-pink;
-  border-radius: .750rem;
+  height: 350px;
+  object-fit: cover;
+  border-top-left-radius: .750rem;
+  border-top-right-radius: .750rem;
+}
+
+.background {
+    background-color: $brand-pink;
+  }
+
+.dog-image-wrapper {
+  border: 4px solid $brand-black;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: $brand-light-gray;
+  padding: 0;
+}
+
+.dog-show-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.dog-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.dog-thumb-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// .card-future-img-top {
+//   height: 300px;
+//   width: 100%;
+//   background-color: $brand-pink;
+//   border-radius: .750rem;
+// }
+
+.card {
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .card-body {
@@ -16,6 +72,18 @@
   right: 20px;
   top: 12px;
   font-size: 24px;
+  color: $brand-red;
+}
+
+#heart-button-bordered {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  font-size: 40px;
+  color: $brand-red;
+  // text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
 .card-title {
