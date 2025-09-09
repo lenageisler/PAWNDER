@@ -32,7 +32,7 @@
                 input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
             <%= f.input :breed_category, collection: [
                     "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
-                    "Sporty-Hunting-type", "Hound-type", "Spitz-type", "Compact & sturdy",
+                    "Hound-type", "Sporty-Hunting-type", "Spitz-type", "Compact & sturdy",
                     "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
                     "Medium mixed", "Large mixed", "Small mixed"
                 ], required: false, as: :check_boxes, include_hidden: false,
@@ -55,28 +55,18 @@
 
     <div class="dog-form-div" data-controller="toggle-form-div">
         <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
-            <p class="headline-preference-div">tbd</p>
+            <p class="headline-preference-div">Environment + Experience</p>
             <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
             <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
         <div data-toggle-form-div-target="body" class="d-none">
-
+            <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"],
+                required: false, as: :check_boxes, include_hidden: false,
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+            <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly dogs", input_html: { class: "toggle" } %>
+            <%= f.input :restricted_breed, as: :boolean, required: false, label: "No restricted breed dogs", input_html: { class: "toggle" } %>
         </div>
     </div>
-
-
-    <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"],
-        required: false, as: :check_boxes, include_hidden: false,
-        input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-    <%= f.input :restricted_breed, as: :boolean, required: false, label: "List dog?", input_html: { class: "toggle" } %>
-    <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" } %>
-
-
-    <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"],
-        required: false, as: :check_boxes, include_hidden: false,
-        input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-    <%= f.input :health_issues, as: :boolean, required: false, label: "Dogs with health issues", input_html: { class: "toggle" } %>
-    <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" } %>
 
     <div class="dog-form-div" data-controller="toggle-form-div">
         <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
@@ -89,6 +79,21 @@
             <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
             <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
             <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
+        </div>
+    </div>
+
+    <div class="dog-form-div" data-controller="toggle-form-div">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+            <p class="headline-preference-div">Health + Location</p>
+            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-form-div-target="body" class="d-none">
+            <%= f.input :health_issues, as: :boolean, required: false, label: "Dogs without health issues", input_html: { class: "toggle" } %>
+            <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }, label: "Neutered/sprayed dogs" %>
+            <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"],
+                required: false, as: :check_boxes, include_hidden: false, label: "Current location",
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
         </div>
     </div>
 
