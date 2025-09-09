@@ -8,9 +8,8 @@
         render "searcheredit"
       end %>
 
-      <div class="form-login" >
-        <h2>Account Deletion</h2>
-        
+      <h2>Account Deletion</h2>
+      <div class="form-signup" >
         <% if searcher? %>
           <p>You found a dog already? - Great!</p>
           <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn-main" %>
@@ -18,7 +17,6 @@
           <p>Unhappy with our service?</p>
           <%= link_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn-main" %>
         <% end %>
-      
       </div>
 
     </div>
