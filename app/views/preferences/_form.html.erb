@@ -1,47 +1,69 @@
 <%= simple_form_for(preference, html: { class: "dog-form" }) do |f| %>
-    <div class="dog-form-div">
-        <p class="headline-preference-div">Basics of your future dog</p>
-        <%= f.input :gender, collection: ["male", "female"],
-            required: false, as: :radio_buttons,
-            input_html: { class: "tag-selector" },
-            item_wrapper_class: 'tag-item' %>
-
-        <p>Age</p>
-        <div class="range">
-            <%= f.input :age_min, required: false, placeholder: "min", label: false %>
-            <p>-</p>
-            <%= f.input :age_max, required: false, placeholder: "max", label: false %>
+    <div class="dog-form-div" data-controller="toggle-form-div">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+            <p class="headline-preference-div">Basics</p>
+            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
+        <div data-toggle-form-div-target="body" class="d-none">
+            <%= f.input :gender, collection: ["male", "female"],
+                required: false, as: :radio_buttons,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
 
-    </div>
-
-    <div class="dog-form-div">
-        <p class="headline-preference-div">Breed + Body</p>
-        <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"],
-            required: false, as: :check_boxes, include_hidden: false,
-            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-        <%= f.input :breed_category, collection: [
-                "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
-                "Sporty-Hunting-type", "Hound-type", "Spitz-type", "Compact & sturdy",
-                "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
-                "Medium mixed", "Large mixed", "Small mixed"
-            ], required: false, as: :check_boxes, include_hidden: false,
-            input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-        <%= f.input :main_breed, required: false, input_html: { class: "input-field" } %>
-
-        <p>Weight</p>
-        <div class="range">
-            <%= f.input :weight_min, required: false, placeholder: "min", label: false %>
-            <p>-</p>
-            <%= f.input :weight_max, required: false, placeholder: "max", label: false %>
-        </div>
-        <p>Soulder height</p>
-        <div class="range">
-            <%= f.input :shoulder_height_min, required: false, placeholder: "min", label: false %>
-            <p>-</p>
-            <%= f.input :shoulder_height_max, required: false, placeholder: "max", label: false %>
+            <p>Age</p>
+            <div class="range">
+                <%= f.input :age_min, required: false, placeholder: "min", label: false %>
+                <p>-</p>
+                <%= f.input :age_max, required: false, placeholder: "max", label: false %>
+            </div>
         </div>
     </div>
+
+    <div class="dog-form-div" data-controller="toggle-form-div">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+            <p class="headline-preference-div">Breed + Body</p>
+            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-form-div-target="body" class="d-none">
+            <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"],
+                required: false, as: :check_boxes, include_hidden: false,
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+            <%= f.input :breed_category, collection: [
+                    "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
+                    "Sporty-Hunting-type", "Hound-type", "Spitz-type", "Compact & sturdy",
+                    "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
+                    "Medium mixed", "Large mixed", "Small mixed"
+                ], required: false, as: :check_boxes, include_hidden: false,
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+            <%# <%= f.input :main_breed, required: false, input_html: { class: "input-field" } %>
+            <p>Weight</p>
+            <div class="range">
+                <%= f.input :weight_min, required: false, placeholder: "min", label: false %>
+                <p>-</p>
+                <%= f.input :weight_max, required: false, placeholder: "max", label: false %>
+            </div>
+            <p>Soulder height</p>
+            <div class="range">
+                <%= f.input :shoulder_height_min, required: false, placeholder: "min", label: false %>
+                <p>-</p>
+                <%= f.input :shoulder_height_max, required: false, placeholder: "max", label: false %>
+            </div>
+        </div>
+    </div>
+
+    <div class="dog-form-div" data-controller="toggle-form-div">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+            <p class="headline-preference-div">tbd</p>
+            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-form-div-target="body" class="d-none">
+
+        </div>
+    </div>
+
 
     <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"],
         required: false, as: :check_boxes, include_hidden: false,
@@ -56,11 +78,23 @@
     <%= f.input :health_issues, as: :boolean, required: false, label: "Dogs with health issues", input_html: { class: "toggle" } %>
     <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" } %>
 
-    <%= f.input :male_compatible, collection: ["yes"], prompt: "Select", required: false %>
-    <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
-    <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
-    <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
+    <div class="dog-form-div" data-controller="toggle-form-div">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+            <p class="headline-preference-div">Compatibilities</p>
+            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-form-div-target="body" class="d-none">
+            <%= f.input :male_compatible, collection: ["yes"], prompt: "Select", required: false %>
+            <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
+            <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
+            <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
+        </div>
+    </div>
 
-
-    <%= f.submit class: "btn-main" %>
+    <% if @preference.new_record? %>
+        <%= f.submit "Find your perfect dog match", class: "btn-main btn-centered" %>
+    <% else %>
+        <%= f.submit "Save preference changes", class: "btn-main btn-centered" %>
+    <% end %>
 <% end %>

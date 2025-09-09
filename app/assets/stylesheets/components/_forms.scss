@@ -33,6 +33,10 @@
     p {
         margin-bottom: 7px;
     }
+
+    i {
+        cursor: pointer;
+    }
 }
 
 .dog-form-div-header {
@@ -51,7 +55,7 @@
 .headline-preference-div {
     color: black;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     padding-bottom: 8px;
 }
