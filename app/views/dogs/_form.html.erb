@@ -1,7 +1,7 @@
 <%= simple_form_for(dog, html: { class: "dog-form" }) do |f| %>
     <div class="dog-form-div">
         <p class="dog-form-div-header">BASICS</p>
-        <p>Enter the basic information about the dog, including name, age, gender, opt. birthday, and a short description.<br>You can also add photos, greatly increasing the chances of the dog being adopted.</p>
+        <p class="bottom-padding">Enter the basic information about the dog, including name, age, gender, opt. birthday, and a short description.<br>You can also add photos, greatly increasing the chances of the dog being adopted.</p>
         <div class="dog-div-columns">
             <%= f.input :name, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
             <%= f.input :age, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" },
@@ -20,7 +20,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">SUITABILITY & ENVIRONMENT</p>
-        <p>Indicate whether the dog is suited for first-time owners, if it belongs to a restricted/regulated breed<br>and select the preferred environment or living situation.</p>
+        <p class="bottom-padding">Indicate whether the dog is suited for first-time owners, if it belongs to a restricted/regulated breed<br>and select the preferred environment or living situation.</p>
         <div class="dog-div-columns">
             <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Is the dog suited for first time dog owners?", input_html: { class: "toggle" } %>
             <%= f.input :restricted_breed, as: :boolean, required: false, label: "Does the dog belong to a restricted/regulated breed?", input_html: { class: "toggle" } %>
@@ -31,7 +31,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">BREED SPECIFICATIONS</p>
-        <p>Provide the dog's breed details, choose breed grade and the best fitting breed category,<br>name main breed if possible and/or give details about the possible breed mix.</p>
+        <p class="bottom-padding">Provide the dog's breed details, choose breed grade and the best fitting breed category,<br>name main breed if possible and/or give details about the possible breed mix.</p>
         <div class="dog-div-columns">
             <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true,
                 as: :radio_buttons, include_hidden: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
@@ -51,7 +51,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">PHYSIQUE</p>
-        <p>Enter the dog's physical measurements.</p>
+        <p class="bottom-padding">Enter the dog's physical measurements.</p>
         <div class="dog-div-columns">
             <%= f.input :weight, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" },
                 placeholder: 'in kg, e.g. "12"' %>
@@ -62,7 +62,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">MEDICAL</p>
-        <p>Provide information about the dog's health and describe health problems if existing.</p>
+        <p class="bottom-padding">Provide information about the dog's health and describe health problems if existing.</p>
         <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?", input_html: { class: "toggle" } %>
         <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }, label: "Is the dog neutered?" %>
         <%= f.input :health_issues, as: :boolean, required: false, label: "Does the dog have any health issues?", input_html: { class: "toggle" } %>
@@ -71,7 +71,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">COMPATIBILITIES</p>
-        <p>Indicate how the dog interacts with other dogs, cats, and children.</p>
+        <p class="bottom-padding">Indicate how the dog interacts with other dogs, cats, and children.</p>
         <%# <div class="dog-div-columns"> %>
         <%= f.input :male_compatible, collection: ["yes", "no", "unknown"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
             input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label: "Compatible with male dogs" %>
@@ -86,7 +86,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">SHELTER / FOSTER INFORMATION</p>
-        <p>Provide details about the dog's current location as well as the arrival date at the shelter.</p>
+        <p class="bottom-padding">Provide details about the dog's current location as well as the arrival date at the shelter.</p>
         <div class="dog-div-columns">
             <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"], prompt: "Select", required: true, as: :radio_buttons, include_hidden: false,
                 input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>

@@ -26,13 +26,12 @@
     }
 
     position: relative;
-    
-    p {
-        padding-bottom: 16px;
-    }
 
     .form-check {
         padding: 0px;
+    }
+    p {
+        margin-bottom: 7px;
     }
 }
 
@@ -43,6 +42,18 @@
     font-size: 18px;
     top: 40px;
     right: 40px;
+}
+
+.bottom-padding {
+    padding-bottom: 16px;
+}
+
+.headline-preference-div {
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 8px;
 }
 
 .dog-div-columns {
@@ -61,6 +72,7 @@ label .optional {
     padding-left: 8px;
     vertical-align: middle; 
 }
+
 
 // text input fields
 .input-field {
@@ -176,7 +188,6 @@ label .optional {
 
     input {
         width: 100px;
-        border: 1px solid black;
         border-radius: 8px;
         text-align: center;
     }
