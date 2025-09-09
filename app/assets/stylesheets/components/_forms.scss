@@ -91,8 +91,10 @@ label .optional {
     align-items: baseline;
     gap: 8px;
     label {
-        width: 140px;
+        max-width: 350px;
+        width: auto;
         flex-shrink: 0;
+        padding-right: 16px;
     }
 }
 
@@ -126,7 +128,7 @@ label .optional {
 }
 
 .toggle:checked + label::before {
-    background-color: $brand-green;
+    background-color: $brand-blue;
 }
 
 .toggle + label::after {
@@ -177,7 +179,7 @@ label .optional {
 }
 
 .tag-selector:checked + label {
-    background-color: $brand-green;
+    background-color: $brand-blue;
     color: black;
     border: 1px solid black;
 }
@@ -210,28 +212,37 @@ body .flatpickr-calendar {
     font-family: $my-font;
 }
 body .flatpickr-day.selected {
-    background-color: $brand-green;
+    background-color: $brand-blue;
     border: 1px solid black;
 }
 body .flatpickr-day.selected:hover {
-    background-color: $brand-blue;
+    background-color: $brand-pink;
     border: 1px solid black;
     color: black;
 }
 
 // specifics
-.dog_birthday, .dog_gender {
+.dog_birthday, .dog_gender, .dog_ideal_environment, .dog_breed_grade, .dog_location, .dog_in_shelter_since,
+    .dog_male_compatible, .dog_female_compatible, .dog_cat_compatible, .dog_kids_compatible {
     display: flex;
     align-items: baseline;
     gap: 8px;
     legend {
-        width: 140px;
+        max-width: 350px;
+        width: auto;
+        padding-right: 16px;
     }
 
 }
-.dog_birthday  {
+.dog_birthday, .dog_in_shelter_since {
     label {
-        width: 140px;
+        max-width: 300px;
+        padding-right: 16px;
+        width: auto;
         flex-shrink: 0;
     }
+}
+
+.dog_info, .dog_breed_mix {
+    padding-top: 8px;
 }
