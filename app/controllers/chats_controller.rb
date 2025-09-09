@@ -11,12 +11,17 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.new
-    @chat.favorite = Favorite.find(params[:favorite_id])
-    if @chat.save
-      redirect_to chat_path(@chat)
+    favorite = Favorite.find(params[:favorite_id])
+    if favorite.chat.present?
+      redirect_to chat_path(favorite.chat)
     else
-      render "favorites/index"
+      @chat = Chat.new
+      @chat.favorite = favorite
+      if @chat.save
+        redirect_to chat_path(@chat)
+      else
+        render "favorites/index", status: :unprocessable_entity
+      end
     end
   end
 
