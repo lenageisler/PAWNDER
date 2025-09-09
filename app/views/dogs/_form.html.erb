@@ -20,7 +20,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">SUITABILITY & ENVIRONMENT</p>
-        <p>Indicate whether the dog is suited for first-time owners, if it belongs to a restricted/regulated breed, and select the preferred environment or living situation.</p>
+        <p>Indicate whether the dog is suited for first-time owners, if it belongs to a restricted/regulated breed<br>and select the preferred environment or living situation.</p>
         <div class="dog-div-columns">
             <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Is the dog suited for first time dog owners?", input_html: { class: "toggle" } %>
             <%= f.input :restricted_breed, as: :boolean, required: false, label: "Does the dog belong to a restricted/regulated breed?", input_html: { class: "toggle" } %>
@@ -31,7 +31,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">BREED SPECIFICATIONS</p>
-        <p>Provide the dog's breed details, including breed grade, main breed, possible mix, and the category that best describes the dog.</p>
+        <p>Provide the dog's breed details, choose breed grade and the best fitting breed category,<br>name main breed if possible and/or give details about the possible breed mix.</p>
         <div class="dog-div-columns">
             <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true,
                 as: :radio_buttons, include_hidden: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
@@ -62,7 +62,7 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">MEDICAL</p>
-        <p>Provide information about the dog's health: whether it is microchipped or neutered/spayed and whether it has any health problems.</p>
+        <p>Provide information about the dog's health and describe health problems if existing.</p>
         <%= f.input :chipped, as: :boolean, required: false, label: "Is the dog chipped?", input_html: { class: "toggle" } %>
         <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }, label: "Is the dog neutered?" %>
         <%= f.input :health_issues, as: :boolean, required: false, label: "Does the dog have any health issues?", input_html: { class: "toggle" } %>
