@@ -2,8 +2,12 @@
 
 <h3><%= searcher? ? @searcher_name : @shelter_name %> open chats </h3>
 
-<ul>
 <% @chats.each do |chat| %>
-  <li><%= link_to chat.dog.name, chat_path(chat)%></li>
+  <div class="border mb-3 px-2">
+    <% other_user = searcher? ?  chat.shelter.name : chat.searcher.username  %>
+    <h6 class="mb-0 fw-bold"><%= link_to "#{chat.dog.name} with #{other_user}", chat_path(chat)%></h6>
+    <% if chat.messages.any? %>
+    <small class="text-muted"><i><%= "#{chat.messages.last.content.truncate(15)}..." %></i></small>
+    <% end %>
+  </div>
 <% end %>
-</ul>
