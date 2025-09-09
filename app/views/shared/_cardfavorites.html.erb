@@ -2,7 +2,7 @@
   <%= link_to dog_path(favorite.dog) do %>
   <div class="card h-100">
       <% if favorite.dog.photos.attached? %>
-        <%= cl_image_tag favorite.photo.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
+        <%= cl_image_tag favorite.dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
       <% else %>
         <div class="dog-index-img background" style="background-color: #FBE74E"></div>
       <% end %>

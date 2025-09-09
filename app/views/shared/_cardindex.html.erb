@@ -3,7 +3,7 @@
     <%= link_to dog_path(dog) do %>
     <div class="card h-100">
       <% if dog.photos.attached? %>
-        <%= cl_image_tag photo.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
+        <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
       <% else %>
         <div class="dog-index-img background"></div>
       <% end %>
