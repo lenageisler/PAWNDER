@@ -83,12 +83,12 @@
     height: 20px;
     top: 0;
     left: 0;
-    background-color: #FBE74E;
+    background-color: $brand-yellow;
     border-radius: 8px;
 }
 
 .toggle:checked + label::before {
-    background-color: #18CA30;
+    background-color: $brand-green;
 }
 
 .toggle + label::after {
@@ -128,14 +128,14 @@
     display: inline-block;
     border-radius: 8px;
     padding: 0.1rem 0.5rem;
-    background-color: #FBE74E;
+    background-color: $brand-yellow;
     color: black;
     margin-right: 0.6rem;
     margin-bottom: 0.4rem;
 }
 
 .tag-selector:checked + label {
-    background-color: #18CA30;
+    background-color: $brand-green;
     color: black;
     border: 1px solid black;
 }
@@ -159,19 +159,23 @@
 .date-line {
     border-radius: 8px;
 }
-
 body .flatpickr-calendar {
-    background: #FBE74E;
+    background: $brand-yellow;
     border: 2px solid black;
     border-radius: 16px;
     overflow: hidden;
     font-family: $my-font;
 }
-
 body .flatpickr-day.selected {
-    background-color: #18CA30;
+    background-color: $brand-green;
     border: 1px solid black;
 }
+body .flatpickr-day.selected:hover {
+    background-color: $brand-light-gray;
+    border: 1px solid black;
+    color: black;
+}
+
 
 
 // login and signup
@@ -188,7 +192,4 @@ body .flatpickr-day.selected {
         margin-bottom: 30px;
         text-align: center;
     }
-    // .btn {
-    //     width: 100%;
-    // }
 }
