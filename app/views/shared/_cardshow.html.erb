@@ -26,7 +26,7 @@
     <% end %>
     </div>
     <div class="col-md-6">
-      <div class="card p-4">
+      <div class="card p-1 mt-4">
         <div class="card-body">
           <h2 class="card-title"><%= @dog.name %></h2>
           <p class="text-muted">
@@ -110,3 +110,17 @@
     </div>
   </div>
 </div>
+
+<% if searcher? %>
+  <div class="shelter-profile card mt-4 p-1">
+  <div class="card-body">
+    <h4 class="card-title">Shelter Information</h4>
+    <p><strong>Name:</strong> <%= dog.user.name %></p>
+    <p><strong>Type:</strong> <%= dog.user.shelter_type %></p>
+    <p><strong>Location:</strong> <%= dog.user.location %></p>
+
+    <img id="shelter-map" class="shelter-map mt-3" src="https://api.mapbox.com/geocoding/v5/mapbox.places/2.346,48.8595,11.72,0,0/600x300?access_token=<%= @MAPBOX_API_KEY %>"  alt="<%= dog.user.location %>">
+
+  </div>
+</div>
+<% end %>

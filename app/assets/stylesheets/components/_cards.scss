@@ -12,7 +12,7 @@
 
 .dog-image-wrapper {
   border: 4px solid $brand-black;
-  border-radius: 1rem;
+  border-radius: .750rem;
   overflow: hidden;
   background: $brand-light-gray;
   padding: 0;
@@ -33,7 +33,7 @@
 .dog-thumbnails {
   display: flex;
   gap: 0.75rem;
-  justify-content: start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -42,9 +42,10 @@
   height: 100px;
   object-fit: cover;
   border: 3px solid $brand-black;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease;
+  margin-bottom: 8px;
 
   &:hover {
     transform: scale(1.05);
@@ -112,4 +113,17 @@
 
 .card-text {
   color: $brand-black;
+}
+
+.shelter-profile {
+  border: 4px solid $brand-black;
+  border-radius: 1rem;
+  background: $brand-light-gray;
+}
+
+.shelter-map {
+  width: 100%;
+  height: 300px;
+  border-radius: 0.75rem;
+  border: 2px solid $brand-black;
 }
