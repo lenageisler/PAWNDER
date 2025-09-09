@@ -2,3 +2,8 @@
 
 <h3><%= searcher? ? @searcher_name : @shelter_name %> open chats </h3>
 
+<ul>
+<% @chats.each do |chat| %>
+  <li><%= link_to chat.dog.name, chat_path(chat)%></li>
+<% end %>
+</ul>

@@ -3,11 +3,10 @@ class ChatsController < ApplicationController
   def index
     if searcher?
       @searcher_name = current_user.username
-      raise
-      @chats = current_user.chats
+      @chats = current_user.searcher_chats
     else
       @shelter_name = current_user.name
-      raise
+      @chats = current_user.shelter_chats
     end
   end
 
