@@ -43,9 +43,5 @@ class Preference < ApplicationRecord
 
   #others
   validates :gender, inclusion: { in: ["male", "female"] }, allow_blank: true
-  validates :male_compatible, inclusion: { in: ["yes"] }, allow_blank: true
-  validates :female_compatible, inclusion: { in: ["yes"] }, allow_blank: true
-  validates :cat_compatible, inclusion: { in: ["yes"] }, allow_blank: true
-  validates :kids_compatible, inclusion: { in: ["yes"] }, allow_blank: true
 
 end

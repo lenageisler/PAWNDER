@@ -75,10 +75,10 @@
             <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
         <div data-toggle-form-div-target="body" class="d-none">
-            <%= f.input :male_compatible, collection: ["yes"], prompt: "Select", required: false %>
-            <%= f.input :female_compatible, collection: ["yes"], prompt: "Select", required: false %>
-            <%= f.input :cat_compatible, collection: ["yes"], prompt: "Select", required: false %>
-            <%= f.input :kids_compatible, collection: ["yes"], prompt: "Select", required: false %>
+            <%= f.input :male_compatible, as: :boolean, required: false, label: "Compatible with male dogs", input_html: { class: "toggle" } %>
+            <%= f.input :female_compatible, as: :boolean, required: false, label: "Compatible with female dogs", input_html: { class: "toggle" } %>
+            <%= f.input :cat_compatible, as: :boolean, required: false, label: "Compatible with cats", input_html: { class: "toggle" } %>
+            <%= f.input :kids_compatible, as: :boolean, required: false, label: "Friendly compatible", input_html: { class: "toggle" } %>
         </div>
     </div>
 
