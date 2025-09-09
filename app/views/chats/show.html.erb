@@ -1,11 +1,13 @@
 <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to your chats'.html_safe, chats_path %>
 
-
 <div class="container chat">
-  <h2>
-    Your chat with <%= searcher? ? @chat.shelter.name : @chat.searcher.username %>
-    about <%= @chat.dog.name %>
-  </h2>
+  <div class="d-flex align-items-center pb-1">
+    <%= image_tag "avatar_placeholder.jpg", class: "img-fluid img-thumbnail rounded-circle me-3", alt: "Avatar", width: 52 %>
+    <div>
+      <% other_user = searcher? ?  @chat.shelter.name : @chat.searcher.username  %>
+      <h6 class="mb-0 fw-bold"><%= "#{@chat.dog.name} with #{other_user}" %></h6>
+    </div>
+  </div>
 
   <%= turbo_stream_from "chat_#{@chat.id}_messages" %> <%# Subscribe the chat_id_messages client to a Turbo Stream channel %>
   <div id="messages" class="messages">
