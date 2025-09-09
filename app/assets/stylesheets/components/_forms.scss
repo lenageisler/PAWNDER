@@ -268,3 +268,8 @@ body .flatpickr-day.selected:hover {
         padding: 0;
     }
 }
+
+// green text on active fields override
+.form-check-input.is-valid ~ .form-check-label {
+    color: black;
+}
