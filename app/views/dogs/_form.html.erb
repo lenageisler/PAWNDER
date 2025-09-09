@@ -19,14 +19,18 @@
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">SUITABILITY & ENVIRONMENT</p>
+        <p>tbd</p>
+        <div class="dog-div-columns">
+            <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" } %>
+            <%= f.input :restricted_breed, as: :boolean, required: false, label: "Restricted Breed?", input_html: { class: "toggle" } %>
+        </div>
         <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"], prompt: "Select", required: true,
             as: :radio_buttons, include_hidden: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-        <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly?", input_html: { class: "toggle" } %>
-        <%= f.input :restricted_breed, as: :boolean, required: false, label: "Restricted Breed?", input_html: { class: "toggle" } %>
     </div>
 
     <div class="dog-form-div">
         <p class="dog-form-div-header">BREED SPECIFICATIONS</p>
+
         <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"], prompt: "Select", required: true,
             as: :radio_buttons, include_hidden: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
         <%= f.input :breed_category, collection: [

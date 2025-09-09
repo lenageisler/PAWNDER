@@ -42,7 +42,6 @@
         margin-bottom: 40px;
     }
 
-
     position: relative;
     
     p {
@@ -60,8 +59,12 @@
 }
 
 .dog-div-columns {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    @media (min-width: 750px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
 }
 
 label .optional {
@@ -75,7 +78,8 @@ label .optional {
 // text input fields
 .input-field {
     border-radius: 8px;
-    width: 400px;
+    width: 100%;
+    max-width: 100%;
     &:focus {
         border-bottom: $brand-blue;
     }
@@ -83,9 +87,12 @@ label .optional {
 
 .input-field-wrapper {
     display: flex;
+    flex-direction: row;
     align-items: baseline;
+    gap: 8px;
     label {
         width: 140px;
+        flex-shrink: 0;
     }
 }
 
@@ -193,7 +200,7 @@ label .optional {
 // dates
 .date-line {
     border-radius: 8px;
-    width: 400px;
+    width: 100%;
 }
 body .flatpickr-calendar {
     background: $brand-yellow;
@@ -216,6 +223,7 @@ body .flatpickr-day.selected:hover {
 .dog_birthday, .dog_gender {
     display: flex;
     align-items: baseline;
+    gap: 8px;
     legend {
         width: 140px;
     }
@@ -224,5 +232,6 @@ body .flatpickr-day.selected:hover {
 .dog_birthday  {
     label {
         width: 140px;
+        flex-shrink: 0;
     }
 }
