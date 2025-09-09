@@ -4,13 +4,13 @@
 <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, preference_path(@preference), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your preferences?"} %>
 
 <% if @preference.gender.present? || @preference.age_min.present? || @preference.age_max.present? %>
-    <div class="dog-form-div" data-controller="toggle-form-div">
-        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
             <p>Basics</p>
-            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
-            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
-        <div data-toggle-form-div-target="body" class="d-none">
+        <div data-toggle-pref-divs-target="body" class="d-none">
             <% if @preference.gender.present? %>
                 <p>A <%= @preference.gender %> dog</p>
             <% end %>
@@ -27,13 +27,13 @@
 
 <% if @preference.breed_grade.any? || @preference.breed_category.any? || @preference.weight_min.present? || @preference.weight_max.present? ||
     @preference.shoulder_height_min.present? || @preference.shoulder_height_max.present? %>
-    <div class="dog-form-div" data-controller="toggle-form-div">
-        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
             <p>Breed + Body</p>
-            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
-            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
-        <div data-toggle-form-div-target="body" class="d-none">
+        <div data-toggle-pref-divs-target="body" class="d-none">
             <% if @preference.breed_grade.any? %>
                 <% @preference.breed_grade.each do |value| %>
                     <p><%= value %></p>
@@ -63,13 +63,13 @@
 <% end %>
 
 <% if @preference.ideal_environment.any? || @preference.beginner_friendly.present? || @preference.restricted_breed.present? %>
-    <div class="dog-form-div" data-controller="toggle-form-div">
-        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
             <p>Environment + Experience</p>
-            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
-            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
-        <div data-toggle-form-div-target="body" class="d-none">
+        <div data-toggle-pref-divs-target="body" class="d-none">
             <% if @preference.ideal_environment.any? %>
                 <% @preference.ideal_environment.each do |value| %>
                     <p><%= value %></p>
@@ -86,13 +86,13 @@
 <% end %>
 
 <% if @preference.male_compatible.present? || @preference.female_compatible.present? || @preference.cat_compatible.present? || @preference.kids_compatible.present? %>
-    <div class="dog-form-div" data-controller="toggle-form-div">
-        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
             <p>Compatibilities</p>
-            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
-            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
-        <div data-toggle-form-div-target="body" class="d-none">
+        <div data-toggle-pref-divs-target="body" class="d-none">
             <% if @preference.male_compatible %>
                 <p>Your dog should be compatible with male dogs</p>  
             <% end %>
@@ -110,13 +110,13 @@
 <% end %>
 
 <% if @preference.health_issues.present? || @preference.neutered.present? || @preference.location.any? %>
-    <div class="dog-form-div" data-controller="toggle-form-div">
-        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-form-div#toggle" >
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
             <p>Health + Location</p>
-            <i data-toggle-form-div-target="plus" class="fa-solid fa-plus"></i>
-            <i data-toggle-form-div-target="minus" class="fa-solid fa-minus d-none"></i>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
         </div>
-        <div data-toggle-form-div-target="body" class="d-none">
+        <div data-toggle-pref-divs-target="body" class="d-none">
             <% if @preference.health_issues %>
                 <p>Your dog shouldn't have any health issues</p>  
             <% end %>
