@@ -6,7 +6,7 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-login" data-controller="toggle-signup-fields">
+        <div class="form-signup" data-controller="toggle-signup-fields">
           <%= f.input :email,
                       required: true,
                       autofocus: true,

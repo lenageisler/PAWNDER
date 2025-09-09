@@ -1,10 +1,9 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-login">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-    <%= link_to '<i class="fa-solid fa-arrow-left"></i> back without editing'.html_safe, :back %>
-
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <%= link_to '<i class="fa-solid fa-arrow-left"></i> back without editing'.html_safe, :back %>
+  <div class="form-signup">    
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

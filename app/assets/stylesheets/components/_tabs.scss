@@ -29,16 +29,17 @@
     background-color: #ECEFEC;
 
     &:hover {
-        opacity: 0.8;
-        border: 2px solid black;
+        // opacity: 0.8;
+        background-color: #9DC5F5;
     }
+}
+
+.tabs-desktop .tab-desktop.active {
+
+    border: 2px solid black;
 }
 
 .tab-desktop a {
     color: black;
     text-decoration: none;
-}
-
-.tabs-desktop .tab-desktop.active {
-    background-color: #9DC5F5;
 }
