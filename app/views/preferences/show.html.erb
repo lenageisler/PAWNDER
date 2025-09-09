@@ -4,7 +4,9 @@
 <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, preference_path(@preference), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your preferences?"} %>
 
 <div>
-    <p>Basics</p>
+    <% if @preference.gender.present? || @preference.age_min.present? || @preference.age_max.present? %>
+        <p>Basics</p>
+    <% end %>
 
     <% if @preference.gender.present? %>
         <p>A <%= @preference.gender %> dog</p>
@@ -20,7 +22,10 @@
 </div>
 
 <div>
-    <p>Breed + Body</p>
+    <% if @preference.breed_grade.any? || @preference.breed_category.any? || @preference.weight_min.present? || @preference.weight_max.present? ||
+        @preference.shoulder_height_min.present? || @preference.shoulder_height_max.present? %>
+        <p>Breed + Body</p>
+    <% end %>
 
     <% if @preference.breed_grade.any? %>
         <% @preference.breed_grade.each do |value| %>
@@ -52,7 +57,9 @@
 </div>
 
 <div>
-    <p>Environment + Experience</p>
+    <% if @preference.ideal_environment.any? || @preference.beginner_friendly.present? || @preference.restricted_breed.present? %>
+        <p>Environment + Experience</p>
+    <% end %>
 
     <% if @preference.ideal_environment.any? %>
         <% @preference.ideal_environment.each do |value| %>
@@ -71,7 +78,9 @@
 </div>
 
 <div>
-    <p>Compatibilities</p>
+    <% if @preference.male_compatible.present? || @preference.female_compatible.present? || @preference.cat_compatible.present? || @preference.kids_compatible.present? %>
+        <p>Compatibilities</p>
+    <% end %>
 
     <% if @preference.male_compatible %>
         <p>Your dog should be compatible with male dogs</p>  
@@ -88,7 +97,9 @@
 </div>
 
 <div>
-    <p>Health + Location</p>
+    <% if @preference.health_issues.present? || @preference.neutered.present? || @preference.location.any? %>
+        <p>Health + Location</p>
+    <% end %>
 
     <% if @preference.health_issues %>
         <p>Your dog shouldn't have any health issues</p>  
@@ -102,5 +113,4 @@
             <p><%= value %></p>
         <% end %>
     <% end %>
-
 </div>
