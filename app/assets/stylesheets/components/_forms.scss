@@ -13,7 +13,7 @@
 }
 
 .dog-form-div {
-    background-color: #ECEFEC;
+    background-color: $brand-gray;
     border-radius: 16px;
 
     @media (max-width: 500px) {
@@ -199,7 +199,7 @@ label .optional {
     width: 100%;
 }
 body .flatpickr-calendar {
-    background: $brand-yellow;
+    background: $brand-pink;
     border: 2px solid black;
     border-radius: 16px;
     overflow: hidden;
