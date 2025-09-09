@@ -1,5 +1,16 @@
 class ChatsController < ApplicationController
 
+  def index
+    if searcher?
+      @searcher_name = current_user.username
+      raise
+      @chats = current_user.chats
+    else
+      @shelter_name = current_user.name
+      raise
+    end
+  end
+
   def create
     @chat = Chat.new
     @chat.favorite = Favorite.find(params[:favorite_id])

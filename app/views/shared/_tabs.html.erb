@@ -1,6 +1,6 @@
 <ul class="tabs-desktop">
     <% if user_signed_in? %>
-        
+
         <% if searcher? %>
 
             <li class="tab-desktop <%= 'active' if current_page?(dogs_path) %>">
@@ -28,7 +28,7 @@
                 <%= link_to 'Ask our Dog-Bot for help', ai_chats_path, data: { turbo_method: :post }%>
             </li>
             <li class="tab-desktop <%= 'active' if current_page?(root_path) %>">
-                <%= link_to 'Inbox', root_path %>
+                <%= link_to 'Inbox', chats_path %>
             </li>
         <% end %>
 
@@ -40,7 +40,7 @@
                 <%= link_to 'Add a new dog', new_dog_path %>
             </li>
             <li class="tab-desktop <%= 'active' if current_page?(root_path) %>">
-                <%= link_to 'Inbox', root_path %>
+                <%= link_to 'Inbox', chats_path %>
             </li>
         <% end %>
 
