@@ -1,16 +1,16 @@
 
-<div class='container'>
+<div>
   <h1><%= @dog.name %>'s page</h1>
   <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to all dogs'.html_safe, dogs_path %>
 </div>
 
-<div class='container'>
+<div>
   <% if shelter? %>
     <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
   <% end %>
 </div>
 
-<div class='container'>
+<div>
   <% if searcher? %>
     <%= render "shared/cardshow", dog: @dog, favorite: @favorite %>
   <% end %>

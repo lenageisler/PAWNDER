@@ -1,39 +1,30 @@
-<div class="container mt-4">
+<div class="mt-4">
   <div class="row">
     <!-- Left column: image -->
     <div class="col-md-6">
       <div class="dog-image-wrapper">
       <% if dog.photos.attached? %>
-        <% if dog.photos.many? %>
-          <div id="dogCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <% @dog.photos.each_with_index do |photo, index| %>
-                <div class="carousel-item <%= "active" if index == 0 %>">
-                  <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "d-block w-100 dog-show-img" %>
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#dogCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#dogCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-          </div>
-          <div class="dog-thumbnails mt-2">
-            <% dog.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-thumb-img" %>
-            <% end %>
-          </div>
-        <% else %>
-          <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-show-img" %>
-        <% end %>
+        <%= cl_image_tag dog.photos.first.key,
+        crop: :fill, gravity: :auto,
+        class: "dog-show-img",
+        id: "main-dog-image" %>
       <% else %>
         <div class="dog-show-img background"></div>
       <% end %>
       </div>
+    <% if @dog.photos.many? %>
+      <div class="dog-thumbnails mt-2" data-controller="dog-gallery">
+        <% @dog.photos.each_with_index do |photo, index| %>
+          <%= cl_image_tag photo.key,
+              crop: :fill, gravity: :auto,
+              class: "dog-thumb-img",
+              data: { action: "click->dog-gallery#switch",
+                      target: "dog-gallery.thumbnail",
+                      full: cl_image_path(photo.key, crop: :fill, gravity: :auto) } %>
+        <% end %>
+      </div>
+    <% end %>
     </div>
-    <!-- Right column: details -->
     <div class="col-md-6">
       <div class="card p-4">
         <div class="card-body">
@@ -81,6 +72,7 @@
           <hr>
 
           <h5>Environment</h5>
+          <p><strong>Taken care by: <%= @dog.user.name %></strong>
           <p><strong>In shelter since:</strong> <%= @dog.in_shelter_since&.strftime("%B %d, %Y") || "Unknown" %></p>
           <p><strong>Current location:</strong> <%= @dog.location %></p>
           <p><strong>Ideal environment:</strong> <%= @dog.ideal_environment %></p>

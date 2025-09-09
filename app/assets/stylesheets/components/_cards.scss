@@ -25,24 +25,44 @@
   display: block;
 }
 
+// .dog-thumbnails {
+//   display: flex;
+//   gap: 0.5rem;
+//   flex-wrap: wrap;
+// }
 .dog-thumbnails {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  justify-content: start;
   flex-wrap: wrap;
 }
 
 .dog-thumb-img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
+  border: 3px solid $brand-black;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 
   &:hover {
     transform: scale(1.05);
+    border-color: $brand-green;
   }
 }
+// .dog-thumb-img {
+//   width: 80px;
+//   height: 80px;
+//   object-fit: cover;
+//   border-radius: 0.5rem;
+//   cursor: pointer;
+//   transition: transform 0.2s;
+
+//   &:hover {
+//     transform: scale(1.05);
+//   }
+// }
 
 // .card-future-img-top {
 //   height: 300px;
