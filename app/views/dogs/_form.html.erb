@@ -1,18 +1,18 @@
 <%= simple_form_for(dog, html: { class: "dog-form" }) do |f| %>
     <div class="dog-form-div">
         <p class="dog-form-div-header">BASICS</p>
-        <p>Please give basic informations on you adoptable dog and add multiple pictures.</p>
-        <div class="input-field-columns">
+        <p>Please give basic informations on your adoptable dog and add multiple pictures.</p>
+        <div class="dog-div-columns">
             <%= f.input :name, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
-            <%= f.input :gender, collection: ["male", "female"], prompt: "Please select the gender", required: true, as: :radio_buttons, include_hidden: false,
-                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-        </div>
-        <div class="input-field-columns">
-            <%= f.input :birthday, as: :string, input_html: { data: { controller: "flatpickr" }, class: "date-line" }, required: false, label: "Birthday (optional)" %>
             <%= f.input :age, required: true, input_html: { class: "input-field" }, wrapper_html: { class: "input-field-wrapper" } %>
         </div>
-
-        <%= f.input :info, as: :text, required: false, label: "Please describe your dog:", input_html: { class: "input-field" } %>
+        <div class="dog-div-columns">
+            <%= f.input :gender, collection: ["male", "female"], prompt: "Please select the gender", required: true, as: :radio_buttons, include_hidden: false,
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+            <%= f.input :birthday, as: :string, input_html: { data: { controller: "flatpickr" }, class: "date-line" },
+                required: false, label: 'Birthday<span class="optional">(optional)</span>'.html_safe %>
+        </div>
+        <%= f.input :info, as: :text, required: false, label: "Write a describtion of your dog", input_html: { class: "input-field input-field-big" } %>
 
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>

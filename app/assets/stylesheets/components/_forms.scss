@@ -1,4 +1,21 @@
-// FORM main styling
+// login and signup
+.form-login {
+    background: white;
+    padding: 10px 20px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-radius: 16px;
+    border: 2px solid black;
+    h2 {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}
+
+
+// DOG/PREFERENCES FORM main styling
 .dog-form {
     margin-top: 40px;
     @media (max-width: 500px) {
@@ -42,25 +59,39 @@
     right: 40px;
 }
 
-// .input-field-columns {
-//     display: flex;
-//     justify-content: space-between;
-// }
+.dog-div-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+label .optional {
+    font-size: 12px;
+    color: rgb(75, 74, 74);
+    font-weight: lighter;
+    padding-left: 8px;
+    vertical-align: middle; 
+}
 
 // text input fields
 .input-field {
     border-radius: 8px;
-}
-
-.input-field-wrapper, .dog_birthday, .dog_gender {
-    display: flex;
-    align-items: baseline;
-
-    label {
-        width: 80px;
+    width: 400px;
+    &:focus {
+        border-bottom: $brand-blue;
     }
 }
 
+.input-field-wrapper {
+    display: flex;
+    align-items: baseline;
+    label {
+        width: 140px;
+    }
+}
+
+.input-field-big {
+    width: 100%;
+}
 
 // toggles for basic form inputs
 .toggle {
@@ -116,6 +147,10 @@
 // tags for multipe choices / collection choices
 .tag-item {
     display: inline-block;
+
+    label {
+        text-align: center;
+    }
 }
 
 .tag-selector {
@@ -158,6 +193,7 @@
 // dates
 .date-line {
     border-radius: 8px;
+    width: 400px;
 }
 body .flatpickr-calendar {
     background: $brand-yellow;
@@ -171,25 +207,22 @@ body .flatpickr-day.selected {
     border: 1px solid black;
 }
 body .flatpickr-day.selected:hover {
-    background-color: $brand-light-gray;
+    background-color: $brand-blue;
     border: 1px solid black;
     color: black;
 }
 
+// specifics
+.dog_birthday, .dog_gender {
+    display: flex;
+    align-items: baseline;
+    legend {
+        width: 140px;
+    }
 
-
-// login and signup
-.form-login {
-    background: white;
-    padding: 10px 20px;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    border-radius: 16px;
-    border: 2px solid black;
-    h2 {
-        font-size: 25px;
-        font-weight: bold;
-        margin-bottom: 30px;
-        text-align: center;
+}
+.dog_birthday  {
+    label {
+        width: 140px;
     }
 }

@@ -42,4 +42,7 @@ body {
 a {
     text-decoration: none;
     color: $brand-black;
+    &:hover {
+        cursor: pointer;
+    }
 }
