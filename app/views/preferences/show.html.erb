@@ -35,13 +35,15 @@
         </div>
         <div data-toggle-pref-divs-target="body" class="d-none">
             <% if @preference.breed_grade.any? %>
+                <p>Breed grades</p>
                 <% @preference.breed_grade.each do |value| %>
-                    <p><%= value %></p>
+                    <li><%= value %></li>
                 <% end %>
             <% end %>
             <% if @preference.breed_category.any? %>
+                <p>Preferred breed categories</p>
                 <% @preference.breed_category.each do |value| %>
-                    <p><%= value %></p>
+                    <li><%= value %></li>
                 <% end %>
             <% end %>
             <% if @preference.weight_min.present? && @preference.weight_max.present? %>
@@ -71,8 +73,9 @@
         </div>
         <div data-toggle-pref-divs-target="body" class="d-none">
             <% if @preference.ideal_environment.any? %>
+                <p>Enviroment you can provide</p>
                 <% @preference.ideal_environment.each do |value| %>
-                    <p><%= value %></p>
+                    <li><%= value %></li>
                 <% end %>
             <% end %>
             <% if @preference.beginner_friendly %>
