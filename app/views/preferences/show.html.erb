@@ -7,10 +7,10 @@
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
                     <p>Basics</p>
-                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
-                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
+                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
-                <div data-toggle-pref-divs-target="body" class="d-none">
+                <div data-toggle-pref-divs-target="body" class="">
                     <% if @preference.gender.present? %>
                         <p>A <%= @preference.gender %> dog</p>
                     <% end %>
@@ -30,10 +30,10 @@
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
                     <p>Breed + Body</p>
-                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
-                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
+                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
-                <div data-toggle-pref-divs-target="body" class="d-none">
+                <div data-toggle-pref-divs-target="body" class="">
                     <% if @preference.breed_grade.any? %>
                         <p>Breed grades</p>
                         <% @preference.breed_grade.each do |value| %>
@@ -68,10 +68,10 @@
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
                     <p>Environment + Experience</p>
-                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
-                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
+                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
-                <div data-toggle-pref-divs-target="body" class="d-none">
+                <div data-toggle-pref-divs-target="body" class="">
                     <% if @preference.ideal_environment.any? %>
                         <p>Enviroment you can provide</p>
                         <% @preference.ideal_environment.each do |value| %>
@@ -92,10 +92,10 @@
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
                     <p>Compatibilities</p>
-                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
-                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
+                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
-                <div data-toggle-pref-divs-target="body" class="d-none">
+                <div data-toggle-pref-divs-target="body" class="">
                     <% if @preference.male_compatible %>
                         <p>Your dog should be compatible with male dogs</p>  
                     <% end %>
@@ -116,10 +116,10 @@
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
                     <p>Health + Location</p>
-                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
-                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+                    <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
+                    <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
-                <div data-toggle-pref-divs-target="body" class="d-none">
+                <div data-toggle-pref-divs-target="body" class="">
                     <% if @preference.health_issues %>
                         <p>Your dog shouldn't have any health issues</p>  
                     <% end %>

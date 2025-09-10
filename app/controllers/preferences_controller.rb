@@ -45,7 +45,7 @@ class PreferencesController < ApplicationController
     if searcher?
       @preference = Preference.find(params[:id])
       @preference.destroy
-      redirect_to preferences_path, alert: "Your preferences were deleted."
+      redirect_to dogs_path, alert: "Your preferences were deleted."
     end
   end
 
