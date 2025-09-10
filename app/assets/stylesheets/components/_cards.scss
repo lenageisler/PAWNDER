@@ -137,7 +137,7 @@
   height: auto;
 
   i {
-    padding-right: 16px;
+    padding-right: 12px;
   }
   p {
     padding: 8px 0 0 0;
@@ -159,4 +159,37 @@
   i {
     padding-right: 16px;
   }
+}
+
+.dog-show-oneline-info {
+  p {
+    padding-right: 16px;
+  }
+  i {
+    padding-left: 8px;
+  }
+}
+
+.fa-circle-check {
+  color: $brand-green;
+}
+
+.fa-circle-xmark {
+  color: $brand-red;
+}
+
+.fa-circle-question {
+  color: $brand-blue;
+}
+
+.brand-pink {
+  color: $brand-pink;
+}
+
+.brand-blue {
+  color: $brand-blue;
+}
+
+.brand-red {
+  color: $brand-red;
 }
