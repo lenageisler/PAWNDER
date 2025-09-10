@@ -1,0 +1,16 @@
+<%= turbo_stream_from ai_chat %> <%# Subscribe the client chat to a channel %>
+
+<div class="container">
+  <div id="chat_topic">
+    <h1> AI Chat Pet Adoption Consultant </h1>
+    <h3>From user: <%= ai_chat.user.username %></h3>
+  </div>
+
+  <div id="ai_messages">
+    <%= render "ai_messages/messages", messages: ai_chat.ai_messages %>
+  </div>
+
+  <div id="new_ai_message" class="mt-3">
+    <%= render "ai_messages/form", chat: ai_chat, message: ai_message %>
+  <div>
+</div>

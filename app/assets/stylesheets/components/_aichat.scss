@@ -1,0 +1,30 @@
+.aichat-widget {
+  position: fixed;
+  z-index: 1050;
+  bottom: 4.5rem;
+  right: 1rem;
+
+}
+
+
+.aichat-icon {
+  @media (max-width: 500px) {
+    width: 48px;
+    height: 48px;
+  }
+  @media (min-width: 500px) {
+    width: 60px;
+    height: 60px;
+  }
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid black;
+  box-shadow: 3px 3px 1.5px rgba(128, 128, 128, 0.5);
+}
+
+.aichat-window {
+  width: 300px;
+  height: 400px;
+  border-radius: 16px;
+}
