@@ -1,14 +1,18 @@
-<%= link_to chat_path(chat), class: "text-decoration-none text-dark" do%>
-  <div class="border border-2 border-dark rounded-4 mb-2 p-1">
-    <div class="d-flex align-items-center">
-      <%= image_tag "avatar_placeholder.jpg", class: "img-fluid img-thumbnail rounded-circle me-3", alt: "Avatar", width: 64 %>
-      <div>
-        <% other_user = searcher? ?  chat.shelter.name : chat.searcher.username  %>
-        <h6 class="mb-0 fw-bold"><%= "#{chat.dog.name} with #{other_user}" %></h6>
-        <% if chat.messages.any? %>
-        <small class="text-muted"><i><%= "#{chat.messages.last.content.truncate(20)}" %></i></small>
-        <% end %>
+
+  <%= link_to chat_path(chat), class: "text-decoration-none text-dark" do%>
+    <div class="chat-index-div">
+      <div class="d-flex align-items-center">
+        <%= image_tag "avatar_placeholder.jpg", class: "chat-avatar me-3", alt: "Avatar" %>
+        <div>
+          <% other_user = searcher? ?  chat.shelter.name : chat.searcher.username  %>
+          <h6 class="mb-0 fw-bold"><%= "About #{chat.dog.name} with #{other_user}" %></h6>
+          <% if chat.messages.any? %>
+          <small class="text-muted"><i><%= "#{chat.messages.last.content.truncate(20)}" %></i></small>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <% end %>
+    <% end %>
+
+<%# border border-2 border-dark rounded-4 mb-2 p-1 %>
+<%# img-fluid img-thumbnail rounded-circle me-3 %>

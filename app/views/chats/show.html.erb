@@ -1,11 +1,11 @@
-<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to your chats'.html_safe, chats_path %>
 
-<div class="container chat">
+<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to your chats'.html_safe, chats_path %>
+<div class="chat-div">
   <div class="d-flex align-items-center pb-1">
-    <%= image_tag "avatar_placeholder.jpg", class: "img-fluid img-thumbnail rounded-circle me-3", alt: "Avatar", width: 52 %>
+    <%= image_tag "avatar_placeholder.jpg", class: "chat-avatar me-3", alt: "Avatar" %>
     <div>
       <% other_user = searcher? ?  @chat.shelter.name : @chat.searcher.username  %>
-      <h6 class="mb-0 fw-bold"><%= "#{@chat.dog.name} with #{other_user}" %></h6>
+      <h2 class="mb-0"><%= "Your chat about #{@chat.dog.name} with #{other_user}" %></h2>
     </div>
   </div>
 
@@ -26,6 +26,6 @@
       placeholder: "Message #{searcher? ? other_user.name : other_user.username}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.submit "Send", class: "btn btn-main mb-3" %>
   <% end %>
 </div>
