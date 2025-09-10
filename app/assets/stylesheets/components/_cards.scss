@@ -82,6 +82,10 @@
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   }
+
+  i {
+    padding-right: 4px;
+  }
 }
 
 .no-hover {
@@ -103,6 +107,7 @@
   top: 12px;
   font-size: 24px;
   color: $brand-red;
+  cursor: pointer;
 }
 
 #heart-button-bordered {
@@ -113,10 +118,12 @@
   top: 12px;
   font-size: 40px;
   color: $brand-red;
+  cursor: pointer;
 }
 
 .card-title {
   color: $brand-green;
+  margin-bottom: 16px;
 }
 
 .card-text {
@@ -128,6 +135,14 @@
   border-radius: 16px;
   background: $brand-light-gray;
   height: auto;
+
+  i {
+    padding-right: 16px;
+  }
+  p {
+    padding: 8px 0 0 0;
+    margin: 0;
+  }
 }
 
 .shelter-map {
@@ -135,4 +150,13 @@
   height: 300px;
   border-radius: 8px;
   border: 2px solid $brand-black;
+}
+
+.dog-show-top-info {
+  p {
+    padding-right: 16px;
+  }
+  i {
+    padding-right: 16px;
+  }
 }

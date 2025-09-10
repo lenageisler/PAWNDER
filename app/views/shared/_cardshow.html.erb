@@ -28,9 +28,9 @@
         <div class="shelter-profile card mt-4 p-1 no-hover">
           <div class="card-body">
             <h4 class="card-title">Shelter Information</h4>
-            <p><strong>Name:</strong> <%= dog.user.name %></p>
-            <p><strong>Type:</strong> <%= dog.user.shelter_type %></p>
-            <p><strong>Location:</strong> <%= dog.user.location %></p>
+            <p><strong><%= dog.user.name %></strong> </p>
+            <p><%= dog.user.shelter_type %></p>
+            <p><i class="fa-solid fa-location-pin"></i> <%= dog.user.location %></p>
 
             <img id="shelter-map" class="shelter-map mt-3" src="https://api.mapbox.com/geocoding/v5/mapbox.places/2.346,48.8595,11.72,0,0/600x300?access_token=<%= @MAPBOX_API_KEY %>"  alt="<%= dog.user.location %>">
 
@@ -43,57 +43,112 @@
       <div class="card no-hover p-1 mt-2">
         <div class="card-body">
           <h2 class="card-title"><%= @dog.name %></h2>
-          <p class="text-muted">
-            <%= @dog.age %> years old
-            <% if @dog.gender.present? %> • <%= @dog.gender.capitalize %><% end %>
-            <% if @dog.info.present? %> • <br><%= @dog.info %><% end %>
-          </p>
+          <div class="dog-show-top-info d-flex">
+
+            <p>
+              <% if @dog.age == 1 %>
+                <%= @dog.age %> year old
+              <% else %>
+                <%= @dog.age %> years old
+              <% end %>
+            </p>
+            <% if @dog.gender == "female" %>
+              <p>•</p><i class="fa-solid fa-venus"></i>
+            <% elsif @dog.gender == "male" %>
+              <p>•</p><i class="fa-solid fa-mars"></i>
+            <% end %>
+            <% if @dog.birthday.present? %>
+              <p>•</p><i class="fa-solid fa-cake-candles"></i><%= @dog.birthday&.strftime("%B %d, %Y") %>
+            <% end %>
+          </div>
+          <%= @dog.info if @dog.info.present?%>
 
           <hr>
 
+          <h5>Breed + Body</h5>
           <% if @dog.main_breed.present? %>
             <p><strong>Main breed:</strong> <%= @dog.main_breed %></p>
           <% end %>
           <p><strong>Breed type:</strong> <%= @dog.breed_grade %> (<%= @dog.breed_category %>)</p>
-          <p><strong>Restricted breed:</strong> <%= @dog.restricted_breed ? "Yes" : "No" %></p>
           <% if @dog.breed_mix.present? %>
             <p><strong>Breed mix:</strong> <%= @dog.breed_mix %></p>
           <% end %>
+          <div class="dog-show-top-info d-flex">
+            <p><i class="fa-solid fa-ruler-vertical"></i> <%= @dog.shoulder_height %> cm</p>
+            <p>•</p>
+            <p><i class="fa-solid fa-weight-scale"></i> <%= @dog.weight %> kg</p>
+          </div>
 
           <hr>
 
-          <h5>Physical Info</h5>
-          <p><strong>Shoulder height:</strong> <%= @dog.shoulder_height %> cm</p>
-          <p><strong>Weight:</strong> <%= @dog.weight %> kg</p>
-          <p><strong>Neutered:</strong> <%= @dog.neutered ? "Yes" : "No" %></p>
-          <p><strong>Birthday:</strong> <%= @dog.birthday&.strftime("%B %d, %Y") || "Unknown" %></p>
+          <h5>Suitability + Environment</h5>
+          <p>
+            <strong>Beginner friendly</strong>
+            <% if @dog.beginner_friendly %>
+              <i class="fa-solid fa-circle-check"></i>
+            <% else %>
+              <i class="fa-solid fa-circle-xmark"></i>
+            <% end %>
+          </p>
+          <p>
+            <strong>Restricted breed</strong>
+            <% if @dog.restricted_breed %>
+              <i class="fa-solid fa-circle-check"></i>
+            <% else %>
+              <i class="fa-solid fa-circle-xmark"></i>
+            <% end %>
+          </p>
+          <p><strong>Ideal environment:</strong> <%= @dog.ideal_environment %></p>
 
           <hr>
 
-          <h5>Health</h5>
-          <p><strong>Microchipped:</strong> <%= @dog.chipped ? "Yes" : "No" %></p>
-          <p><strong>Health issues:</strong> <%= @dog.health_issues ? "Yes" : "No" %></p>
+          <h5>Medical</h5>
+          <div class="dog-show-top-info d-flex">
+            <p>
+              <strong>Microchipped</strong>
+              <% if @dog.chipped %>
+                <i class="fa-solid fa-circle-check"></i>
+              <% else %>
+                <i class="fa-solid fa-circle-xmark"></i>
+              <% end %>
+            </p>
+            <p>•</p>
+            <p>
+              <strong>Neutered</strong>
+              <% if @dog.neutered %>
+                <i class="fa-solid fa-circle-check"></i>
+              <% else %>
+                <i class="fa-solid fa-circle-xmark"></i>
+              <% end %>
+            </p>
+          </div>
+          <p>
+            <strong>Health issues</strong>
+            <% if @dog.health_issues %>
+              <i class="fa-solid fa-circle-check"></i>
+            <% else %>
+              <i class="fa-solid fa-circle-xmark"></i>
+            <% end %>
+          </p>
           <% if @dog.health_issues_details.present? %>
-            <p><strong>Details:</strong> <%= @dog.health_issues_details %></p>
+            <p><i class="fa-solid fa-heart-pulse"></i><strong>- details:</strong> <%= @dog.health_issues_details %></p>
           <% end %>
 
           <hr>
 
-          <h5>Compatibility</h5>
-          <p><strong>With male dogs:</strong> <%= @dog.male_compatible.capitalize %></p>
-          <p><strong>With female dogs:</strong> <%= @dog.female_compatible.capitalize %></p>
-          <p><strong>With cats:</strong> <%= @dog.cat_compatible.capitalize %></p>
-          <p><strong>With kids:</strong> <%= @dog.kids_compatible.capitalize %></p>
-          <p><strong>Beginner friendly:</strong> <%= @dog.beginner_friendly ? "Yes" : "No" %></p>
+          <h5>Compatibilities</h5>
+          <p><strong>Male dogs</strong> <%= @dog.male_compatible.capitalize %></p>
+          <p><strong>Female dogs</strong> <%= @dog.female_compatible.capitalize %></p>
+          <p><strong>Cats</strong> <%= @dog.cat_compatible.capitalize %></p>
+          <p><strong>Kids / Family compatible</strong> <%= @dog.kids_compatible.capitalize %></p>
+
 
           <hr>
 
-          <h5>Environment</h5>
+          <h5>Shelter / Foster info</h5>
           <p><strong>Taken care by: <%= @dog.user.name %></strong>
           <p><strong>In shelter since:</strong> <%= @dog.in_shelter_since&.strftime("%B %d, %Y") || "Unknown" %></p>
           <p><strong>Current location:</strong> <%= @dog.location %></p>
-          <p><strong>Ideal environment:</strong> <%= @dog.ideal_environment %></p>
-
 
           <div class="d-flex gap-3 align-items-center">
             <% if shelter? %>
