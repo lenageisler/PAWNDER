@@ -12,7 +12,8 @@
         </div>
       <% end %>
       <% if dog.photos.attached? %>
-        <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
+        <%# <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>       
+        <%= image_tag url_for(dog.photos.first), crop: :fill, gravity: :auto, class: "dog-index-img" %>
       <% else %>
         <div class="dog-index-img background"></div>
       <% end %>

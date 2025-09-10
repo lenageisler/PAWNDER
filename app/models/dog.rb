@@ -23,4 +23,13 @@ class Dog < ApplicationRecord
   validates :kids_compatible, presence: true, inclusion: { in: ["yes", "no", "unknown"] }
   validates :ideal_environment, presence: true, inclusion: { in: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"] }
 
+  # validate :images_count_within_bounds
+
+  # private
+
+  # def images_count_within_bounds
+  #   if images.attached? && images.count > 4
+  #     errors.add(:images, "Maximum of 4 photos")
+  #   end
+  # end
 end

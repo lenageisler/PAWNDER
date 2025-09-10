@@ -3,9 +3,10 @@
 
     <!-- Left column (shelter): image / buttons /// #1 card (searcher): image -->
     <div class="col-md-6">
-      <div class="dog-image-wrapper">
+      <div class="dog-image-wrapper mt-3">
         <% if dog.photos.attached? %>
-          <%= cl_image_tag dog.photos.first.key,
+          <%# <%= cl_image_tag dog.photos.first.key, %>
+          <%= image_tag url_for(dog.photos.first),
           crop: :fill, gravity: :auto,
           class: "dog-show-img",
           id: "main-dog-image" %>
@@ -16,7 +17,8 @@
       <% if @dog.photos.many? %>
         <div class="dog-thumbnails mt-2" data-controller="dog-gallery">
           <% @dog.photos.each_with_index do |photo, index| %>
-            <%= cl_image_tag photo.key,
+            <%# <%= cl_image_tag photo.key, %>
+            <%= image_tag url_for(dog.photos.first),
                 crop: :fill, gravity: :auto,
                 class: "dog-thumb-img",
                 data: { action: "click->dog-gallery#switch",
@@ -41,7 +43,7 @@
 
       <%# SHELTER >> right column: dog details %>      
       <% if shelter? %>
-        <div class="card no-hover p-1 mt-2">
+        <div class="card no-hover p-1 mt-3">
           <div class="card-body">
             <h2 class="card-title"><%= @dog.name %></h2>
             <div class="dog-show-top-info d-flex">
