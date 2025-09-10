@@ -16,6 +16,7 @@
   overflow: hidden;
   background: $brand-light-gray;
   padding: 0;
+  margin-top: 8px;
 }
 
 .dog-show-img {
@@ -73,12 +74,20 @@
 // }
 
 .card {
-  border-radius: 1rem;
+  border-radius: 16px;
+  // border: 4px solid black;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.no-hover {
+  &:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 
@@ -104,7 +113,6 @@
   top: 12px;
   font-size: 40px;
   color: $brand-red;
-  // text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
 .card-title {
@@ -117,13 +125,14 @@
 
 .shelter-profile {
   border: 4px solid $brand-black;
-  border-radius: 1rem;
+  border-radius: 16px;
   background: $brand-light-gray;
+  height: auto;
 }
 
 .shelter-map {
   width: 100%;
   height: 300px;
-  border-radius: 0.75rem;
+  border-radius: 8px;
   border: 2px solid $brand-black;
 }
