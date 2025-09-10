@@ -92,15 +92,19 @@
   }
 }
 
-.chat-index-div {
+.chat-index-list {
   margin-top: 40px;
+}
+
+.chat-index-div {
   @media (max-width: 500px) {
-      padding: 12px 12px 12px 12px;
-      margin-bottom: 16px;
+      padding: 0px 0px 0px 12px;
+      margin-top: 8px;
+      margin-bottom: 8px;
   }
   @media (min-width: 500px) {
       padding: 16px 16px 16px 16px;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
   }
   background-color: $brand-light-gray;
   border: 2px solid black;
@@ -110,6 +114,17 @@
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.chat-index-div-text {
+  @media (max-width: 500px) {
+      padding: 12px 12px 12px 12px;
+      margin: 8px;
+  }
+  @media (min-width: 500px) {
+      padding: 16px 16px 16px 16px;
+      margin: 12px; 
   }
 }
 
