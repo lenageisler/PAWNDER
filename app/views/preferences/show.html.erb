@@ -95,17 +95,18 @@
                 <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
             </div>
             <div data-toggle-pref-divs-target="body" class="">
+                <p>Your dog should be compatible with</p> 
                 <% if @preference.male_compatible %>
-                    <p>Your dog should be compatible with male dogs</p>  
+                    <li>male dogs</li>  
                 <% end %>
                 <% if @preference.female_compatible %>
-                    <p>Your dog should be compatible with female dogs</p>  
+                    <li>female dogs</li>  
                 <% end %>
                 <% if @preference.cat_compatible %>
-                    <p>Your dog should be compatible with cats</p>  
+                    <li>cats</li>  
                 <% end %>
                 <% if @preference.kids_compatible %>
-                    <p>Your dog should be friendly towards children / family compatible</p>  
+                    <li>kids / family compatible</li>  
                 <% end %>
             </div>
         </div>
