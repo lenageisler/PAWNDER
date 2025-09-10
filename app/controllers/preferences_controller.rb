@@ -17,7 +17,7 @@ class PreferencesController < ApplicationController
       @preference = Preference.new(preference_params)
       @preference.user = current_user
       if @preference.save
-        redirect_to preference_path(@preference), notice: "You successfully specified your dog preferences."
+        redirect_to dogs_path, notice: "You successfully specified your dog preferences."
       else
         render :new, status: :unprocessable_entity
       end
@@ -34,7 +34,7 @@ class PreferencesController < ApplicationController
     if searcher?
       @preference = Preference.find(params[:id])
       if @preference.update(preference_params)
-        redirect_to preference_path(@preference), notice: "You successfully updated your preferences."
+        redirect_to dogs_path, notice: "You successfully updated your preferences."
       else
         render :edit, status: :unprocessable_entity
       end
@@ -45,7 +45,7 @@ class PreferencesController < ApplicationController
     if searcher?
       @preference = Preference.find(params[:id])
       @preference.destroy
-      redirect_to root_path, alert: "Your preferences were deleted."
+      redirect_to dogs_path, alert: "Your preferences were deleted."
     end
   end
 

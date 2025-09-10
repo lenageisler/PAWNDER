@@ -1,7 +1,7 @@
 <% if searcher? %>
-  <div class="py-4">
   <h1>Your favorite dogs</h1>
-    <div><%= link_to '<i class="fa-solid fa-arrow-left"></i> back to all dogs'.html_safe, dogs_path %></div>
+  <div class="py-4">
+    <div class="mb-3"><%= link_to '<i class="fa-solid fa-arrow-left"></i> back to browse all dogs'.html_safe, dogs_path %></div>
     <div class="row justify-content-center gy-5 gx-5">
       <% @favorites.each do |favorite| %>
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 d-flex justify-content-center">

@@ -1,11 +1,17 @@
 class DogsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    if shelter?
-      @shelter_name = current_user.name
-      @dogs = current_user.dogs
-    elsif searcher?
+    if user_signed_in?
+      if shelter?
+        @shelter_name = current_user.name
+        @dogs = current_user.dogs
+      elsif searcher?
+        @dogs = Dog.all
+        preference_filter if current_user.preference.present?
+      end
+    else
       @dogs = Dog.all
-      preference_filter if current_user.preference.present?
     end
   end
 

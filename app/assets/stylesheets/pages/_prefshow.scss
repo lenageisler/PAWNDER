@@ -1,0 +1,29 @@
+.pref-show-present {
+    h5 {
+        margin-top: 40px;
+        margin-bottom: 16px;
+    }
+}
+
+.pref-show-pref-add {
+    h5 {
+        margin-top: 40px;
+        margin-bottom: 16px;
+    }
+}
+
+.pref-show-btns {
+    margin-top: 32px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    a.btn-main {
+        width: 120px;
+        text-align: center;
+    }
+}
+
+p.pref-show-div-header {
+    font-weight: 600;
+}

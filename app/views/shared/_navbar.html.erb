@@ -15,6 +15,16 @@
       <li class="nav-item">
         <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, favorites_path, class: "nav-link" %>
       </li>
+      
+      <% if current_user.preference.present? %>
+        <li class="nav-item">
+          <%= link_to '<i class="fa-solid fa-bone"></i>'.html_safe, preference_path(@preference), class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to '<i class="fa-solid fa-bone"></i>'.html_safe, new_preference_path, class: "nav-link" %>
+        </li>
+      <% end %>
 
 <%#  to be deleted when ai chat on preference %>
       <li class="nav-item">
