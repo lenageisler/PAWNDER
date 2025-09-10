@@ -5,11 +5,10 @@
     <div class="col-md-6">
       <div class="dog-image-wrapper mt-3">
         <% if dog.photos.attached? %>
-          <%# <%= cl_image_tag dog.photos.first.key, %>
-          <%= image_tag url_for(dog.photos.first),
-          crop: :fill, gravity: :auto,
-          class: "dog-show-img",
-          id: "main-dog-image" %>
+          <%= cl_image_tag dog.photos.first.key,
+            crop: :fill, gravity: :auto,
+            class: "dog-show-img",
+            id: "main-dog-image" %>
         <% else %>
           <div class="dog-show-img background"></div>
         <% end %>
@@ -17,13 +16,12 @@
       <% if @dog.photos.many? %>
         <div class="dog-thumbnails mt-2" data-controller="dog-gallery">
           <% @dog.photos.each_with_index do |photo, index| %>
-            <%# <%= cl_image_tag photo.key, %>
-            <%= image_tag url_for(dog.photos.first),
-                crop: :fill, gravity: :auto,
-                class: "dog-thumb-img",
-                data: { action: "click->dog-gallery#switch",
-                        target: "dog-gallery.thumbnail",
-                        full: cl_image_path(photo.key, crop: :fill, gravity: :auto) } %>
+            <%= cl_image_tag photo.key,
+              crop: :fill, gravity: :auto,
+              class: "dog-thumb-img",
+              data: { action: "click->dog-gallery#switch",
+                      target: "dog-gallery.thumbnail",
+                      full: cl_image_path(photo.key, crop: :fill, gravity: :auto) } %>
           <% end %>
         </div>
       <% end %>
