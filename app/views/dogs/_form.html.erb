@@ -17,7 +17,7 @@
         </div>
         <%= f.input :info, as: :text, required: false, label: "Describtion", input_html: { class: "input-field input-field-big" },
                 placeholder: 'Write a short description of the dog. Where does he come from, what makes him special, what would his ideal home look like ...' %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }, input_html: { class: "input-field" } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true, class: "input-field" }%>
     </div>
 
     <div class="dog-form-div">

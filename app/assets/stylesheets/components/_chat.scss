@@ -25,6 +25,10 @@
     padding: 1rem;
   }
 
+  h3 {
+    margin: 16px;
+  }
+
   .messages {
     border-top: 1px solid $gray-200;
     height: 100%;
@@ -82,17 +86,25 @@
   .message.received .message-info {
     align-self: flex-start;
   }
+
+  .textarea.form-control {
+    border-radius: 8px
+  }
+}
+
+.chat-index-list {
+  margin-top: 40px;
 }
 
 .chat-index-div {
-  margin-top: 40px;
   @media (max-width: 500px) {
-      padding: 12px 12px 12px 12px;
-      margin-bottom: 16px;
+      padding: 0px 0px 0px 12px;
+      margin-top: 8px;
+      margin-bottom: 8px;
   }
   @media (min-width: 500px) {
       padding: 16px 16px 16px 16px;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
   }
   background-color: $brand-light-gray;
   border: 2px solid black;
@@ -102,6 +114,17 @@
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.chat-index-div-text {
+  @media (max-width: 500px) {
+      padding: 12px 12px 12px 12px;
+      margin: 8px;
+  }
+  @media (min-width: 500px) {
+      padding: 16px 16px 16px 16px;
+      margin: 12px; 
   }
 }
 
@@ -119,11 +142,12 @@
     height: 60px;
   }
 
-  overflow: hidden;
+  // overflow: hidden;
   border-radius: 50%;
 
   border: 2px solid black;
   box-shadow: 1px 1px 1.5px rgba(128, 128, 128, 0.5);
+  flex-shrink: 0;
 
   .avatar img {
     width: 100%;

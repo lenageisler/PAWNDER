@@ -1,10 +1,12 @@
 <%# <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to home'.html_safe, root_path %>
 
 <h1>Your messages</h1>
-<% if @chats.any? %>
-  <% @chats.each do |chat| %>
-    <%= render "chats/chat", chat: chat %>
+<div class="chat-index-list">
+  <% if @chats.any? %>
+    <% @chats.each do |chat| %>
+      <%= render "chats/chat", chat: chat %>
+    <% end %>
+  <% else %>
+    <h4><i>No messages yet.</i></h4>
   <% end %>
-<% else %>
-  <h4><i>No messages yet.</i></h4>
-<% end %>
+</div>

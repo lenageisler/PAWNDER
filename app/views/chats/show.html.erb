@@ -2,10 +2,17 @@
 <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to your chats'.html_safe, chats_path %>
 <div class="chat-div">
   <div class="d-flex align-items-center pb-1">
-    <%= image_tag "avatar_placeholder.jpg", class: "chat-avatar me-3", alt: "Avatar" %>
+    <% if @chat.dog.photos.attached? %>
+          <%= cl_image_tag @chat.dog.photos.first.key,
+          crop: :fill, gravity: :auto,
+          class: "chat-avatar",
+          alt: "#{@chat.dog.name} picture" %>
+    <% else %>
+      <%= image_tag "avatar_placeholder.jpg", class: "chat-avatar", alt: "Avatar" %>
+    <% end %>
     <div>
       <% other_user = searcher? ?  @chat.shelter.name : @chat.searcher.username  %>
-      <h2 class="mb-0"><%= "Your chat about #{@chat.dog.name} with #{other_user}" %></h2>
+      <h3><%= "Your chat about #{@chat.dog.name} with #{other_user}" %></h3>
     </div>
   </div>
 
