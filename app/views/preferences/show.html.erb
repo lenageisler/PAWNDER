@@ -10,15 +10,17 @@
                 <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
             </div>
             <div data-toggle-pref-divs-target="body" class="">
-                <% if @preference.gender.present? %>
-                    <p>A <%= @preference.gender %> dog</p>
+                <% if @preference.gender.present? && @preference.gender == "female" %>
+                    <li><%= @preference.gender %> dog<i class="fa-solid fa-venus brand-pink"></i></li>
+                <% elsif @preference.gender.present? && @preference.gender == "male" %>
+                    <li><%= @preference.gender %> dog<i class="fa-solid fa-mars brand-blue"></i></li>
                 <% end %>
                 <% if @preference.age_min.present? && @preference.age_max.present? %>
-                    <p>Between <%= @preference.age_min %> and <%= @preference.age_max %> years old</p>  
+                    <li>between <%= @preference.age_min %> and <%= @preference.age_max %> years old</li>  
                 <% elsif @preference.age_min.present? %>
-                    <p>Minimum age of <%= @preference.age_min %> years</p>     
+                    <li>min <%= @preference.age_min %> years old</li>     
                 <% elsif @preference.age_max.present? %>
-                    <p>Maximum age of <%= @preference.age_max %> years</p>  
+                    <li>max <%= @preference.age_max %> years old</li>  
                 <% end %>
             </div>
         </div>
@@ -34,31 +36,36 @@
             </div>
             <div data-toggle-pref-divs-target="body" class="">
                 <% if @preference.breed_grade.any? %>
-                    <p>Breed grades</p>
+                    <p class="mt-1">Breed grades</p>
                     <% @preference.breed_grade.each do |value| %>
                         <li><%= value %></li>
                     <% end %>
                 <% end %>
                 <% if @preference.breed_category.any? %>
-                    <p>Preferred breed categories</p>
+                    <p class="mt-3">Preferred breed categories</p>
                     <% @preference.breed_category.each do |value| %>
                         <li><%= value %></li>
                     <% end %>
                 <% end %>
-                <% if @preference.weight_min.present? && @preference.weight_max.present? %>
-                    <p>Weight between <%= @preference.weight_min %> and <%= @preference.weight_max %> kg</p>  
-                <% elsif @preference.weight_min.present? %>
-                    <p>Minimum weight of <%= @preference.weight_min %> kg</p>     
-                <% elsif @preference.weight_max.present? %>
-                    <p>Maximum weight of <%= @preference.weight_max %> kg</p>  
-                <% end %>
-                <% if @preference.shoulder_height_min.present? && @preference.shoulder_height_max.present? %>
-                    <p>Shoulder height between <%= @preference.shoulder_height_min %> and <%= @preference.shoulder_height_max %> cm </p>  
-                <% elsif @preference.shoulder_height_min.present? %>
-                    <p>Minimum shoulder height of <%= @preference.shoulder_height_min %> cm</p>     
-                <% elsif @preference.shoulder_height_max.present? %>
-                    <p>Maximum shoulder height of <%= @preference.shoulder_height_max %> cm</p>  
-                <% end %>
+                <div class="pref-show-oneliner d-flex">
+                    <i class="fa-solid fa-weight-scale brand-blue"></i>
+                    <% if @preference.weight_min.present? && @preference.weight_max.present? %>
+                        <p>between <%= @preference.weight_min %> - <%= @preference.weight_max %> kg</p>  
+                    <% elsif @preference.weight_min.present? %>
+                        <p>min <%= @preference.weight_min %> kg</p>     
+                    <% elsif @preference.weight_max.present? %>
+                        <p>max <%= @preference.weight_max %> kg</p>  
+                    <% end %>
+                    <p>•</p>
+                    <i class="fa-solid fa-ruler-vertical brand-blue"></i>
+                    <% if @preference.shoulder_height_min.present? && @preference.shoulder_height_max.present? %>
+                        <p>between <%= @preference.shoulder_height_min %> - <%= @preference.shoulder_height_max %> cm </p>  
+                    <% elsif @preference.shoulder_height_min.present? %>
+                        <p>min <%= @preference.shoulder_height_min %> cm</p>     
+                    <% elsif @preference.shoulder_height_max.present? %>
+                        <p>max <%= @preference.shoulder_height_max %> cm</p>  
+                    <% end %>
+                </div>
             </div>
         </div>
     <% end %>
@@ -71,17 +78,17 @@
                 <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
             </div>
             <div data-toggle-pref-divs-target="body" class="">
+                <% if @preference.beginner_friendly %>
+                    <li>beginner friendly</li>  
+                <% end %>
+                <% if @preference.restricted_breed %>
+                    <li>no restricted breed<i class="fa-solid fa-ban brand-red"></i></li>  
+                <% end %>
                 <% if @preference.ideal_environment.any? %>
-                    <p>Enviroment you can provide</p>
+                    <p class="mt-3">Enviroment you can provide</p>
                     <% @preference.ideal_environment.each do |value| %>
                         <li><%= value %></li>
                     <% end %>
-                <% end %>
-                <% if @preference.beginner_friendly %>
-                    <p>Your perfect dog should be beginner friendy</p>  
-                <% end %>
-                <% if @preference.restricted_breed %>
-                    <p>Your dog shouldn't belong to a destricted breed</p>  
                 <% end %>
             </div>
         </div>
@@ -95,18 +102,18 @@
                 <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
             </div>
             <div data-toggle-pref-divs-target="body" class="">
-                <p>Your dog should be compatible with</p> 
+                <p>Should be compatible with</p> 
                 <% if @preference.male_compatible %>
-                    <li>male dogs</li>  
+                    <li>male dogs<i class="fa-solid fa-mars brand-blue"></i></li>  
                 <% end %>
                 <% if @preference.female_compatible %>
-                    <li>female dogs</li>  
+                    <li>female dogs<i class="fa-solid fa-venus brand-pink"></i></li>  
                 <% end %>
                 <% if @preference.cat_compatible %>
-                    <li>cats</li>  
+                    <li>cats<i class="fa-solid fa-cat brand-blue"></i></li>  
                 <% end %>
                 <% if @preference.kids_compatible %>
-                    <li>kids / family compatible</li>  
+                    <li>kids / family compatible<i class="fa-solid fa-children brand-green"></i></li>  
                 <% end %>
             </div>
         </div>
@@ -121,14 +128,15 @@
             </div>
             <div data-toggle-pref-divs-target="body" class="">
                 <% if @preference.health_issues %>
-                    <p>Your dog shouldn't have any health issues</p>  
+                    <li>no health issues<i class="fa-solid fa-heart-pulse brand-red"></i></li>  
                 <% end %>
                 <% if @preference.neutered %>
-                    <p>Your dog should be neutered/sprayed</p>  
+                    <li>neutered/sprayed</li>  
                 <% end %>
                 <% if @preference.location.any? %>
+                    <p class="mt-3">Location<i class="fa-solid fa-location-pin brand-blue"></i></p>
                     <% @preference.location.each do |value| %>
-                        <p><%= value %></p>
+                        <li><%= value %></li>
                     <% end %>
                 <% end %>
             </div>

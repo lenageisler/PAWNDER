@@ -233,7 +233,7 @@
               <% end %>
             </div>
             <% if @dog.birthday.present? %>
-              <i class="fa-solid fa-cake-candles brand-pink"></i><%= @dog.birthday&.strftime("%B %d, %Y") %>
+              <i class="fa-solid fa-cake-candles brand-pink me-2"></i><%= @dog.birthday&.strftime("%B %d, %Y") %>
             <% end %>
             <p class="mt-3"><%= @dog.info if @dog.info.present?%></p>
 
