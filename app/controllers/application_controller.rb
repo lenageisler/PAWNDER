@@ -26,12 +26,12 @@ class ApplicationController < ActionController::Base
     elsif searcher?
       dogs_path
     else
-      root_path
+      dogs_path
     end
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    root_path
+    dogs_path
   end
 
   private
