@@ -8,7 +8,7 @@
         <div class="dog-index-img background" style="background-color: #FBE74E"></div>
       <% end %>
     <div class="card-body">
-      <h5 class="card-title"><%= favorite.dog.name %></h5>
+      <h2 class="card-title"><%= favorite.dog.name %></h2>
       <p class="card-text"><%= favorite.dog.age %> years old</p>
       <div class="heart-button">
         <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(favorite.dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{favorite.dog.name} from your favorites?"} %></p>

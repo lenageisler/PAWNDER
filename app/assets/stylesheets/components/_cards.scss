@@ -156,6 +156,17 @@
   border: 2px solid $brand-black;
 }
 
+.add-dog-card {
+  border: 4px solid #0f0f0f;
+  border-radius: 0.75rem;
+  height: 100%;
+  background-color: $brand-pink;
+
+  &:hover {
+      background-color: $brand-green;
+      color: $brand-black;
+    }
+}
 .dog-show-top-info {
   p {
     padding-right: 16px;

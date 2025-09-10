@@ -1,11 +1,17 @@
-.chat {
-  background: white;
-  margin-top: 9px;
+.chat-div {
+  margin-top: 40px;
+
+  background-color: $brand-light-gray;
+  border: 2px solid black;
+  border-radius: 16px;
+
   @media (max-width: 500px) {
     height: calc(100vh - 75px);
+    padding: 16px;
   }
   @media (min-width: 500px) {
     height: calc(85vh - 75px);
+    padding: 40px;
   }
   height: calc(100vh - 75px);
   display: flex;
@@ -51,7 +57,8 @@
   .message-content {
     border-radius: 1rem;
     margin-bottom: 1rem;
-    padding: 0.5rem;
+    margin-top: .25rem;
+    padding: 0.75rem;
     max-width: 70%;
     width: fit-content;
     word-wrap: break-word;
@@ -60,7 +67,7 @@
   .message.sent .message-content {
     align-self: flex-end;
     background: $blue;
-    color: $light-gray;
+    color: $brand-black;
   }
 
   .message.received .message-content {
@@ -74,5 +81,53 @@
 
   .message.received .message-info {
     align-self: flex-start;
+  }
+}
+
+.chat-index-div {
+  margin-top: 40px;
+  @media (max-width: 500px) {
+      padding: 12px 12px 12px 12px;
+      margin-bottom: 16px;
+  }
+  @media (min-width: 500px) {
+      padding: 16px 16px 16px 16px;
+      margin-bottom: 40px;
+  }
+  background-color: $brand-light-gray;
+  border: 2px solid black;
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.chat-avatar {
+  @media (max-width: 500px) {
+    top: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+  }
+  @media (min-width: 500px) {
+    top: 26px;
+    right: 36px;
+    width: 60px;
+    height: 60px;
+  }
+
+  overflow: hidden;
+  border-radius: 50%;
+
+  border: 2px solid black;
+  box-shadow: 1px 1px 1.5px rgba(128, 128, 128, 0.5);
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

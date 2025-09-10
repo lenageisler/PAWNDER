@@ -20,6 +20,20 @@ class ApplicationController < ActionController::Base
     # devise_parameter_sanitizer.permit(:account_update, keys: [:role, :username, :name, :type, :location])
   end
 
+  def after_sign_in_path_for(_resource)
+    if shelter?
+      dogs_path
+    elsif searcher?
+      dogs_path
+    else
+      root_path
+    end
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
   private
 
   def set_user_preference
