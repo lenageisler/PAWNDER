@@ -47,22 +47,29 @@
                         <li><%= value %></li>
                     <% end %>
                 <% end %>
-                <div class="pref-show-oneliner d-flex">
-                    <i class="fa-solid fa-weight-scale brand-blue"></i>
+                <div class="pref-show-oneliner d-flex">                    
                     <% if @preference.weight_min.present? && @preference.weight_max.present? %>
+                        <i class="fa-solid fa-weight-scale brand-blue"></i>
                         <p>between <%= @preference.weight_min %> - <%= @preference.weight_max %> kg</p>  
                     <% elsif @preference.weight_min.present? %>
+                        <i class="fa-solid fa-weight-scale brand-blue"></i>
                         <p>min <%= @preference.weight_min %> kg</p>     
                     <% elsif @preference.weight_max.present? %>
+                        <i class="fa-solid fa-weight-scale brand-blue"></i>
                         <p>max <%= @preference.weight_max %> kg</p>  
                     <% end %>
-                    <p>•</p>
-                    <i class="fa-solid fa-ruler-vertical brand-blue"></i>
+
                     <% if @preference.shoulder_height_min.present? && @preference.shoulder_height_max.present? %>
+                        <p>•</p>
+                        <i class="fa-solid fa-ruler-vertical brand-blue"></i>
                         <p>between <%= @preference.shoulder_height_min %> - <%= @preference.shoulder_height_max %> cm </p>  
                     <% elsif @preference.shoulder_height_min.present? %>
+                        <p>•</p>
+                        <i class="fa-solid fa-ruler-vertical brand-blue"></i>
                         <p>min <%= @preference.shoulder_height_min %> cm</p>     
                     <% elsif @preference.shoulder_height_max.present? %>
+                        <p>•</p>
+                        <i class="fa-solid fa-ruler-vertical brand-blue"></i>
                         <p>max <%= @preference.shoulder_height_max %> cm</p>  
                     <% end %>
                 </div>
