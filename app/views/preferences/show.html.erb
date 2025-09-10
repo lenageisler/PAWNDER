@@ -1,14 +1,136 @@
-<h1>Preference Show Page</h1>
-<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to home'.html_safe, root_path %>
+<h1>Your dog preferences</h1>
+
 <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_preference_path%>
 <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, preference_path(@preference), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your preferences?"} %>
 
-<h3>Your Preferences</h3>
+<% if @preference.gender.present? || @preference.age_min.present? || @preference.age_max.present? %>
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
+            <p>Basics</p>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-pref-divs-target="body" class="d-none">
+            <% if @preference.gender.present? %>
+                <p>A <%= @preference.gender %> dog</p>
+            <% end %>
+            <% if @preference.age_min.present? && @preference.age_max.present? %>
+                <p>Between <%= @preference.age_min %> and <%= @preference.age_max %> years old</p>  
+            <% elsif @preference.age_min.present? %>
+                <p>Minimum age of <%= @preference.age_min %> years</p>     
+            <% elsif @preference.age_max.present? %>
+                <p>Maximum age of <%= @preference.age_max %> years</p>  
+            <% end %>
+        </div>
+    </div>
+<% end %>
 
-<dl class="row">
-    <% @preference.attributes.except("id", "user_id", "created_at", "updated_at").each do |key, value| %>
-        <% next if value.blank? %>
-        <dt class="col-sm-4 text-capitalize"><%= key.humanize %></dt>
-        <dd class="col-sm-8"><%= value %></dd>
-    <% end %>
-</dl>
+<% if @preference.breed_grade.any? || @preference.breed_category.any? || @preference.weight_min.present? || @preference.weight_max.present? ||
+    @preference.shoulder_height_min.present? || @preference.shoulder_height_max.present? %>
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
+            <p>Breed + Body</p>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-pref-divs-target="body" class="d-none">
+            <% if @preference.breed_grade.any? %>
+                <p>Breed grades</p>
+                <% @preference.breed_grade.each do |value| %>
+                    <li><%= value %></li>
+                <% end %>
+            <% end %>
+            <% if @preference.breed_category.any? %>
+                <p>Preferred breed categories</p>
+                <% @preference.breed_category.each do |value| %>
+                    <li><%= value %></li>
+                <% end %>
+            <% end %>
+            <% if @preference.weight_min.present? && @preference.weight_max.present? %>
+                <p>Weight between <%= @preference.weight_min %> and <%= @preference.weight_max %> kg</p>  
+            <% elsif @preference.weight_min.present? %>
+                <p>Minimum weight of <%= @preference.weight_min %> kg</p>     
+            <% elsif @preference.weight_max.present? %>
+                <p>Maximum weight of <%= @preference.weight_max %> kg</p>  
+            <% end %>
+            <% if @preference.shoulder_height_min.present? && @preference.shoulder_height_max.present? %>
+                <p>Shoulder height between <%= @preference.shoulder_height_min %> and <%= @preference.shoulder_height_max %> cm </p>  
+            <% elsif @preference.shoulder_height_min.present? %>
+                <p>Minimum shoulder height of <%= @preference.shoulder_height_min %> cm</p>     
+            <% elsif @preference.shoulder_height_max.present? %>
+                <p>Maximum shoulder height of <%= @preference.shoulder_height_max %> cm</p>  
+            <% end %>
+        </div>
+    </div>
+<% end %>
+
+<% if @preference.ideal_environment.any? || @preference.beginner_friendly.present? || @preference.restricted_breed.present? %>
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
+            <p>Environment + Experience</p>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-pref-divs-target="body" class="d-none">
+            <% if @preference.ideal_environment.any? %>
+                <p>Enviroment you can provide</p>
+                <% @preference.ideal_environment.each do |value| %>
+                    <li><%= value %></li>
+                <% end %>
+            <% end %>
+            <% if @preference.beginner_friendly %>
+                <p>Your perfect dog should be beginner friendy</p>  
+            <% end %>
+            <% if @preference.restricted_breed %>
+                <p>Your dog shouldn't belong to a destricted breed</p>  
+            <% end %>
+        </div>
+    </div>
+<% end %>
+
+<% if @preference.male_compatible.present? || @preference.female_compatible.present? || @preference.cat_compatible.present? || @preference.kids_compatible.present? %>
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
+            <p>Compatibilities</p>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-pref-divs-target="body" class="d-none">
+            <% if @preference.male_compatible %>
+                <p>Your dog should be compatible with male dogs</p>  
+            <% end %>
+            <% if @preference.female_compatible %>
+                <p>Your dog should be compatible with female dogs</p>  
+            <% end %>
+            <% if @preference.cat_compatible %>
+                <p>Your dog should be compatible with cats</p>  
+            <% end %>
+            <% if @preference.kids_compatible %>
+                <p>Your dog should be friendly towards children / family compatible</p>  
+            <% end %>
+        </div>
+    </div>
+<% end %>
+
+<% if @preference.health_issues.present? || @preference.neutered.present? || @preference.location.any? %>
+    <div class="dog-form-div" data-controller="toggle-pref-divs">
+        <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
+            <p>Health + Location</p>
+            <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus"></i>
+            <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus d-none"></i>
+        </div>
+        <div data-toggle-pref-divs-target="body" class="d-none">
+            <% if @preference.health_issues %>
+                <p>Your dog shouldn't have any health issues</p>  
+            <% end %>
+            <% if @preference.neutered %>
+                <p>Your dog should be neutered/sprayed</p>  
+            <% end %>
+            <% if @preference.location.any? %>
+                <% @preference.location.each do |value| %>
+                    <p><%= value %></p>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+<% end %>
