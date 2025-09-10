@@ -6,7 +6,7 @@
         <% if @preference.gender.present? || @preference.age_min.present? || @preference.age_max.present? %>
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
-                    <p>Basics</p>
+                    <p class="pref-show-div-header">Basics</p>
                     <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
                     <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
@@ -29,7 +29,7 @@
             @preference.shoulder_height_min.present? || @preference.shoulder_height_max.present? %>
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
-                    <p>Breed + Body</p>
+                    <p class="pref-show-div-header">Breed + Body</p>
                     <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
                     <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
@@ -67,7 +67,7 @@
         <% if @preference.ideal_environment.any? || @preference.beginner_friendly.present? || @preference.restricted_breed.present? %>
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
-                    <p>Environment + Experience</p>
+                    <p class="pref-show-div-header">Environment + Experience</p>
                     <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
                     <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
@@ -91,7 +91,7 @@
         <% if @preference.male_compatible.present? || @preference.female_compatible.present? || @preference.cat_compatible.present? || @preference.kids_compatible.present? %>
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
-                    <p>Compatibilities</p>
+                    <p class="pref-show-div-header">Compatibilities</p>
                     <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
                     <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>
@@ -115,7 +115,7 @@
         <% if @preference.health_issues.present? || @preference.neutered.present? || @preference.location.any? %>
             <div class="dog-form-div" data-controller="toggle-pref-divs">
                 <div class="d-flex justify-content-between align-items-baseline" data-action="click->toggle-pref-divs#toggle" >
-                    <p>Health + Location</p>
+                    <p class="pref-show-div-header">Health + Location</p>
                     <i data-toggle-pref-divs-target="plus" class="fa-solid fa-plus d-none"></i>
                     <i data-toggle-pref-divs-target="minus" class="fa-solid fa-minus"></i>
                 </div>

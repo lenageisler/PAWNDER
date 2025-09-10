@@ -16,9 +16,9 @@
         <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, favorites_path, class: "nav-link" %>
       </li>
       
-      <% if @preference.present? %>
+      <% if current_user.preference.present? %>
         <li class="nav-item">
-          <%= link_to '<i class="fa-solid fa-bone"></i>'.html_safe, preferences_path, class: "nav-link" %>
+          <%= link_to '<i class="fa-solid fa-bone"></i>'.html_safe, preference_path(@preference), class: "nav-link" %>
         </li>
       <% else %>
         <li class="nav-item">
