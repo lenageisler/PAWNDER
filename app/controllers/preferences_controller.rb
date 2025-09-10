@@ -9,6 +9,14 @@ class PreferencesController < ApplicationController
   def new
     if searcher?
       @preference = Preference.new
+      @ai_chat = AiChat.new
+      @ai_chat.user = current_user
+      if @ai_chat.save
+        @ai_message = AiMessage.new
+        @ai_messages = AiMessage.all
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
@@ -27,6 +35,14 @@ class PreferencesController < ApplicationController
   def edit
     if searcher?
       @preference = Preference.find(params[:id])
+      @ai_chat = AiChat.new
+      @ai_chat.user = current_user
+      if @ai_chat.save
+        @ai_message = AiMessage.new
+        @ai_messages = AiMessage.all
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
   end
 
