@@ -378,20 +378,20 @@
         
             <p><strong>Current location:</strong> <%= @dog.location %></p>
 
-      <%# Searcher >> #2 Card: favorite heart %>   
-            <div class="d-flex gap-3 align-items-center">
+      <%# Searcher >> #2 Card: favorite heart dog-index-heart%>
+      <%# d-flex gap-3 align-items-center %>
+            <div class="dog-index-heart">
               <% if searcher? %>
                 <% if (favorite = @dog.favorites.find_by(user: current_user)) %>
-                  <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, dog_favorite_path(@dog, favorite), data: {turbo_method: :delete, turbo_confirm: "Remove #{@dog.name} from favorites?"}, id: "heart-button-bordered" %>
+                  <%= link_to '<i class="fa-solid fa-heart brand-red"></i>'.html_safe, dog_favorite_path(@dog, favorite),
+                    data: {turbo_method: :delete, turbo_confirm: "Remove #{@dog.name} from favorites?"}, id: "heart-button-bordered" %>
                 <% else %>
-                  <%= simple_form_for [@dog, Favorite.new] do |f| %>
-                    <%= button_tag type: 'submit', id: "heart-button-bordered" do %>
-                      <i class="fa-regular fa-heart"></i>
-                    <% end %>
-                  <% end %>
+                  <%= link_to '<i class="fa-regular fa-heart brand-red"></i>'.html_safe,
+                    dog_favorites_path(@dog), data: { turbo_method: :post }, id: "heart-button-bordered" %>
                 <% end %>
               <% end %>
             </div>
+
           </div>
         </div>
 
