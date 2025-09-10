@@ -2,8 +2,10 @@
 
 <div class="container">
   <div id="chat_topic">
-    <h1> AI Chat Pet Adoption Consultant </h1>
-    <h3>From user: <%= ai_chat.user.username %></h3>
+    <h3> AI Chat Pet Adoption Consultant </h3>
+    <button data-action="click->aichat#close"
+              data-aichat-target="xtoggle"
+              class="btn btn-sm btn-outline-secondary d-none">&times;</button>
   </div>
 
   <div id="ai_messages">
