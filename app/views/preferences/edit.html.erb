@@ -3,3 +3,4 @@
 <%= link_to '<i class="fa-solid fa-arrow-left"></i> back without updating preferences'.html_safe, preference_path(@preference) %>
 
 <%= render "form", preference: @preference %>
+<%= render "shared/aichat", ai_chat: @ai_chat, ai_message: @ai_message%>
