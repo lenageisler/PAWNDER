@@ -9,7 +9,7 @@
   bottom: 0;
   width: 100%;
   flex-grow: 0;
-  height: 48px;
+  height: 60px;
 
   display: flex;
   justify-content: center;
@@ -18,9 +18,9 @@
   z-index: 900;
 
   list-style: none;
-  background: #FBE74E;
+  background: $brand-blue;
   border-top: 2px solid black;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .navbar-top {
@@ -41,7 +41,7 @@
   justify-content: space-between;
   align-items: center;
 
-  background: #9DC5F5;
+  background: $brand-blue;
   border-radius: 16px;
   border: 2px solid black;
 

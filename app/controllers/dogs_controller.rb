@@ -86,13 +86,17 @@ class DogsController < ApplicationController
     #simple_values
     @dogs = @dogs.where(gender: pref.gender) if pref.gender.present?
     @dogs = @dogs.where(neutered: pref.neutered) if pref.neutered.present?
+    @dogs = @dogs.where(beginner_friendly: pref.beginner_friendly) if pref.beginner_friendly.present?
+
+    # turned logic
     @dogs = @dogs.where(health_issues: false) if pref.health_issues == true
     @dogs = @dogs.where(restricted_breed: false) if pref.restricted_breed == true
-    @dogs = @dogs.where(beginner_friendly: pref.beginner_friendly) if pref.beginner_friendly.present?
-    @dogs = @dogs.where(male_compatible: pref.male_compatible) if pref.male_compatible.present?
-    @dogs = @dogs.where(female_compatible: pref.female_compatible) if pref.female_compatible.present?
-    @dogs = @dogs.where(cat_compatible: pref.cat_compatible) if pref.cat_compatible.present?
-    @dogs = @dogs.where(kids_compatible: pref.kids_compatible) if pref.kids_compatible.present?
+
+    # comp matching pref true to dog yes
+    @dogs = @dogs.where(male_compatible: "yes") if pref.male_compatible == true
+    @dogs = @dogs.where(female_compatible: "yes") if pref.female_compatible == true
+    @dogs = @dogs.where(cat_compatible: "yes") if pref.cat_compatible == true
+    @dogs = @dogs.where(kids_compatible: "yes") if pref.kids_compatible == true
 
     # difficult to match - disclaimer in form??
     @dogs = @dogs.where("main_breed ILIKE ?", "%#{pref.main_breed}%") if pref.main_breed.present?

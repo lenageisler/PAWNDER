@@ -43,19 +43,5 @@ class Preference < ApplicationRecord
 
   #others
   validates :gender, inclusion: { in: ["male", "female"] }, allow_blank: true
-  validates :male_compatible, inclusion: { in: ["yes"] }, allow_blank: true
-  validates :female_compatible, inclusion: { in: ["yes"] }, allow_blank: true
-  validates :cat_compatible, inclusion: { in: ["yes"] }, allow_blank: true
-  validates :kids_compatible, inclusion: { in: ["yes"] }, allow_blank: true
 
-  # before_save :convert_compatible_true_to_yes
-
-  # private
-
-  # def convert_compatible_true_to_yes
-  #   self.male_compatible = "yes" if male_compatible == true
-  #   self.female_compatible = "yes" if male_compatible == true
-  #   self.cat_compatible = "yes" if male_compatible == true
-  #   self.kids_compatible = "yes" if male_compatible == true
-  # end
 end

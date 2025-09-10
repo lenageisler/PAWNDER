@@ -276,7 +276,7 @@ Preference.create!(
   age_max: 1,
   neutered: true,
   location: ["Shelter"],
-  kids_compatible: "yes",
+  kids_compatible: "true",
   ideal_environment: ["House with garden"]
 )
 
@@ -291,7 +291,7 @@ Preference.create!(
   user: searcher3,
   breed_grade: ["Pure breed"],
   breed_category: ["Shepherd-type"],
-  female_compatible: "yes",
+  female_compatible: "true",
   ideal_environment: ["Countryside"]
 )
 
