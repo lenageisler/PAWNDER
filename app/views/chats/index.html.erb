@@ -1,0 +1,10 @@
+<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to home'.html_safe, root_path %>
+
+<h3>Messages</h3>
+<% if @chats.any? %>
+  <% @chats.each do |chat| %>
+    <%= render "chats/chat", chat: chat %>
+  <% end %>
+<% else %>
+  <h4><i>No messages yet.</i></h4>
+<% end %>

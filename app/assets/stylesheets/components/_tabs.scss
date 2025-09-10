@@ -30,13 +30,14 @@
 
     &:hover {
         // opacity: 0.8;
-        background-color: #9DC5F5;
+        background-color: $brand-blue;
     }
 }
 
 .tabs-desktop .tab-desktop.active {
 
     border: 2px solid black;
+    background-color: $brand-blue;
 }
 
 .tab-desktop a {

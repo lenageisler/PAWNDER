@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_08_134120) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_09_195151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -133,10 +133,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_08_134120) do
     t.boolean "health_issues"
     t.boolean "restricted_breed"
     t.boolean "beginner_friendly"
-    t.string "male_compatible"
-    t.string "female_compatible"
-    t.string "cat_compatible"
-    t.string "kids_compatible"
+    t.boolean "male_compatible"
+    t.boolean "female_compatible"
+    t.boolean "cat_compatible"
+    t.boolean "kids_compatible"
     t.string "ideal_environment", default: [], array: true
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

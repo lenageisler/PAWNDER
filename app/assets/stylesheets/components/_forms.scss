@@ -13,7 +13,7 @@
 }
 
 .dog-form-div {
-    background-color: #ECEFEC;
+    background-color: $brand-gray;
     border-radius: 16px;
 
     @media (max-width: 500px) {
@@ -33,6 +33,10 @@
     p {
         margin-bottom: 7px;
     }
+
+    i {
+        cursor: pointer;
+    }
 }
 
 .dog-form-div-header {
@@ -51,7 +55,7 @@
 .headline-preference-div {
     color: black;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     padding-bottom: 8px;
 }
@@ -199,7 +203,7 @@ label .optional {
     width: 100%;
 }
 body .flatpickr-calendar {
-    background: $brand-yellow;
+    background: $brand-pink;
     border: 2px solid black;
     border-radius: 16px;
     overflow: hidden;
@@ -263,4 +267,9 @@ body .flatpickr-day.selected:hover {
     .form-check {
         padding: 0;
     }
+}
+
+// green text on active fields override
+.form-check-input.is-valid ~ .form-check-label {
+    color: black;
 }

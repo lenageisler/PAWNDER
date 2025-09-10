@@ -1,5 +1,5 @@
 <h1>Update <%= @dog.name %>'s info</h1>
 
-<%= link_to '<i class="fa-solid fa-arrow-left"></i> back to your dog'.html_safe, dog_path(@dog) %>
+<%= link_to '<i class="fa-solid fa-arrow-left"></i> back without changes'.html_safe, dog_path(@dog) %>
 
 <%= render "form", dog: @dog %>

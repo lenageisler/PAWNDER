@@ -1,47 +1,41 @@
-<div class="container mt-4">
+<div class="mt-4">
   <div class="row">
     <!-- Left column: image -->
     <div class="col-md-6">
       <div class="dog-image-wrapper">
       <% if dog.photos.attached? %>
-        <% if dog.photos.many? %>
-          <div id="dogCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <% @dog.photos.each_with_index do |photo, index| %>
-                <div class="carousel-item <%= "active" if index == 0 %>">
-                  <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "d-block w-100 dog-show-img" %>
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#dogCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#dogCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-          </div>
-          <div class="dog-thumbnails mt-2">
-            <% dog.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, crop: :fill, gravity: :auto, class: "dog-thumb-img" %>
-            <% end %>
-          </div>
-        <% else %>
-          <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-show-img" %>
-        <% end %>
+        <%= cl_image_tag dog.photos.first.key,
+        crop: :fill, gravity: :auto,
+        class: "dog-show-img",
+        id: "main-dog-image" %>
       <% else %>
         <div class="dog-show-img background"></div>
       <% end %>
       </div>
+    <% if @dog.photos.many? %>
+      <div class="dog-thumbnails mt-2" data-controller="dog-gallery">
+        <% @dog.photos.each_with_index do |photo, index| %>
+          <%= cl_image_tag photo.key,
+              crop: :fill, gravity: :auto,
+              class: "dog-thumb-img",
+              data: { action: "click->dog-gallery#switch",
+                      target: "dog-gallery.thumbnail",
+                      full: cl_image_path(photo.key, crop: :fill, gravity: :auto) } %>
+        <% end %>
+      </div>
+    <% end %>
     </div>
-    <!-- Right column: details -->
     <div class="col-md-6">
-      <div class="card p-4">
+      <div class="card p-1 mt-2">
         <div class="card-body">
           <h2 class="card-title"><%= @dog.name %></h2>
           <p class="text-muted">
             <%= @dog.age %> years old
-            <% if @dog.gender.present? %> • <%= @dog.gender %><% end %>
+            <% if @dog.gender.present? %> • <%= @dog.gender.capitalize %><% end %>
+            <% if @dog.info.present? %> • <br><%= @dog.info %><% end %>
           </p>
+
+          <hr>
 
           <% if @dog.main_breed.present? %>
             <p><strong>Main breed:</strong> <%= @dog.main_breed %></p>
@@ -81,17 +75,11 @@
           <hr>
 
           <h5>Environment</h5>
+          <p><strong>Taken care by: <%= @dog.user.name %></strong>
           <p><strong>In shelter since:</strong> <%= @dog.in_shelter_since&.strftime("%B %d, %Y") || "Unknown" %></p>
           <p><strong>Current location:</strong> <%= @dog.location %></p>
           <p><strong>Ideal environment:</strong> <%= @dog.ideal_environment %></p>
 
-          <% if @dog.info.present? %>
-            <hr>
-            <h5>About <%= @dog.name %></h5>
-            <p><%= @dog.info %></p>
-          <% end %>
-
-          <hr>
 
           <div class="d-flex gap-3 align-items-center">
             <% if shelter? %>
@@ -118,3 +106,17 @@
     </div>
   </div>
 </div>
+
+<% if searcher? %>
+  <div class="shelter-profile card mt-4 p-1">
+  <div class="card-body">
+    <h4 class="card-title">Shelter Information</h4>
+    <p><strong>Name:</strong> <%= dog.user.name %></p>
+    <p><strong>Type:</strong> <%= dog.user.shelter_type %></p>
+    <p><strong>Location:</strong> <%= dog.user.location %></p>
+
+    <img id="shelter-map" class="shelter-map mt-3" src="https://api.mapbox.com/geocoding/v5/mapbox.places/2.346,48.8595,11.72,0,0/600x300?access_token=<%= @MAPBOX_API_KEY %>"  alt="<%= dog.user.location %>">
+
+  </div>
+</div>
+<% end %>

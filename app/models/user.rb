@@ -8,14 +8,14 @@ class User < ApplicationRecord
 # Associations for SHELTER users
   has_many :dogs, dependent: :destroy
   has_many :favored_dogs, through: :dogs, source: :favorites
-  has_many :chats, through: :favored_dogs, as: :shelter_chats
+  has_many :shelter_chats, through: :dogs, source: :chats
 
 # Associations for SEARCHER users
   has_one :preference, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_dogs, through: :favorites, source: :dogs
   has_many :ai_chats, dependent: :destroy
-  has_many :chats, through: :favorites, as: :searcher_chats
+  has_many :searcher_chats, through: :favorites, source: :chat
 
   validates :role, presence: true, inclusion: { in: ["shelter", "searcher"] }
 
