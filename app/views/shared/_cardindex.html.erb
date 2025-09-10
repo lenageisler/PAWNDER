@@ -8,8 +8,19 @@
         <div class="dog-index-img background"></div>
       <% end %>
       <div class="card-body">
-        <h2 class="card-title"><%= dog.name %></h2>
-        <p class="card-text"><%= dog.age %> years old</p>
+        <div class="card-body-columns">
+          <div>
+            <h2 class="card-title"><%= dog.name %></h2>
+          </div>
+          <div class="text-end">
+            <p class="card-text"><%= dog.gender %> </p>
+            <% if dog.age == 1 %>
+              <p class="card-text"><%= dog.age %> year old</p>
+            <% else %>
+              <p class="card-text"><%= dog.age %> years old</p>
+            <% end %>
+          </div>
+        </div>
           <%# <a href="#" class="btn btn-main">Add to favorite</a> %>
       </div>
     </div>

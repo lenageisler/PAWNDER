@@ -221,3 +221,14 @@
     text-align: center;
   }
 }
+
+.card-body-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  h2 {
+    font-size: 32px;
+    // margin-bottom: 8px;
+  }
+}
