@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
       @favorite.dog = @dog
       @favorite.user = current_user
       if @favorite.save
-        redirect_to favorites_path, notice: "You have successfully added #{@dog.name} to your favorites."
+        redirect_to dog_path(@dog), notice: "You have successfully added #{@dog.name} to your favorites."
       else
         render "dogs/show", status: :unprocessable_entity
       end

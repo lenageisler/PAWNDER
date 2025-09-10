@@ -114,19 +114,20 @@
   cursor: pointer;
 }
 
-#heart-button-bordered {
-  border: none;
-  background: none;
-  position: absolute;
-  right: 20px;
-  top: 12px;
-  font-size: 40px;
-  color: $brand-red;
-  cursor: pointer;
-}
+// #heart-button-bordered {
+//   border: none;
+//   background: none;
+//   position: absolute;
+//   right: 20px;
+//   top: 12px;
+//   font-size: 40px;
+//   color: $brand-red;
+//   cursor: pointer;
+// }
 
 .card-title {
   color: $brand-green;
+  font-size: 32px;
   margin-bottom: 16px;
 }
 
@@ -220,4 +221,27 @@
     width: 120px;
     text-align: center;
   }
+}
+
+.card-body-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  h2 {
+    font-size: 32px;
+    // margin-bottom: 8px;
+  }
+}
+
+.dog-index-heart {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 48px;
+  color: $brand-red;
+}
+
+.dog-show-heart {
+  font-size: 48px;
 }

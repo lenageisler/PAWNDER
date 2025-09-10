@@ -1,16 +1,38 @@
 
   <div class="col">
     <%= link_to dog_path(dog) do %>
-    <div class="card h-100">
+    <div class="card h-100 dog-index-card">
+      <% if searcher? %>        
+        <div class="dog-index-heart">
+          <% if (favorite = dog.favorites.find_by(user: current_user)) %>
+            <i class="fa-solid fa-heart"></i>
+          <% else %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
+        </div>
+      <% end %>
       <% if dog.photos.attached? %>
         <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
       <% else %>
         <div class="dog-index-img background"></div>
       <% end %>
       <div class="card-body">
-        <h2 class="card-title"><%= dog.name %></h2>
-        <p class="card-text"><%= dog.age %> years old</p>
+        <div class="card-body-columns">
+          <div>
+            <h2 class="card-title ms-2"><%= dog.name %></h2>
+          </div>
+          <div class="text-end me-2">
+            <p class="card-text"><%= dog.gender %> </p>
+            <% if dog.age == 1 %>
+              <p class="card-text"><%= dog.age %> year old</p>
+            <% else %>
+              <p class="card-text"><%= dog.age %> years old</p>
+            <% end %>
+          </div>
+        </div>
           <%# <a href="#" class="btn btn-main">Add to favorite</a> %>
+
+
       </div>
     </div>
     <% end %>
