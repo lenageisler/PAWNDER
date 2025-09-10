@@ -16,6 +16,7 @@
   overflow: hidden;
   background: $brand-light-gray;
   padding: 0;
+  margin-top: 8px;
 }
 
 .dog-show-img {
@@ -73,12 +74,28 @@
 // }
 
 .card {
-  border-radius: 1rem;
+  border-radius: 16px;
+  // border: 4px solid black;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: auto;
 
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  i {
+    padding-right: 4px;
+  }
+  h5 {
+    padding-bottom: 16px;
+  }
+}
+
+.no-hover {
+  &:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 
@@ -94,21 +111,24 @@
   top: 12px;
   font-size: 24px;
   color: $brand-red;
+  cursor: pointer;
 }
 
-#heart-button-bordered {
-  border: none;
-  background: none;
-  position: absolute;
-  right: 20px;
-  top: 12px;
-  font-size: 40px;
-  color: $brand-red;
-  // text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-}
+// #heart-button-bordered {
+//   border: none;
+//   background: none;
+//   position: absolute;
+//   right: 20px;
+//   top: 12px;
+//   font-size: 40px;
+//   color: $brand-red;
+//   cursor: pointer;
+// }
 
 .card-title {
   color: $brand-green;
+  font-size: 32px;
+  margin-bottom: 16px;
 }
 
 .card-text {
@@ -117,13 +137,111 @@
 
 .shelter-profile {
   border: 4px solid $brand-black;
-  border-radius: 1rem;
+  border-radius: 16px;
   background: $brand-light-gray;
+  height: auto;
+
+  i {
+    padding-right: 12px;
+  }
+  p {
+    padding: 8px 0 0 0;
+    margin: 0;
+  }
 }
 
 .shelter-map {
   width: 100%;
   height: 300px;
-  border-radius: 0.75rem;
+  border-radius: 8px;
   border: 2px solid $brand-black;
+}
+
+.add-dog-card {
+  border: 4px solid #0f0f0f;
+  border-radius: 0.75rem;
+  height: 100%;
+  background-color: $brand-pink;
+
+  &:hover {
+      background-color: $brand-green;
+      color: $brand-black;
+    }
+}
+.dog-show-top-info {
+  p {
+    padding-right: 16px;
+  }
+  i {
+    padding-right: 16px;
+  }
+}
+
+.dog-show-oneline-info {
+  p {
+    padding-right: 16px;
+  }
+  i {
+    padding-left: 8px;
+  }
+}
+
+.fa-circle-check {
+  color: $brand-green;
+}
+
+.fa-circle-xmark {
+  color: $brand-red;
+}
+
+.fa-circle-question {
+  color: $brand-blue;
+}
+
+.brand-pink {
+  color: $brand-pink;
+}
+
+.brand-blue {
+  color: $brand-blue;
+}
+
+.brand-red {
+  color: $brand-red;
+}
+
+.dog-show-shelter-btns{
+  margin-top: 32px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 60px;
+  a.btn-main {
+    width: 120px;
+    text-align: center;
+  }
+}
+
+.card-body-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  h2 {
+    font-size: 32px;
+    // margin-bottom: 8px;
+  }
+}
+
+.dog-index-heart {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 48px;
+  color: $brand-red;
+}
+
+.dog-show-heart {
+  font-size: 48px;
 }
