@@ -414,7 +414,15 @@
             <p><%= dog.user.shelter_type %></p>
             <p><i class="fa-solid fa-location-pin brand-blue"></i> <%= dog.user.location %></p>
 
-            <img id="shelter-map" class="shelter-map mt-3" src="https://api.mapbox.com/geocoding/v5/mapbox.places/2.346,48.8595,11.72,0,0/600x300?access_token=<%= @MAPBOX_API_KEY %>"  alt="<%= dog.user.location %>">
+
+            <% if dog.user.name === "London Dog Rescue" %>
+              <%= image_tag "map_uk.png", id: "shelter-map", class: "shelter-map mt-3", alt: dog.user.location %>
+            <% elsif dog.user.name === "Kölner Tierschutzverein" %>
+              <%= image_tag "map_de.png", id: "shelter-map", class: "shelter-map mt-3", alt: dog.user.location %>
+            <% else %>
+              <%= image_tag "map_be.png", id: "shelter-map", class: "shelter-map mt-3", alt: dog.user.location %>
+            <% end %>
+
 
           </div>
         </div>
