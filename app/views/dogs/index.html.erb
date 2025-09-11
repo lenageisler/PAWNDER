@@ -21,7 +21,7 @@
     <% end %>
 
   <% if searcher? %>
-    <h1>Your matching dogs</h1>
+    <h1>Hi <%= current_user.username %>,<br>here are your<br>matching dogs</h1>
     <div class="py-4">
       <div class="row justify-content-center gy-4 gx-4">
         <% @dogs.each do |dog| %>
