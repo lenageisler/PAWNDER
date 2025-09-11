@@ -1,4 +1,4 @@
-<%= simple_form_for [chat, message], html: {class: "d-flex"} do |f| %>
-  <%= f.input :content, placeholder: "Ask a question", required: true, label: false %>
-  <%= f.button :submit, 'Ask', class: 'btn btn-main mb-3' %>
+<%= simple_form_for [chat, message], html: {class: "ai-chat-input-div"} do |f| %>
+  <%= f.input :content, placeholder: "Ask a question", required: true, label: false, class: 'ai-chat-input' %>
+  <%= f.button :submit, 'Ask', class: 'btn-main aichat-btn' %>
 <% end %>

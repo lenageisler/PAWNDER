@@ -12,7 +12,7 @@
     <% end %>
     <div>
       <% other_user = searcher? ?  @chat.shelter.name : @chat.searcher.username  %>
-      <h3><%= "Your chat about #{@chat.dog.name} with #{other_user}" %></h3>
+      <h3><%= "Chat with #{other_user} about #{@chat.dog.name}" %></h3>
     </div>
   </div>
 

@@ -1,11 +1,9 @@
 <%= turbo_stream_from ai_chat %> <%# Subscribe the client chat to a channel %>
 
-<div class="chat-div">
-  <div id="chat_topic">
-    <h3> Ask our Dog-Bot for help in defining your preferences </h3>
-    <button data-action="click->aichat#close"
-              data-aichat-target="xtoggle"
-              class="btn btn-sm btn-outline-secondary d-none">&times;</button>
+<div class="chat-window-popup">
+  <div class="chat-window-topic">
+    <h3>Ask our Dog-Bot for help<br>defining your preferences</h3>
+    <i class="fa-solid fa-xmark d-none" data-action="click->aichat#close" data-aichat-target="xBtn"></i>
   </div>
 
   <div id="ai_messages">

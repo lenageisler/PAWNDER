@@ -1,15 +1,11 @@
-<div id="aichat-widget" class="aichat-widget" data-controller="aichat">
-
-  <%= image_tag "chat_question_mark.jpg",
-          crop: :fill,
-          gravity: :auto,
-          class: "aichat-icon",
-          alt: "chat_question_mark",
-          data: { action: "click->aichat#open", aichat_target: "toggle" } %>
+<div class="aichat-popup" data-controller="aichat">
+  <div data-aichat-target="floatingQ" data-action="click->aichat#open" class="aichat-fonta-icon">
+    <i class="fa-solid fa-circle-question fa-2xl"></i>
+  </div>
 
   <!-- Shows the chat box partial -->
   <div data-aichat-target="window"
-      class="card chat-window d-none shadow">
+      class="chat-window d-none">
     <%= render "ai_chats/aichat_box", ai_chat: ai_chat, ai_message: ai_message %>
   </div>
 </div>

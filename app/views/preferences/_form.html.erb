@@ -29,14 +29,16 @@
         <div data-toggle-form-div-target="body" class="d-none">
             <%= f.input :breed_grade, collection: ["Pure breed", "Hybrid", "Mix"],
                 required: false, as: :check_boxes, include_hidden: false,
-                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item',
+                label: 'Breed grade<span class="multiple">(multiple)</span>'.html_safe %>
             <%= f.input :breed_category, collection: [
                     "Shepherd-type", "Herding-type", "Retriever-type", "Poudle-type", "Big gentle",
                     "Hound-type", "Sporty-Hunting-type", "Spitz-type", "Compact & sturdy",
                     "Terrier-type", "Small & fluffy", "Small & slick", "Sausage-type",
                     "Medium mixed", "Large mixed", "Small mixed"
                 ], required: false, as: :check_boxes, include_hidden: false,
-                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item',
+                label: 'Breed categories<span class="multiple">(multiple)</span>'.html_safe %>
             <%# <%= f.input :main_breed, required: false, input_html: { class: "input-field" } %>
             <p>Weight</p>
             <div class="range">
@@ -62,7 +64,8 @@
         <div data-toggle-form-div-target="body" class="d-none">
             <%= f.input :ideal_environment, collection: ["Apartment-friendly", "House with garden", "Countryside", "City life", "Quiet environment"],
                 required: false, as: :check_boxes, include_hidden: false,
-                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item',
+                label: 'Providable environment<span class="multiple">(multiple)</span>'.html_safe %>
             <%= f.input :beginner_friendly, as: :boolean, required: false, label: "Beginner friendly dogs", input_html: { class: "toggle" } %>
             <%= f.input :restricted_breed, as: :boolean, required: false, label: "No restricted breed dogs", input_html: { class: "toggle" } %>
         </div>
@@ -93,7 +96,8 @@
             <%= f.input :neutered, as: :boolean, required: false, input_html: { class: "toggle" }, label: "Neutered/sprayed dogs" %>
             <%= f.input :location, collection: ["Shelter", "Foster Care", "Overseas"],
                 required: false, as: :check_boxes, include_hidden: false, label: "Current location",
-                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+                input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item',
+                label: 'Current location<span class="multiple">(multiple)</span>'.html_safe %>
         </div>
     </div>
 

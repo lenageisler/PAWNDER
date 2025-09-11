@@ -9,18 +9,18 @@
   bottom: 0;
   width: 100%;
   flex-grow: 0;
-  height: 60px;
+  height: 56px;
 
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 48px;
   align-items: center;
   z-index: 900;
 
   list-style: none;
   background: $brand-blue;
   border-top: 2px solid black;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .navbar-top {
