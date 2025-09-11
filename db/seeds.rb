@@ -1,13 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 AiMessage.destroy_all
 AiChat.destroy_all
 Message.destroy_all
@@ -17,7 +7,7 @@ Preference.destroy_all
 Dog.destroy_all
 User.destroy_all
 
-puts "creating 2 shelter users with dogs"
+puts "creating 3 shelter users with dogs"
 
 shelter_be = User.create!(
   email: "shelter@shelter.be",
@@ -245,7 +235,127 @@ Dog.create!(
   info: "Calm and loving, enjoys relaxing with people."
 )
 
+shelter_uk = User.create!(
+  email: "info@londondogshelter.org",
+  password: "info@londondogshelter.org",
+  role: "shelter",
+  name: "London Dog Rescue",
+  shelter_type: "International Rescue",
+  location: "123 Battersea Park Road, London SW11 4LR, UK"
+)
+
+dog_data_uk = [
+  { name: "Simba", age: 2, gender: "male", main_breed: "Shiba Inu", breed_category: "Spitz-type", weight: 12.0, info: "Alert and curious, loves exploring." },
+  { name: "Ruby", age: 4, gender: "female", main_breed: "Beagle", breed_category: "Hound-type", weight: 14.0, info: "Friendly and food-driven, loves sniffing games." },
+  { name: "Oscar", age: 6, gender: "male", main_breed: "Bulldog", breed_category: "Big gentle", weight: 24.0, info: "Gentle couch potato, needs short walks." },
+  { name: "Maya", age: 1, gender: "female", main_breed: "Cocker Spaniel", breed_category: "Small & fluffy", weight: 10.0, info: "Playful, loves people and other dogs." },
+  { name: "Diesel", age: 3, gender: "male", main_breed: "Rottweiler", breed_category: "Big gentle", weight: 40.0, info: "Strong and protective, needs experienced handler." },
+  { name: "Snoopy", age: 5, gender: "male", main_breed: "Basset Hound", breed_category: "Hound-type", weight: 20.0, info: "Calm and affectionate, loves long naps." },
+  { name: "Chloe", age: 7, gender: "female", main_breed: "Labrador Retriever", breed_category: "Retriever-type", weight: 28.0, info: "Family dog, friendly with kids." },
+]
+
+dog_data_be = [
+  { name: "Poppy", age: 5, gender: "female", main_breed: "West Highland White Terrier", breed_category: "Terrier-type", weight: 8.0, info: "Lively and independent, but very affectionate." },
+  { name: "Archie", age: 2, gender: "male", main_breed: "Cavapoo", breed_category: "Small & fluffy", weight: 7.0, info: "Sociable and playful, perfect city dog." },
+  { name: "Lola", age: 6, gender: "female", main_breed: "Greyhound", breed_category: "Hound-type", weight: 27.0, info: "Calm at home, loves daily sprints." },
+  { name: "Finn", age: 4, gender: "male", main_breed: "Staffordshire Bull Terrier", breed_category: "Big gentle", weight: 18.0, info: "Friendly and energetic, loves tug-of-war." },
+  { name: "Hazel", age: 3, gender: "female", main_breed: "Border Terrier", breed_category: "Terrier-type", weight: 7.5, info: "Curious and brave, loves chasing balls." },
+  { name: "Theo", age: 1, gender: "male", main_breed: "Cockapoo", breed_category: "Small & fluffy", weight: 9.0, info: "Cheeky and affectionate, loves cuddles." },
+  { name: "Molly", age: 9, gender: "female", main_breed: "King Charles Cavalier", breed_category: "Small & fluffy", weight: 6.5, info: "Calm senior, enjoys gentle walks." },
+]
+
+dog_data_de = [
+  { name: "Rex", age: 8, gender: "male", main_breed: "Doberman", breed_category: "Shepherd-type", weight: 36.0, info: "Loyal and protective, needs space to run." },
+  { name: "Daisy", age: 2, gender: "female", main_breed: "Whippet", breed_category: "Hound-type", weight: 12.0, info: "Elegant and fast, loves sprinting outdoors." },
+  { name: "Shadow", age: 3, gender: "male", main_breed: "Mixed", breed_category: "Medium mixed", weight: 18.0, info: "Quiet and shy, bonds deeply once he trusts." },
+  { name: "Leo", age: 2, gender: "male", main_breed: "German Shorthaired Pointer", breed_category: "Sporty-Hunting-type", weight: 25.0, info: "Energetic, loves outdoor adventures." },
+  { name: "Rosie", age: 5, gender: "female", main_breed: "Samoyed", breed_category: "Spitz-type", weight: 23.0, info: "Fluffy and friendly, loves cold weather." },
+  { name: "Baxter", age: 7, gender: "male", main_breed: "Great Dane", breed_category: "Big gentle", weight: 50.0, info: "Gentle giant, needs space to stretch out." }
+]
+
+dog_data_uk.each_with_index do |dog, i|
+  Dog.create!(
+    user: shelter_uk,
+    name: dog[:name],
+    age: dog[:age],
+    gender: dog[:gender],
+    neutered: [true, false].sample,
+    breed_grade: ["Pure breed", "Mix", "Hybrid"].sample,
+    breed_category: dog[:breed_category],
+    main_breed: dog[:main_breed],
+    shoulder_height: rand(25..70),
+    weight: dog[:weight],
+    in_shelter_since: Date.today - rand(30..600),
+    location: "Shelter",
+    chipped: [true, false].sample,
+    health_issues: [true, false].sample,
+    restricted_breed: [true, false].sample,
+    beginner_friendly: [true, false].sample,
+    male_compatible: %w[yes no unknown].sample,
+    female_compatible: %w[yes no unknown].sample,
+    cat_compatible: %w[yes no unknown].sample,
+    kids_compatible: %w[yes no unknown].sample,
+    ideal_environment: ["Apartment-friendly", "House with garden", "Countryside"].sample,
+    info: dog[:info]
+  )
+end
+
+dog_data_be.each_with_index do |dog, i|
+  Dog.create!(
+    user: shelter_be,
+    name: dog[:name],
+    age: dog[:age],
+    gender: dog[:gender],
+    neutered: [true, false].sample,
+    breed_grade: ["Pure breed", "Mix", "Hybrid"].sample,
+    breed_category: dog[:breed_category],
+    main_breed: dog[:main_breed],
+    shoulder_height: rand(25..70),
+    weight: dog[:weight],
+    in_shelter_since: Date.today - rand(30..600),
+    location: "Shelter",
+    chipped: [true, false].sample,
+    health_issues: [true, false].sample,
+    restricted_breed: [true, false].sample,
+    beginner_friendly: [true, false].sample,
+    male_compatible: %w[yes no unknown].sample,
+    female_compatible: %w[yes no unknown].sample,
+    cat_compatible: %w[yes no unknown].sample,
+    kids_compatible: %w[yes no unknown].sample,
+    ideal_environment: ["Apartment-friendly", "House with garden", "Countryside"].sample,
+    info: dog[:info]
+  )
+end
+
+dog_data_de.each_with_index do |dog, i|
+  Dog.create!(
+    user: shelter_de,
+    name: dog[:name],
+    age: dog[:age],
+    gender: dog[:gender],
+    neutered: [true, false].sample,
+    breed_grade: ["Pure breed", "Mix", "Hybrid"].sample,
+    breed_category: dog[:breed_category],
+    main_breed: dog[:main_breed],
+    shoulder_height: rand(25..70),
+    weight: dog[:weight],
+    in_shelter_since: Date.today - rand(30..600),
+    location: "Shelter",
+    chipped: [true, false].sample,
+    health_issues: [true, false].sample,
+    restricted_breed: [true, false].sample,
+    beginner_friendly: [true, false].sample,
+    male_compatible: %w[yes no unknown].sample,
+    female_compatible: %w[yes no unknown].sample,
+    cat_compatible: %w[yes no unknown].sample,
+    kids_compatible: %w[yes no unknown].sample,
+    ideal_environment: ["Apartment-friendly", "House with garden", "Countryside"].sample,
+    info: dog[:info]
+  )
+end
+
 puts "seeding shelters and dogs done"
+
 puts "creating 3 searchers with preferences"
 
 searcher1 = User.create!(
@@ -261,7 +371,6 @@ Preference.create!(
   gender: "female",
   breed_grade: ["Mix"],
   breed_category: ["Small & fluffy"],
-  ideal_environment: ["Apartment-friendly"]
 )
 
 searcher2 = User.create!(
@@ -273,9 +382,6 @@ searcher2 = User.create!(
 
 Preference.create!(
   user: searcher2,
-  age_max: 1,
-  neutered: true,
-  location: ["Shelter"],
   kids_compatible: "true",
   ideal_environment: ["House with garden"]
 )
@@ -290,7 +396,6 @@ searcher3 = User.create!(
 Preference.create!(
   user: searcher3,
   breed_grade: ["Pure breed"],
-  breed_category: ["Shepherd-type"],
   female_compatible: "true",
   ideal_environment: ["Countryside"]
 )
