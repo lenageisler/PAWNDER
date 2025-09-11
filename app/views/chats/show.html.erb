@@ -4,7 +4,7 @@
   <div class="d-flex align-items-center pb-1">
     <% if @chat.dog.photos.attached? %>
           <%= cl_image_tag @chat.dog.photos.first.key,
-          crop: :fill, gravity: :auto,
+          crop: :thumb, gravity: :auto,
           class: "chat-avatar",
           alt: "#{@chat.dog.name} picture" %>
     <% else %>
