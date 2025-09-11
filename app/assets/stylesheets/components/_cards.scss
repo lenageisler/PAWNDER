@@ -25,10 +25,10 @@
   display: block;
 
   @media (max-width: 500px) {
-      height: 500px;
+      height: 450px;
   }
   @media (min-width: 500px) {
-      padding: 6000px;
+      height: 600px;
   }
 }
 
