@@ -31,12 +31,7 @@
           <%= link_to '<i class="fa-solid fa-paper-plane"></i>'.html_safe, chats_path, class: 'btn-main' %>
           <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_dog_path, class: 'btn-main' %>
           <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, dog_path(dog),
-            data: {controller: "confirmalert",
-                action: "click->confirmalert#confirm",
-                "confirmalert-message-value": "Are you sure you want to delete #{dog.name}?",
-                "confirmalert-url-value": dog_path(dog),
-                "confirmalert-method-value": :delete
-                }, class: 'btn-main' %>
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{dog.name}?"}, class: 'btn-main' %>
         </div>
       <% end %>
     </div>
@@ -389,12 +384,7 @@
               <% if searcher? %>
                 <% if (favorite = @dog.favorites.find_by(user: current_user)) %>
                   <%= link_to '<i class="fa-solid fa-heart brand-red"></i>'.html_safe, dog_favorite_path(@dog, favorite),
-                    data: {controller: "confirmalert",
-                      action: "click->confirmalert#confirm",
-                      "confirmalert-message-value": "Are you sure you want to delete #{@dog.name} from your favorites?",
-                      "confirmalert-url-value": dog_favorite_path(@dog, favorite),
-                      "confirmalert-method-value": :delete
-                      }, id: "heart-button-bordered" %>
+                    data: {turbo_method: :delete, turbo_confirm: "Remove #{@dog.name} from favorites?"}, id: "heart-button-bordered" %>
                 <% else %>
                   <%= link_to '<i class="fa-regular fa-heart brand-red"></i>'.html_safe,
                     dog_favorites_path(@dog), data: { turbo_method: :post }, id: "heart-button-bordered" %>
