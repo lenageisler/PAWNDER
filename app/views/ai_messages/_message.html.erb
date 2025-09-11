@@ -8,7 +8,7 @@
   </div>
 <% elsif message.role == "assistant" %>
   <div class="dflex justify-content-start mb-5" id="<%= dom_id(message)%>">
-    <div class="px-3 pb-0 pt-3">
+    <div class="px-1 pb-0 pt-3">
       <%= raw(render_markdown(message.content)) %>
     </div>
   </div>
