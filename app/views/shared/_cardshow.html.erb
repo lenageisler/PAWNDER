@@ -6,7 +6,7 @@
       <div class="dog-image-wrapper mt-3">
         <% if dog.photos.attached? %>
           <%= cl_image_tag dog.photos.first.key,
-            crop: :fill, gravity: :auto,
+            crop: :fill, gravity: "auto:subject",
             class: "dog-show-img",
             id: "main-dog-image" %>
         <% else %>
@@ -17,11 +17,11 @@
         <div class="dog-thumbnails mt-2" data-controller="dog-gallery">
           <% @dog.photos.each_with_index do |photo, index| %>
             <%= cl_image_tag photo.key,
-              crop: :fill, gravity: :auto,
+              crop: :fill, gravity: "auto:subject",
               class: "dog-thumb-img",
               data: { action: "click->dog-gallery#switch",
                       target: "dog-gallery.thumbnail",
-                      full: cl_image_path(photo.key, crop: :fill, gravity: :auto) } %>
+                      full: cl_image_path(photo.key, crop: :fill, gravity: "auto:subject") } %>
           <% end %>
         </div>
       <% end %>
@@ -44,7 +44,7 @@
     <!-- Right column (shelter) OR #2 + 3 card (searcher) -->
     <div class="col-md-6">
 
-      <%# SHELTER >> right column: dog details %>      
+      <%# SHELTER >> right column: dog details %>
       <% if shelter? %>
         <div class="card no-hover p-1 mt-3">
           <div class="card-body">
@@ -71,7 +71,7 @@
             <hr>
 
             <h5>Breed + Body</h5>
-            
+
             <% if @dog.breed_grade == "Pure breed" %>
               <p><strong><%= @dog.breed_grade %> <%= @dog.main_breed %></strong></p>
               <p><%= @dog.breed_category %></p>
@@ -208,17 +208,17 @@
             <hr>
 
             <h5>Shelter / Foster info</h5>
-            
+
             <% if @dog.location == "Shelter" || "Overseas" %>
-              <p><strong>In shelter since:</strong> <%= @dog.in_shelter_since&.strftime("%B %d, %Y") || "Unknown" %></p>            
+              <p><strong>In shelter since:</strong> <%= @dog.in_shelter_since&.strftime("%B %d, %Y") || "Unknown" %></p>
             <% end %>
-        
+
             <p><strong>Current location:</strong> <%= @dog.location %></p>
           </div>
-        </div>          
+        </div>
       <% end %>
-      
-      <%# Searcher >> #2 Card: dog details %>   
+
+      <%# Searcher >> #2 Card: dog details %>
       <% if searcher? %>
         <div class="card no-hover p-1 mt-3">
           <div class="card-body">
@@ -245,7 +245,7 @@
             <hr>
 
             <h5>Breed + Body</h5>
-            
+
             <% if @dog.breed_grade == "Pure breed" %>
               <p><strong><%= @dog.breed_grade %> <%= @dog.main_breed %></strong></p>
               <p><%= @dog.breed_category %></p>
@@ -376,11 +376,11 @@
             <hr>
 
             <h5>Shelter / Foster info</h5>
-            
+
             <% if @dog.location == "Shelter" || @dog.location == "Overseas" %>
               <p><strong>In shelter since:</strong> <%= @dog.in_shelter_since&.strftime("%B %d, %Y") || "Unknown" %></p>
             <% end %>
-        
+
             <p><strong>Current location:</strong> <%= @dog.location %></p>
 
       <%# Searcher >> #2 Card: favorite heart dog-index-heart%>
@@ -406,7 +406,7 @@
         </div>
 
 
-        <%# Searcher >> #3 Card: shelter info %>   
+        <%# Searcher >> #3 Card: shelter info %>
         <div class="shelter-profile card mt-3 p-1 no-hover">
           <div class="card-body">
             <h4 class="card-title">Shelter Information</h4>
@@ -424,5 +424,3 @@
 
   </div>
 </div>
-
-
