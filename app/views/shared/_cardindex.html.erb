@@ -1,7 +1,7 @@
   <div class="col">
     <%= link_to dog_path(dog) do %>
     <div class="card h-100 dog-index-card">
-      <% if searcher? %>        
+      <% if searcher? %>
         <div class="dog-index-heart">
           <% if (favorite = dog.favorites.find_by(user: current_user)) %>
             <i class="fa-solid fa-heart"></i>
@@ -11,7 +11,7 @@
         </div>
       <% end %>
       <% if dog.photos.attached? %>
-        <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: :auto, class: "dog-index-img" %>
+        <%= cl_image_tag dog.photos.first.key, crop: :fill, gravity: "auto:subject", class: "dog-index-img" %>
       <% else %>
         <div class="dog-index-img background"></div>
       <% end %>

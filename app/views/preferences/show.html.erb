@@ -153,5 +153,10 @@
 <div class="pref-show-btns">
     <%= link_to '<i class="fa-solid fa-pencil"></i>'.html_safe, edit_preference_path, class: 'btn-main' %>
     <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, preference_path(@preference),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your preferences?"}, class: 'btn-main' %>
+        data: {controller: "confirmalert",
+                action: "click->confirmalert#confirm",
+                "confirmalert-message-value": "Are you sure you want to delete your preferences?",
+                "confirmalert-url-value": preference_path(@preference),
+                "confirmalert-method-value": :delete
+                }, class: 'btn-main' %>
 </div>
