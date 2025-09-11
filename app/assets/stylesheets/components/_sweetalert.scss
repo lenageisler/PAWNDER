@@ -1,0 +1,53 @@
+/* Popup */
+.swal2-popup {
+    border-radius: 16px;
+    border: 4px solid black;
+    background-color: #9DC5F5 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Titel */
+.swal2-title {
+    font-family: Arial, Helvetica, sans-serif !important;
+    color: black !important;
+    font-size: 20px !important;
+    font-weight: 300;
+}
+
+/* Text */
+.swal2-content {
+    font-family: Arial, Helvetica, sans-serif !important;
+    color: black !important;
+    font-size: 20px !important;
+    font-weight: 300;
+}
+
+/* Buttons */
+/* Buttons */
+.swal2-confirm.swal2-styled {
+    background-color: #0f0f0f !important;
+    border: 2px solid #0f0f0f !important;
+    color: white !important;
+    padding: 8px 24px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+}
+
+.swal2-confirm.swal2-styled:hover {
+    background-color: #18CA30 !important;
+    color: black !important;
+}
+
+.swal2-cancel.swal2-styled {
+    background-color: #0f0f0f !important;
+    border: 2px solid #0f0f0f !important;
+    color: white !important;
+    padding: 8px 24px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+}
+
+.swal2-cancel.swal2-styled:hover {
+    background-color: #FFCADC !important;
+    color: #000000 !important;
+}
