@@ -1,4 +1,11 @@
-<%= simple_form_for [chat, message], html: {class: "ai-chat-input-div"} do |f| %>
-  <%= f.input :content, placeholder: "Ask a question", required: true, label: false, class: 'ai-chat-input' %>
+<!-- Partial AI Chat input form for new message  -->
+<%= simple_form_for [chat, message], html: {class: "ai-chat-input-div d-flex"} do |f| %>
+  <%= f.input :content,
+    label: false,
+    wrapper: false, # disables default wrapper class "form-group" on simple_form
+    placeholder: "Ask a question",
+    required: true,
+    class: 'ai-chat-input' # Simple form wrapper class must be disable for this to work
+  %>
   <%= f.button :submit, 'Ask', class: 'btn-main aichat-btn' %>
 <% end %>

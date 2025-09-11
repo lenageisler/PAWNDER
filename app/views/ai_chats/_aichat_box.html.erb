@@ -1,15 +1,18 @@
+<!-- Partial for display aichat box in ai_chat show & preferences new/edit views -->
 <%= turbo_stream_from ai_chat %> <%# Subscribe the client chat to a channel %>
-
 <div class="chat-window-popup">
+  <!-- ai chat title -->
   <div class="chat-window-topic">
     <h3>Ask our Dog-Bot for help<br>defining your preferences</h3>
     <i class="fa-solid fa-xmark d-none" data-action="click->aichat#close" data-aichat-target="xBtn"></i>
   </div>
 
+  <!-- ai_chat messages -->
   <div id="ai_messages" class="aichat-messages">
     <%= render "ai_messages/messages", messages: ai_chat.ai_messages %>
   </div>
 
+  <!-- ai_chat new message input form -->
   <div id="new_ai_message" class="mt-3">
     <%= render "ai_messages/form", chat: ai_chat, message: ai_message %>
   <div>

@@ -160,13 +160,15 @@
   align-items: center;
   width: 100%;
   padding: 8px 8px 8px 8px;
-  .ai-chat-input , .form-control {
+  border-top: 1px solid #e9ecef;
+
+  .ai-chat-input, .form-control {
     border: 2px solid black;
     border-radius: 8px;
     padding: 4px;
     width: 220px;
     margin: 0;
-
+    flex-grow: 1;
     &:focus {
       box-shadow: 0 0 8px rgba($brand-blue, 0.8);
     }

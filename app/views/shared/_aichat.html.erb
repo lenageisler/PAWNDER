@@ -1,9 +1,10 @@
+<!-- Partial for displaying the aichat box in preferences new and edit views -->
 <div class="aichat-popup" data-controller="aichat">
   <div data-aichat-target="floatingQ" data-action="click->aichat#open" class="aichat-fonta-icon">
     <i class="fa-solid fa-circle-question fa-2xl"></i>
   </div>
 
-  <!-- Shows the chat box partial -->
+  <!-- displays the aichat box partial -->
   <div data-aichat-target="window"
       class="chat-window d-none">
     <%= render "ai_chats/aichat_box", ai_chat: ai_chat, ai_message: ai_message %>
