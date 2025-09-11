@@ -1,5 +1,5 @@
 <% if notice %>
-  <div data-controller="flash" data-flash-delay-value="5000" class="alert alert-blue show" role="alert">
+  <div data-controller="flash" data-flash-delay-value="3000" class="alert alert-blue show" role="alert">
     <%= notice %>
     <button type="button" class="alert-btn" data-action="flash#dismiss" aria-label="Close">
       <i class="fa-solid fa-xmark"></i>
@@ -7,7 +7,7 @@
   </div>
 <% end %>
 <% if alert %>
-  <div data-controller="flash" data-flash-delay-value="5000" class="alert alert-red show" role="alert">
+  <div data-controller="flash" data-flash-delay-value="3000" class="alert alert-red show" role="alert">
     <%= alert %>
     <button type="button" class="alert-btn" data-action="flash#dismiss" aria-label="Close">
       <i class="fa-solid fa-xmark"></i>
