@@ -1,6 +1,7 @@
 
 <%= link_to '<i class="fa-solid fa-arrow-left"></i> back to your chats'.html_safe, chats_path %>
 <div class="chat-div">
+  <%# Chat header %>
   <div class="d-flex align-items-center pb-1">
     <% if @chat.dog.photos.attached? %>
           <%= cl_image_tag @chat.dog.photos.first.key,
@@ -16,6 +17,7 @@
     </div>
   </div>
 
+  <%# Chat messages %>
   <%= turbo_stream_from "chat_#{@chat.id}_messages" %> <%# Subscribe the chat_id_messages client to a Turbo Stream channel %>
   <div id="messages" class="messages">
     <% @chat.messages.each do |message| %>
@@ -23,6 +25,7 @@
     <% end %>
   </div>
 
+  <%# Chat input form%>
   <%= simple_form_for [@chat, @message],
     html: {class: "d-flex",
             data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
