@@ -18,10 +18,26 @@ export default class extends Controller {
       cancelButtonText: "Cancel"
     }).then((result) => {
       if (result.isConfirmed) {
-        Turbo.request(this.urlValue, {
-          method: this.methodValue || "delete"
+        const token = document.querySelector('meta[name="csrf-token"]').content
+
+        fetch(this.urlValue, {
+          method: this.methodValue || "DELETE",
+          headers: {
+            "X-CSRF-Token": token,
+            "Accept": "text/vnd.turbo-stream.html"
+          }
+        }).then(() => {
+          // optional: redirect or remove element from DOM
+          Turbo.visit(window.location.href) // reload page
         })
       }
     })
   }
 }
+//         Turbo.request(this.urlValue, {
+//           method: this.methodValue || "delete"
+//         })
+//       }
+//     })
+//   }
+// }
