@@ -70,6 +70,7 @@
   .aichat-messages {
     overflow-y: scroll;
     padding: .5rem;
+    height: 100%;
   }
 
   .messages {
@@ -138,7 +139,7 @@
 .chat-window-topic {
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  padding: 8px 16px;
   border-bottom: 1px solid #e9ecef;
   h3 {
     font-size: 20px;
@@ -158,14 +159,16 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 8px 8px 8px;
-  .ai-chat-input , .form-control {
+  padding: 8px 8px 8px 8px;
+  border-top: 1px solid #e9ecef;
+
+  .ai-chat-input, .form-control {
     border: 2px solid black;
     border-radius: 8px;
     padding: 4px;
     width: 220px;
     margin: 0;
-
+    flex-grow: 1;
     &:focus {
       box-shadow: 0 0 8px rgba($brand-blue, 0.8);
     }

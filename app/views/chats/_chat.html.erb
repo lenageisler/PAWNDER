@@ -1,7 +1,8 @@
-
+<!-- Partial for display chat previews in chat index -->
   <%= link_to chat_path(chat), class: "text-decoration-none text-dark" do%>
     <div class="chat-index-div">
       <div class="d-flex align-items-center">
+        <!-- Chat avatar -->
         <% if chat.dog.photos.attached? %>
               <%= cl_image_tag chat.dog.photos.first.key,
               crop: :thumb, gravity: :auto,
@@ -10,9 +11,12 @@
         <% else %>
           <%= image_tag "avatar_placeholder.jpg", class: "chat-avatar", alt: "Avatar" %>
         <% end %>
+        <!-- Text elements -->
         <div class="chat-index-div-text">
+          <!-- Chat title-->
           <% other_user = searcher? ?  chat.shelter.name : chat.searcher.username  %>
           <h6 class="mb-0 fw-bold"><%= "About #{chat.dog.name} with #{other_user}" %></h6>
+          <!-- Last message preview -->
           <% if chat.messages.any? %>
           <small class="text-muted"><i><%= "#{chat.messages.last.content.truncate(20)}" %></i></small>
           <% end %>
